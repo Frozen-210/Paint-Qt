@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include<QColorDialog>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -16,6 +17,10 @@ MainWindow::MainWindow(QWidget *parent) :
     timer = new QTimer();       // Инициализируем таймер
     connect(timer, &QTimer::timeout, this, &MainWindow::slotTimer);
     timer->start(100);          // Запускаем таймер
+    undoView = new QUndoView(scene->undoStack);
+    undoView->setWindowTitle(tr("Command List"));
+    undoView->show();
+    undoView->setAttribute(Qt::WA_QuitOnClose, false);
 }
 
 MainWindow::~MainWindow()
@@ -55,3 +60,33 @@ void MainWindow::on_pushButton_3_clicked()
 {
     scene->setTypeFigure(PaintScene::TriangleType);
 }
+
+void MainWindow::on_actionUndo_triggered()
+{
+    scene->undoStack->undo();
+}
+
+
+void MainWindow::on_actionRedo_triggered()
+{
+    scene->undoStack->redo();
+}
+
+
+void MainWindow::on_actionColor_triggered()
+{
+    QColor newColor = QColorDialog::getColor();
+    if (newColor.isValid()){
+        scene->setColor(newColor);
+    }
+
+
+}
+
+
+
+void MainWindow::on_horizontalSlider_sliderMoved(int position)
+{
+    scene->setWeight(position);
+}
+

@@ -13,6 +13,7 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
+    commands.cpp \
         mainwindow.cpp \
     romb.cpp \
     paintscene.cpp \
@@ -21,6 +22,7 @@ SOURCES += main.cpp\
     square.cpp
 
 HEADERS  += mainwindow.h \
+    commands.h \
     romb.h \
     paintscene.h \
     figure.h \

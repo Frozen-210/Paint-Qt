@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include <QTimer>
 #include <QResizeEvent>
-
+#include <QUndoView>
 #include "paintscene.h"
 
 namespace Ui {
@@ -30,6 +30,7 @@ private:
      * для пересчёта размеров графической сцены
      * */
     void resizeEvent(QResizeEvent * event);
+    QUndoView *undoView;
 
 private slots:
     // Таймер для изменения размеров сцены при изменении размеров Окна приложения
@@ -37,6 +38,11 @@ private slots:
     void on_pushButton_clicked();       // Включаем отрисовку Ромба
     void on_pushButton_2_clicked();     // Включаем отрисовку Квадрата
     void on_pushButton_3_clicked();     // Включаем отрисовку Треугольника
+
+    void on_actionUndo_triggered();
+    void on_actionRedo_triggered();
+    void on_actionColor_triggered();
+    void on_horizontalSlider_sliderMoved(int position);
 };
 
 #endif // MAINWINDOW_H
