@@ -43,6 +43,7 @@ private slots:
     void on_actionRedo_triggered();
     void on_actionColor_triggered();
     void on_horizontalSlider_sliderMoved(int position);
+    void on_pushButton_4_clicked();
 };
 
 #endif // MAINWINDOW_H

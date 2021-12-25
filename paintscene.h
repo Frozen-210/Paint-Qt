@@ -30,7 +30,8 @@ public:
     enum FigureTypes {
         SquareType,
         RombType,
-        TriangleType
+        TriangleType,
+        LineType
     };
     void setColor(QColor color);
     void setWeight(int Value);

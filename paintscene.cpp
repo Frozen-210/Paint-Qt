@@ -2,6 +2,7 @@
 #include "romb.h"
 #include "triangle.h"
 #include "square.h"
+#include"line.h"
 #include "commands.h"
 
 PaintScene::PaintScene(QObject *parent) : QGraphicsScene(parent)
@@ -80,6 +81,15 @@ void PaintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
     case RombType: {
       startPoint = event->scenePos();
       Romb *item = new Romb(startPoint,paintingColor,LineWeight);
+      EndPoint = event->pos();
+      item->setPos(event->pos());
+      tempFigure = item;
+      break;
+
+    }
+    case LineType: {
+      startPoint = event->scenePos();
+      Line *item = new Line(startPoint,paintingColor,LineWeight);
       EndPoint = event->pos();
       item->setPos(event->pos());
       tempFigure = item;
