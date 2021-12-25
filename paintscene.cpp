@@ -74,26 +74,26 @@ void PaintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
         Square *item = new Square(startPoint,paintingColor,LineWeight);
         EndPoint = event->pos();
         item->setPos(EndPoint);
-       tempFigure = item;
+        tempFigure = item;
         break;
     }
     case RombType: {
-
-
       startPoint = event->scenePos();
       Romb *item = new Romb(startPoint,paintingColor,LineWeight);
       EndPoint = event->pos();
       item->setPos(event->pos());
       tempFigure = item;
-        break;
+      break;
     }
     case TriangleType: {
-        Triangle *item = new Triangle(event->scenePos());
+        Figure *item = new Triangle(event->scenePos(),paintingColor,LineWeight);
         item->setPos(event->pos());
+        tempFigure = item;
+
         break;
     }
     default:{
-        Romb *item = new Romb(event->scenePos(),paintingColor,LineWeight);
+        Square *item = new Square(event->scenePos(),paintingColor,LineWeight);
         item->setPos(event->pos());
         tempFigure = item;
         break;

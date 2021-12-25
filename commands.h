@@ -1,7 +1,8 @@
 #ifndef COMMANDS_H
 #define COMMANDS_H
-#include"romb.h"
+
 #include <QUndoCommand>
+#include "figure.h"
 
 #include "square.h"
 
@@ -17,7 +18,6 @@ public:
     void redo() Q_DECL_OVERRIDE;
 
 private:
-  //  Square *myDiagramItem;
     Figure *myDiagramItem;
     QGraphicsScene *myGraphicsScene;
     QPointF initialPosition;

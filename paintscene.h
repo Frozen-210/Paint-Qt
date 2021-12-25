@@ -6,7 +6,7 @@
 #include "figure.h"
 #include<QUndoStack>
 #include"square.h"
-#include"romb.h"
+
 class PaintScene : public QGraphicsScene
 {
     Q_OBJECT
@@ -39,9 +39,11 @@ signals:
     void typeFigureChanged();               // Сигнал об изменении типа текущей фигуры
 
 private:
-
+    /* Объект для временного хранения рисуемой фигуры
+     * Является объектом базового класса для всех трёх типов фигур в примере
+     * */
     Figure *tempFigure;
-    int m_typeFigure;
+
 
 private:
     // Для рисования используем события мыши
@@ -50,6 +52,7 @@ private:
     void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
     QColor paintingColor;
     int LineWeight;
+    int m_typeFigure;
 
 
 };

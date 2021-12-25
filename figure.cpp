@@ -20,7 +20,9 @@ Figure::~Figure()
 
 QRectF Figure::boundingRect() const
 {
-
+    /* Возвращаем область, в которой лежит фигура.
+     * Обновляемая область зависит от стартовой точки отрисовки и от конечной точки
+     * */
     return QRectF((endPoint().x() > startPoint().x() ? startPoint().x() : endPoint().x()) - 5,
                   (endPoint().y() > startPoint().y() ? startPoint().y() : endPoint().y()) - 5,
                   qAbs(endPoint().x() - startPoint().x()) + 10,
