@@ -2,7 +2,7 @@
 #include<QGraphicsScene>
 
 
-AddCommand::AddCommand(QGraphicsScene *scene,Square* item, QPointF LastPoint,QUndoCommand *parent)
+AddCommand::AddCommand(QGraphicsScene *scene,Figure* item, QPointF LastPoint,QUndoCommand *parent)
     : QUndoCommand(parent)
 {
     static int itemCount = 0;

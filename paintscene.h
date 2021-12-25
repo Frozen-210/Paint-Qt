@@ -52,6 +52,7 @@ private:
     void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
     QColor paintingColor;
     int LineWeight;
+    int m_typeFigure;
 
 
 };
