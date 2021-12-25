@@ -3,6 +3,7 @@
 
 #include <QUndoCommand>
 #include "figure.h"
+
 #include "square.h"
 
 class AddCommand : public QUndoCommand
@@ -10,6 +11,7 @@ class AddCommand : public QUndoCommand
 public:
     AddCommand(QGraphicsScene *graphicsScene,
                Figure* item,QPointF LastPoint,QUndoCommand *parent = 0);
+
     ~AddCommand();
 
     void undo() Q_DECL_OVERRIDE;

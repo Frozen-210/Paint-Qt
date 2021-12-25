@@ -86,6 +86,7 @@ void PaintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
         Figure *item = new Triangle(event->scenePos(),paintingColor,LineWeight);
         item->setPos(event->pos());
         tempFigure = item;
+
         break;
     }
     default:{

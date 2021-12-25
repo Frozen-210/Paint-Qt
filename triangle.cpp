@@ -7,6 +7,7 @@ Triangle::Triangle(QPointF point,QColor color,int LineWeight, QObject *parent) :
     Q_UNUSED(point)
     shapeColor=color;
     this->LineWeight=LineWeight;
+
 }
 
 Triangle::~Triangle()
@@ -19,6 +20,7 @@ void Triangle::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, 
 {
     painter->setPen(QPen(shapeColor, LineWeight));
     QPolygonF polygon;
+
 
 
     polygon << QPointF(startPoint().x() + (endPoint().x() > startPoint().x() ? + 1 : - 1)*
