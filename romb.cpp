@@ -30,6 +30,7 @@ void Romb::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
    // painter->drawRect(rect);
     painter->drawEllipse(rect);
 
+
     Q_UNUSED(option)
     Q_UNUSED(widget)
 }

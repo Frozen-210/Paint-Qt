@@ -1,6 +1,7 @@
 #ifndef ROMB_H
 #define ROMB_H
 #include "square.h"
+
 #include <QObject>
 #include <QGraphicsItem>
 #include "figure.h"
@@ -21,6 +22,7 @@ private:
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
     QColor shapeColor;
     int LineWeight;
+
 };
 
 #endif // ROMB_H
