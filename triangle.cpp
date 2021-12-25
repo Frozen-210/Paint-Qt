@@ -1,10 +1,13 @@
 #include "triangle.h"
 #include <QPainter>
 
-Triangle::Triangle(QPointF point, QObject *parent) :
+Triangle::Triangle(QPointF point,QColor color,int LineWeight, QObject *parent) :
     Figure(point,parent)
 {
     Q_UNUSED(point)
+    shapeColor=color;
+    this->LineWeight=LineWeight;
+
 }
 
 Triangle::~Triangle()
@@ -15,9 +18,10 @@ Triangle::~Triangle()
 // Реализуем метод отрисовки
 void Triangle::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-    painter->setPen(QPen(Qt::black, 2));
-
+    painter->setPen(QPen(shapeColor, LineWeight));
     QPolygonF polygon;
+
+
 
     polygon << QPointF(startPoint().x() + (endPoint().x() > startPoint().x() ? + 1 : - 1)*
                            abs((endPoint().x() - startPoint().x())/2), startPoint().y())

@@ -2,6 +2,7 @@
 #define COMMANDS_H
 
 #include <QUndoCommand>
+#include "figure.h"
 
 #include "square.h"
 
@@ -9,14 +10,15 @@ class AddCommand : public QUndoCommand
 {
 public:
     AddCommand(QGraphicsScene *graphicsScene,
-               Square* item,QPointF LastPoint,QUndoCommand *parent = 0);
+               Figure* item,QPointF LastPoint,QUndoCommand *parent = 0);
+
     ~AddCommand();
 
     void undo() Q_DECL_OVERRIDE;
     void redo() Q_DECL_OVERRIDE;
 
 private:
-    Square *myDiagramItem;
+    Figure *myDiagramItem;
     QGraphicsScene *myGraphicsScene;
     QPointF initialPosition;
 };

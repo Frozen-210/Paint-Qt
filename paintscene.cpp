@@ -83,8 +83,10 @@ void PaintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
         break;
     }
     case TriangleType: {
-        Triangle *item = new Triangle(event->scenePos());
+        Figure *item = new Triangle(event->scenePos(),paintingColor,LineWeight);
         item->setPos(event->pos());
+        tempFigure = item;
+
         break;
     }
     default:{

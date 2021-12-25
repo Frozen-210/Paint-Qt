@@ -1,6 +1,7 @@
 #include "commands.h"
 #include<QGraphicsScene>
 
+
 AddCommand::AddCommand(QGraphicsScene *scene,Square* item, QPointF LastPoint,QUndoCommand *parent)
     : QUndoCommand(parent)
 {
