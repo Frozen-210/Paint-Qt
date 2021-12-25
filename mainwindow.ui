@@ -15,31 +15,38 @@
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="1">
-     <widget class="QPushButton" name="pushButton_2">
-      <property name="text">
-       <string>Rectangle</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="2">
+    <item row="0" column="3">
      <widget class="QPushButton" name="pushButton_3">
       <property name="text">
        <string>Triangle</string>
       </property>
      </widget>
     </item>
-    <item row="2" column="0" colspan="3">
+    <item row="0" column="2">
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="text">
+       <string>Rectangle</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QPushButton" name="pushButton_4">
+      <property name="text">
+       <string>Line</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0" colspan="4">
      <widget class="QGraphicsView" name="graphicsView"/>
     </item>
     <item row="0" column="0">
      <widget class="QPushButton" name="pushButton">
       <property name="text">
-       <string>Romp</string>
+       <string>Circle</string>
       </property>
      </widget>
     </item>
-    <item row="1" column="0" colspan="3">
+    <item row="1" column="0" colspan="4">
      <widget class="QSlider" name="horizontalSlider">
       <property name="maximum">
        <number>30</number>
@@ -57,7 +64,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuEdit">

@@ -43,6 +43,8 @@ private slots:
     void on_actionRedo_triggered();
     void on_actionColor_triggered();
     void on_horizontalSlider_sliderMoved(int position);
+    void on_pushButton_4_clicked();
+    void on_label_linkActivated(const QString &link);
 };
 
 #endif // MAINWINDOW_H

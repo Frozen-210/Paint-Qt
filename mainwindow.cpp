@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include<QColorDialog>
+#include "paintscene.h"
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -60,7 +62,10 @@ void MainWindow::on_pushButton_3_clicked()
 {
     scene->setTypeFigure(PaintScene::TriangleType);
 }
-
+void MainWindow::on_pushButton_4_clicked()
+{
+    scene->setTypeFigure(PaintScene::LineType);
+}
 void MainWindow::on_actionUndo_triggered()
 {
     scene->undoStack->undo();
@@ -88,5 +93,14 @@ void MainWindow::on_actionColor_triggered()
 void MainWindow::on_horizontalSlider_sliderMoved(int position)
 {
     scene->setWeight(position);
+}
+
+
+
+
+
+void MainWindow::on_label_linkActivated(const QString &link)
+{
+
 }
 

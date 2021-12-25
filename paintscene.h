@@ -6,6 +6,8 @@
 #include "figure.h"
 #include<QUndoStack>
 #include"square.h"
+static QVector<Figure*> v;
+
 
 class PaintScene : public QGraphicsScene
 {
@@ -30,7 +32,8 @@ public:
     enum FigureTypes {
         SquareType,
         RombType,
-        TriangleType
+        TriangleType,
+        LineType
     };
     void setColor(QColor color);
     void setWeight(int Value);
@@ -52,6 +55,7 @@ private:
     void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
     QColor paintingColor;
     int LineWeight;
+    int m_typeFigure;
 
 
 };

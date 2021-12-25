@@ -1,24 +1,29 @@
-#ifndef SQUARE_H
-#define SQUARE_H
-
+#ifndef LINE_H
+#define LINE_H
 #include <QObject>
 #include <QGraphicsItem>
 #include "figure.h"
 
-class Square : public Figure
+
+class Line : public Figure
 {
     Q_OBJECT
 
+
 public:
-    explicit Square(QPointF point,QColor color,int LineWeight, QObject *parent = 0);
-    ~Square();
+    explicit Line(QPointF point,QColor color,int LineWeight, QObject *parent = 0);
+    ~Line();
+
+
 
 private:
+
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
+
     QColor shapeColor;
     int LineWeight;
-    float sideLen;
-    int count=1;
+
 };
 
-#endif // SQUARE_H
+
+#endif // LINE_H
