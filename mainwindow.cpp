@@ -1,8 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include<QColorDialog>
-#include "paintscene.h"
-
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -97,10 +95,4 @@ void MainWindow::on_horizontalSlider_sliderMoved(int position)
 
 
 
-
-
-void MainWindow::on_label_linkActivated(const QString &link)
-{
-
-}
 

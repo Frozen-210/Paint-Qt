@@ -8,7 +8,6 @@
 #include"square.h"
 static QVector<Figure*> v;
 
-
 class PaintScene : public QGraphicsScene
 {
     Q_OBJECT

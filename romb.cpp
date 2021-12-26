@@ -30,9 +30,12 @@ void Romb::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
                 qAbs(endPoint().x() - startPoint().x()),
                 qAbs(endPoint().x() - startPoint().x()));
 
+   // painter->drawRect(rect);
+    painter->drawEllipse(rect);
     QLineF line(rect.bottomLeft().x(),rect.bottomLeft().y(),rect.bottomRight().x(),rect.bottomRight().y());
     this->perimeter=line.length()*M_PI;
     painter->drawEllipse(rect);
+
 
 
     Q_UNUSED(option)

@@ -4,25 +4,18 @@
 #include <QGraphicsItem>
 #include "figure.h"
 
-
 class Line : public Figure
 {
     Q_OBJECT
-
 
 public:
     explicit Line(QPointF point,QColor color,int LineWeight, QObject *parent = 0);
     ~Line();
 
-
-
 private:
-
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
-
     QColor shapeColor;
     int LineWeight;
-
 };
 
 

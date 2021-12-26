@@ -8,17 +8,16 @@
 #include "figure.h"
 #include <QDebug>
 
-
 PaintScene::PaintScene(QObject *parent) : QGraphicsScene(parent)
 {
 undoStack = new QUndoStack(this);
 paintingColor=Qt::black;
 LineWeight=1;
-
 }
 
 PaintScene::~PaintScene()
 {
+
 }
 
 int PaintScene::typeFigure() const
@@ -29,9 +28,9 @@ int PaintScene::typeFigure() const
 void PaintScene::setTypeFigure(const int type)
 {
     m_typeFigure = type;
-    for (int i=0;i<v.size();i++){
-        qDebug()<<v[i]->name<<"perimeter "<<v[i]->perimeter;
-    }
+        for (int i=0;i<v.size();i++){
+            qDebug()<<v[i]->name<<"perimeter "<<v[i]->perimeter;
+        }
 }
 
 void PaintScene::setColor(QColor color)
@@ -130,11 +129,13 @@ void PaintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
 
         break;
     }
+
     }
     this->addItem(tempFigure);
     for (int i=0;i<v.size();i++){
         qDebug()<<v[i]->name<<"perimeter "<<v[i]->perimeter;
     }
+
 }
 
 

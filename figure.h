@@ -21,7 +21,6 @@ class Figure : public QObject, public QGraphicsItem
     Q_PROPERTY(QPointF endPoint
                READ endPoint WRITE setEndPoint
                NOTIFY pointChanged)
-
 public:
     explicit Figure(QPointF point, QObject *parent = 0);
     ~Figure();
@@ -34,13 +33,13 @@ public:
     float perimeter;
     QString name;
 
-
 signals:
     void pointChanged();    // Сигнал об изменении точки
 
 private:
     QPointF m_startPoint;   // Стартовая точка
     QPointF m_endPoint;     // Конечная точка
+
     QRectF boundingRect() const;    // Область, в которой содержится фигура
 
 public slots:

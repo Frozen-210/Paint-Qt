@@ -1,6 +1,5 @@
 #include "line.h"
 #include <QPainter>
-#include <QDebug>
 
 Line::Line(QPointF point,QColor color,int LineWeight, QObject *parent) :
     Figure(point,parent)
@@ -24,17 +23,11 @@ void Line::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
 {
 
     painter->setPen(QPen(shapeColor, LineWeight));
+
     QLineF line(startPoint().x(),startPoint().y(),endPoint().x(),endPoint().y());
     painter->drawLine(line);
     this->perimeter=line.length();
 
-
-
-
     Q_UNUSED(option)
     Q_UNUSED(widget)
-
-
 }
-
-

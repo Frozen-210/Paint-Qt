@@ -18,7 +18,6 @@ private:
     QColor shapeColor;
     int LineWeight;
     float sideLen;
-    int count=1;
 };
 
 #endif // SQUARE_H

@@ -9,7 +9,6 @@ Square::Square(QPointF point,QColor color,int LineWeight, QObject *parent) :
     this->LineWeight=LineWeight;
     this->name=QString("Rectangle %1").arg(rCount);
     rCount++;
-
 }
 
 Square::~Square()
@@ -26,9 +25,10 @@ void Square::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QW
                 endPoint().y() > startPoint().y() ? startPoint().y() : endPoint().y(),
                 qAbs(endPoint().x() - startPoint().x()),
                 qAbs(endPoint().y() - startPoint().y()));
-      QLineF line(rect.bottomLeft().x(),rect.bottomLeft().y(),rect.bottomRight().x(),rect.bottomRight().y());
-      this->sideLen= line.length();
-      this-> perimeter=sideLen*4;
+    QLineF line(rect.bottomLeft().x(),rect.bottomLeft().y(),rect.bottomRight().x(),rect.bottomRight().y());
+    this->sideLen= line.length();
+    this-> perimeter=sideLen*4;
+
     painter->drawRect(rect);
 
     Q_UNUSED(option)
