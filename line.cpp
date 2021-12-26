@@ -7,6 +7,9 @@ Line::Line(QPointF point,QColor color,int LineWeight, QObject *parent) :
     Q_UNUSED(point)
     shapeColor=color;
     this->LineWeight=LineWeight;
+    this->name=QString("Line %1").arg(lCount);
+    lCount++;
+
 }
 
 
@@ -22,8 +25,9 @@ void Line::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
 
     painter->setPen(QPen(shapeColor, LineWeight));
 
-
-    painter->drawLine(startPoint().x(),startPoint().y(),endPoint().x(),endPoint().y());
+    QLineF line(startPoint().x(),startPoint().y(),endPoint().x(),endPoint().y());
+    painter->drawLine(line);
+    this->perimeter=line.length();
 
 
     Q_UNUSED(option)

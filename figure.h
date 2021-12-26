@@ -4,6 +4,11 @@
 #include <QObject>
 #include <QGraphicsItem>
 #include <QDebug>
+static int lCount=1;
+static int rCount=1;
+static int cCount=1;
+static int tCount=1;
+
 
 class Figure : public QObject, public QGraphicsItem
 {
@@ -25,6 +30,8 @@ public:
 
     void setStartPoint(const QPointF point);    // Установка стартовой точки
     void setEndPoint(const QPointF point);      // Установка конечной точки
+    float perimeter;
+    QString name;
 
 signals:
     void pointChanged();    // Сигнал об изменении точки

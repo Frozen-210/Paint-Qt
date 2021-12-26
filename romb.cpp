@@ -1,5 +1,6 @@
 #include "romb.h"
 #include <QPainter>
+#include <QtMath>
 
 Romb::Romb(QPointF point,QColor color,int LineWeight, QObject *parent) :
     Figure(point,parent)
@@ -7,6 +8,9 @@ Romb::Romb(QPointF point,QColor color,int LineWeight, QObject *parent) :
     Q_UNUSED(point)
     shapeColor=color;
     this->LineWeight=LineWeight;
+    this->name=QString("Circle %1").arg(cCount);
+    cCount++;
+
 }
 
 
@@ -29,6 +33,11 @@ void Romb::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
 
    // painter->drawRect(rect);
     painter->drawEllipse(rect);
+    QLineF line(rect.bottomLeft().x(),rect.bottomLeft().y(),rect.bottomRight().x(),rect.bottomRight().y());
+    this->perimeter=line.length()*M_PI;
+    painter->drawEllipse(rect);
+
+
 
 
     Q_UNUSED(option)
