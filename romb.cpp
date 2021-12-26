@@ -10,6 +10,7 @@ Romb::Romb(QPointF point,QColor color,int LineWeight, QObject *parent) :
     this->LineWeight=LineWeight;
     this->name=QString("Circle %1").arg(cCount);
     cCount++;
+
 }
 
 
@@ -35,6 +36,7 @@ void Romb::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
     QLineF line(rect.bottomLeft().x(),rect.bottomLeft().y(),rect.bottomRight().x(),rect.bottomRight().y());
     this->perimeter=line.length()*M_PI;
     painter->drawEllipse(rect);
+
 
 
 
