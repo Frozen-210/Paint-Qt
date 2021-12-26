@@ -26,16 +26,12 @@ void Romb::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
 
     painter->setPen(QPen(shapeColor, LineWeight));
 
-    QRectF rect(endPoint().x() > startPoint().x() ? startPoint().x() : endPoint().x(),
-                endPoint().y() > startPoint().y() ? startPoint().y() : endPoint().y(),
-                qAbs(endPoint().x() - startPoint().x()),
-                qAbs(endPoint().x() - startPoint().x()));
 
-   // painter->drawRect(rect);
-    painter->drawEllipse(rect);
-    QLineF line(rect.bottomLeft().x(),rect.bottomLeft().y(),rect.bottomRight().x(),rect.bottomRight().y());
-    this->perimeter=line.length()*M_PI;
-    painter->drawEllipse(rect);
+
+    qreal radius= qSqrt(qPow(startPoint().x()-endPoint().x(),2)+qPow(startPoint().y()-endPoint().y(),2));
+
+    painter->drawEllipse(startPoint(),radius,radius);
+    this->perimeter=2*radius*M_PI;
 
 
 
