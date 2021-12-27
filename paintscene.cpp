@@ -9,6 +9,7 @@
 #include <QDebug>
 
 
+
 PaintScene::PaintScene(QObject *parent) : QGraphicsScene(parent)
 {
 undoStack = new QUndoStack(this);
@@ -29,9 +30,9 @@ int PaintScene::typeFigure() const
 void PaintScene::setTypeFigure(const int type)
 {
     m_typeFigure = type;
-//    for (int i=0;i<v.size();i++){
-//        qDebug()<<v[i]->name<<"perimeter "<<v[i]->perimeter;
-//    }
+    for (int i=0;i<v.size();i++){
+        qDebug()<<v[i]->name<<"perimeter "<<v[i]->perimeter;
+    }
 }
 
 void PaintScene::setColor(QColor color)
@@ -132,9 +133,9 @@ void PaintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
     }
     }
     this->addItem(tempFigure);
-//    for (int i=0;i<v.size();i++){
-//        qDebug()<<v[i]->name<<"perimeter "<<v[i]->perimeter;
-//    }
+    for (int i=0;i<v.size();i++){
+        qDebug()<<v[i]->name<<"perimeter "<<v[i]->perimeter;
+    }
 }
 
 

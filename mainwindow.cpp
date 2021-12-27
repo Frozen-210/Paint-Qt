@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include<QColorDialog>
-
+#include "paintscene.h"
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -95,4 +95,10 @@ void MainWindow::on_horizontalSlider_sliderMoved(int position)
 
 
 
+//method for sort AScending (by perimeter) button.
+void MainWindow::on_sortA_Btn_clicked()
+{
+    qDebug()<<v.size();
+    qDebug()<<"sort button pressed";
+}
 
