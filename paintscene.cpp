@@ -15,6 +15,7 @@ PaintScene::PaintScene(QObject *parent) : QGraphicsScene(parent)
 undoStack = new QUndoStack(this);
 paintingColor=Qt::black;
 LineWeight=1;
+ItemsVec=new QVector<Figure*>();
 
 }
 
@@ -30,9 +31,7 @@ int PaintScene::typeFigure() const
 void PaintScene::setTypeFigure(const int type)
 {
     m_typeFigure = type;
-    for (int i=0;i<v.size();i++){
-        qDebug()<<v[i]->name<<"perimeter "<<v[i]->perimeter;
-    }
+
 }
 
 void PaintScene::setColor(QColor color)
@@ -84,8 +83,7 @@ void PaintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
         EndPoint = event->pos();
         item->setPos(EndPoint);
         tempFigure = item;
-        Figure* fig= item;
-        v.push_back(fig);
+
 
         break;
     }
@@ -95,8 +93,7 @@ void PaintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
       EndPoint = event->pos();
       item->setPos(event->pos());
       tempFigure = item;
-      Figure* fig= item;
-      v.push_back(fig);
+
 
       break;
 
@@ -107,8 +104,6 @@ void PaintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
       EndPoint = event->pos();
       item->setPos(event->pos());
       tempFigure = item;
-      Figure* fig= item;
-      v.push_back(fig);
 
       break;
 
@@ -117,8 +112,6 @@ void PaintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
         Figure *item = new Triangle(event->scenePos(),paintingColor,LineWeight);
         item->setPos(event->pos());
         tempFigure = item;
-        Figure* fig= item;
-        v.push_back(fig);
 
         break;
     }
@@ -126,16 +119,12 @@ void PaintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
         Square *item = new Square(event->scenePos(),paintingColor,LineWeight);
         item->setPos(event->pos());
         tempFigure = item;
-        Figure* fig= item;
-        v.push_back(fig);
 
         break;
     }
     }
     this->addItem(tempFigure);
-    for (int i=0;i<v.size();i++){
-        qDebug()<<v[i]->name<<"perimeter "<<v[i]->perimeter;
+
     }
-}
 
 

@@ -4,7 +4,7 @@
 //PaintScene p;
 
 
-AddCommand::AddCommand(QGraphicsScene *scene,Figure* item, QPointF LastPoint,QUndoCommand *parent)
+AddCommand::AddCommand(PaintScene *scene,Figure* item, QPointF LastPoint,QUndoCommand *parent)
     : QUndoCommand(parent)
 {
     static int itemCount = 0;
@@ -29,7 +29,7 @@ void AddCommand::undo()
 
     myGraphicsScene->removeItem(myDiagramItem);
     // remove figure from the vector
-    v.pop_back();
+    myGraphicsScene->ItemsVec->pop_back();
     myGraphicsScene->update();
 //    for (int i=0;i<v.size();i++){
 //        qDebug()<<v[i]->name<<"perimeter "<<v[i]->perimeter;
@@ -38,11 +38,12 @@ void AddCommand::undo()
 }
 
 void AddCommand::redo()
-{   v.push_back(myDiagramItem);
+{   myGraphicsScene->ItemsVec->push_back(myDiagramItem);
     myGraphicsScene->addItem(myDiagramItem);
     myDiagramItem->setPos(initialPosition);
     myGraphicsScene->clearSelection();
     myGraphicsScene->update();
+
 
 }
 QString createCommandString( const QPointF &pos)

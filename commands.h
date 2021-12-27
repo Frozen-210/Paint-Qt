@@ -3,13 +3,13 @@
 
 #include <QUndoCommand>
 #include "figure.h"
-
+#include "paintscene.h"
 #include "square.h"
 
 class AddCommand : public QUndoCommand
 {
 public:
-    AddCommand(QGraphicsScene *graphicsScene,
+    AddCommand(PaintScene *graphicsScene,
                Figure* item,QPointF LastPoint,QUndoCommand *parent = 0);
 
     ~AddCommand();
@@ -19,7 +19,7 @@ public:
 
 private:
     Figure *myDiagramItem;
-    QGraphicsScene *myGraphicsScene;
+    PaintScene *myGraphicsScene;
     QPointF initialPosition;
 };
  QString createCommandString( const QPointF &point);

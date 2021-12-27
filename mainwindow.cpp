@@ -98,7 +98,7 @@ void MainWindow::on_horizontalSlider_sliderMoved(int position)
 //method for sort AScending (by perimeter) button.
 void MainWindow::on_sortA_Btn_clicked()
 {
-    qDebug()<<v.size();
+    qDebug()<<scene->ItemsVec->size();
     qDebug()<<"sort button pressed";
 }
 

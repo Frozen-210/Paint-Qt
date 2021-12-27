@@ -6,7 +6,7 @@
 #include "figure.h"
 #include<QUndoStack>
 #include"square.h"
-static QVector<Figure*> v;
+
 
 class PaintScene : public QGraphicsScene
 {
@@ -19,7 +19,7 @@ class PaintScene : public QGraphicsScene
 public:
     QPointF startPoint;
     QPointF EndPoint;
-
+    QVector<Figure*> *ItemsVec;
     QUndoStack *undoStack;
     explicit PaintScene(QObject *parent = 0);
     ~PaintScene();
