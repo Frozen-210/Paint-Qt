@@ -172,3 +172,15 @@ void MainWindow::on_srch_Btn_clicked()
            }else     qDebug()<<"Item is not here";
 }
 
+
+void MainWindow::on_actionOpen_File_triggered()
+{
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"),
+                                                    "/c://",
+                                                    tr("JSON (*.json)"));
+
+    json_utilities *jsonSaveObject;
+    jsonSaveObject->open(scene, fileName);
+
+}
+

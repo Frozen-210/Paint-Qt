@@ -63,7 +63,6 @@
       </property>
      </widget>
     </item>
-
     <item row="1" column="1">
      <widget class="QPushButton" name="sortD_Btn">
       <property name="text">
@@ -81,7 +80,6 @@
     <item row="1" column="3">
      <widget class="QLineEdit" name="lineEdit_srchTxt"/>
     </item>
-
    </layout>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -90,8 +88,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-
-     <height>25</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuEdit">
@@ -115,11 +112,11 @@
     <addaction name="separator"/>
     <addaction name="actionSave_Json"/>
     <addaction name="actionSave_PNG"/>
+    <addaction name="actionOpen_File"/>
    </widget>
    <addaction name="menuEdit"/>
    <addaction name="menuLine_Weight"/>
    <addaction name="menuFile"/>
-
   </widget>
   <action name="actionUndo">
    <property name="text">
@@ -157,7 +154,11 @@
     <string>Save PNG</string>
    </property>
   </action>
-
+  <action name="actionOpen_File">
+   <property name="text">
+    <string>Open File</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>

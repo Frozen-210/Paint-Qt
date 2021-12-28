@@ -49,6 +49,7 @@ private slots:
     void on_sortD_Btn_clicked();
     void on_srch_Btn_clicked();
 
+    void on_actionOpen_File_triggered();
 };
 
 #endif // MAINWINDOW_H
