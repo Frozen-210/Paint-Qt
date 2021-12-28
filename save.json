@@ -1,0 +1,42 @@
+{
+    "Color": "(0, 0, 0)",
+    "EndPoint": "(538, 158)",
+    "FirstPoint": "(446, 43)",
+    "LineWeight": "1",
+    "Shape": "Line"
+}
+{
+    "Color": "(0, 0, 0)",
+    "EndPoint": "(355, 59)",
+    "FirstPoint": "(129, 38)",
+    "LineWeight": "1",
+    "Shape": "Circle"
+}
+{
+    "Color": "(0, 0, 0)",
+    "EndPoint": "(239, 140)",
+    "FirstPoint": "(190, 81)",
+    "LineWeight": "1",
+    "Shape": "Triangle"
+}
+{
+    "Color": "(0, 0, 0)",
+    "EndPoint": "(328, 142)",
+    "FirstPoint": "(301, 70)",
+    "LineWeight": "1",
+    "Shape": "Triangle"
+}
+{
+    "Color": "(0, 0, 0)",
+    "EndPoint": "(354, 149)",
+    "FirstPoint": "(262, 64)",
+    "LineWeight": "1",
+    "Shape": "Rectangle"
+}
+{
+    "Color": "(0, 0, 0)",
+    "EndPoint": "(251, 149)",
+    "FirstPoint": "(150, 63)",
+    "LineWeight": "1",
+    "Shape": "Rectangle"
+}
