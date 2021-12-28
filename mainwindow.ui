@@ -63,6 +63,7 @@
       </property>
      </widget>
     </item>
+
     <item row="1" column="1">
      <widget class="QPushButton" name="sortD_Btn">
       <property name="text">
@@ -89,6 +90,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
+
      <height>25</height>
     </rect>
    </property>
@@ -106,8 +108,18 @@
      <string>Line Weight</string>
     </property>
    </widget>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File </string>
+    </property>
+    <addaction name="separator"/>
+    <addaction name="actionSave_Json"/>
+    <addaction name="actionSave_PNG"/>
+   </widget>
    <addaction name="menuEdit"/>
    <addaction name="menuLine_Weight"/>
+   <addaction name="menuFile"/>
+
   </widget>
   <action name="actionUndo">
    <property name="text">
@@ -135,6 +147,17 @@
     <string>Line Weight</string>
    </property>
   </action>
+  <action name="actionSave_Json">
+   <property name="text">
+    <string>Save Json</string>
+   </property>
+  </action>
+  <action name="actionSave_PNG">
+   <property name="text">
+    <string>Save PNG</string>
+   </property>
+  </action>
+
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>

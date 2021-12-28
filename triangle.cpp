@@ -23,6 +23,7 @@ void Triangle::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, 
 {
     painter->setPen(QPen(shapeColor, LineWeight));
     QPolygonF polygon;
+    shapeName = "Triangle";
 
 
 

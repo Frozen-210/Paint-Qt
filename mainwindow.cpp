@@ -2,6 +2,8 @@
 #include "ui_mainwindow.h"
 #include<QColorDialog>
 #include "paintscene.h"
+#include "json_utilities.h"
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -94,6 +96,13 @@ void MainWindow::on_horizontalSlider_sliderMoved(int position)
 }
 
 
+
+//method for sort AScending (by perimeter) button.
+void MainWindow::on_actionSave_Json_triggered()
+{
+    json_utilities *x;
+    x->save(scene);
+}
 //method for comparison that the sort() method will use when comparing the objects in the vector v
 bool compareAs(const Figure* first, const Figure* second){
     return first->perimeter < second->perimeter;
@@ -154,6 +163,5 @@ void MainWindow::on_srch_Btn_clicked()
            if(found==true){
               qDebug()<<"Item is here";
            }else     qDebug()<<"Item is not here";
-
 }
 

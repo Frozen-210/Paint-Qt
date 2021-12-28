@@ -25,6 +25,8 @@ void Romb::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
 {
 
     painter->setPen(QPen(shapeColor, LineWeight));
+    shapeName = "Circle";
+
 
 
 

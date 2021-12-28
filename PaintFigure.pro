@@ -14,6 +14,8 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
     commands.cpp \
+    json_utilities.cpp \
+
     line.cpp \
         mainwindow.cpp \
     romb.cpp \
@@ -24,6 +26,8 @@ SOURCES += main.cpp\
 
 HEADERS  += mainwindow.h \
     commands.h \
+    json_utilities.h \
+
     line.h \
     romb.h \
     paintscene.h \

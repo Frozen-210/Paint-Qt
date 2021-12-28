@@ -25,22 +25,30 @@ public:
     explicit Figure(QPointF point, QObject *parent = 0);
     ~Figure();
 
-    QPointF startPoint() const; // Стартовая точка
-    QPointF endPoint() const;   // Конечная точка
+    QPointF startPoint() const;
+    QPointF endPoint() const;
 
-    void setStartPoint(const QPointF point);    // Установка стартовой точки
-    void setEndPoint(const QPointF point);      // Установка конечной точки
+    void setStartPoint(const QPointF point);
+    void setEndPoint(const QPointF point);
+
     float perimeter;
     QString name;
+    QColor shapeColor;
+    int LineWeight;
+    QString shapeName;
+
 
 signals:
-    void pointChanged();    // Сигнал об изменении точки
+    void pointChanged();
+
+
 
 private:
     QPointF m_startPoint;   // Стартовая точка
     QPointF m_endPoint;     // Конечная точка
 
-    QRectF boundingRect() const;    // Область, в которой содержится фигура
+    QRectF boundingRect() const;
+
 
 public slots:
     void updateRomb();     // Слот обновления области, в которой содержится фигура
