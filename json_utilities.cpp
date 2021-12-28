@@ -1,24 +1,26 @@
 #include "json_utilities.h"
 
 
-void json_utilities::save(PaintScene *scene)
+void json_utilities::save(PaintScene *scene, QString path)
 {
+    QVector<Figure*> *newVec = scene->ItemsVec;
 
-    QFile saveFile(QStringLiteral("C:\\Users\\zizo\\Downloads\\MyGitHub\\New folder\\CMP2241_F21_Team01\\save.json"));
+    QFile saveFile(path);
     if (!saveFile.open(QIODevice::ReadWrite)) {
             qWarning("Couldn't open save file.");
         }
 
-    while(!scene->ItemsVec->empty()){
+
+    for(int i=0; i<newVec->size();i++){
         QVariantMap settings;
 
-        QPointF point = scene->ItemsVec->back()->startPoint();
-        QPointF point2 = scene->ItemsVec->back()->endPoint();
-        QColor color = scene->ItemsVec->back()->shapeColor;
-        int LineW = scene->ItemsVec->back()->LineWeight;
-        QString shapeName = scene->ItemsVec->back()->shapeName;
+        QPointF point = newVec->at(i)->startPoint();
+        QPointF point2 = newVec->at(i)->endPoint();
+        QColor color = newVec->at(i)->shapeColor;
+        int LineW = newVec->at(i)->LineWeight;
+        QString shapeName = newVec->at(i)->shapeName;
 
-        scene->ItemsVec->pop_back();
+
 
         settings[QString("Shape")] = QString("%1").arg(shapeName);
         settings[QString("FirstPoint")] = QString("(%1, %2)").arg(point.rx()).arg(point.ry());

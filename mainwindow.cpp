@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include<QColorDialog>
+#include <QFileDialog>
 #include "paintscene.h"
 #include "json_utilities.h"
 
@@ -100,8 +101,14 @@ void MainWindow::on_horizontalSlider_sliderMoved(int position)
 //method for sort AScending (by perimeter) button.
 void MainWindow::on_actionSave_Json_triggered()
 {
-    json_utilities *x;
-    x->save(scene);
+
+    QString fileName = QFileDialog::getSaveFileName(this,
+            tr("Save As"), "",
+            tr("JSON (*.json);; All Files (*)"));
+
+    qDebug() << fileName;
+    json_utilities *jsonSaveObject;
+    jsonSaveObject->save(scene, fileName);
 }
 //method for comparison that the sort() method will use when comparing the objects in the vector v
 bool compareAs(const Figure* first, const Figure* second){

@@ -21,7 +21,7 @@ class json_utilities
 {
 public:
     json_utilities();
-    void save(PaintScene *scene);
+    void save(PaintScene *scene, QString path);
     void write(QJsonObject &json) const;
 
 private:
