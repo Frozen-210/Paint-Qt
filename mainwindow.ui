@@ -80,6 +80,7 @@
     <item row="1" column="3">
      <widget class="QLineEdit" name="lineEdit_srchTxt"/>
     </item>
+
    </layout>
   </widget>
   <widget class="QMenuBar" name="menuBar">
