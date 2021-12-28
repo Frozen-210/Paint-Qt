@@ -8,7 +8,6 @@
 #include <QFile>
 #include <QFileDialog>
 
-// ------
 #include <QCoreApplication>
 #include <QVariantMap>
 #include <QPoint>

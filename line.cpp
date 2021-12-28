@@ -19,7 +19,6 @@ Line::~Line()
 }
 
 
-// Реализуем метод отрисовки
 void Line::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
 

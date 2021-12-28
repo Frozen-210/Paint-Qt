@@ -20,7 +20,6 @@ Square::~Square()
 
 }
 
-// Реализуем метод отрисовки
 void Square::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     painter->setPen(QPen(shapeColor, LineWeight));

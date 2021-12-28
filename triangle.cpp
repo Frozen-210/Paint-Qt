@@ -18,7 +18,6 @@ Triangle::~Triangle()
 
 }
 
-// Реализуем метод отрисовки
 void Triangle::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     painter->setPen(QPen(shapeColor, LineWeight));

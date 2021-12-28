@@ -11,7 +11,6 @@
 class PaintScene : public QGraphicsScene
 {
     Q_OBJECT
-    // Свойство текущего типа используемой фигуры
     Q_PROPERTY(int typeFigure
                READ typeFigure WRITE setTypeFigure
                NOTIFY typeFigureChanged)
@@ -24,10 +23,9 @@ public:
     explicit PaintScene(QObject *parent = 0);
     ~PaintScene();
 
-    int typeFigure() const;                 // Возвращение текщего типа
-    void setTypeFigure(const int type);     // Установка текущего типа
+    int typeFigure() const;
+    void setTypeFigure(const int type);
 
-    // Перечисление типов используемых фигур
     enum FigureTypes {
         SquareType,
         RombType,
@@ -38,17 +36,14 @@ public:
     void setWeight(int Value);
 
 signals:
-    void typeFigureChanged();               // Сигнал об изменении типа текущей фигуры
+    void typeFigureChanged();
 
 private:
-    /* Объект для временного хранения рисуемой фигуры
-     * Является объектом базового класса для всех трёх типов фигур в примере
-     * */
+
     Figure *tempFigure;
 
 
 private:
-    // Для рисования используем события мыши
     void mousePressEvent(QGraphicsSceneMouseEvent * event);
     void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
     void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);

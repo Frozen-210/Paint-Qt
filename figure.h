@@ -14,11 +14,9 @@ static int tCount=1;
 class Figure : public QObject, public QGraphicsItem
 {
     Q_OBJECT
-    // Свойство стартовой точки, относительно которой отрисовываем фигуру
     Q_PROPERTY(QPointF startPoint
                READ startPoint WRITE setStartPoint
                NOTIFY pointChanged)
-    // Свойство конечно точки, до куда отрисовываем фигуру
     Q_PROPERTY(QPointF endPoint
                READ endPoint WRITE setEndPoint
                NOTIFY pointChanged)
@@ -45,14 +43,14 @@ signals:
 
 
 private:
-    QPointF m_startPoint;   // Стартовая точка
-    QPointF m_endPoint;     // Конечная точка
+    QPointF m_startPoint;
+    QPointF m_endPoint;
 
     QRectF boundingRect() const;
 
 
 public slots:
-    void updateRomb();     // Слот обновления области, в которой содержится фигура
+    void updateRomb();
 };
 
 #endif // FIGURE_H

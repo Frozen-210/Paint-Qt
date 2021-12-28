@@ -46,15 +46,10 @@ void PaintScene::setWeight(int Value)
 
 void PaintScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
-    /* Устанавливаем конечную координату положения мыши
-     * в текущую отрисовываемую фигуру
-     * */
+
     EndPoint=event->scenePos();
     tempFigure->setEndPoint(EndPoint);
 
-    /* Обновляем содержимое сцены,
-     * необходимо для устранения артефактов при отрисовке фигур
-     * */
 
     this->update(QRectF(0,0,this->width(), this->height()));
 }
@@ -70,10 +65,7 @@ void PaintScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 
 }
 
-/* Как только нажали кнопку мыши, создаём фигуру одного из трёх типов
- * и помещаем её на сцену, сохранив указатель на неё в переменной
- * tempFigure
- * */
+
 void PaintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     switch (m_typeFigure) {

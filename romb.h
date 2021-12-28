@@ -6,9 +6,6 @@
 #include <QGraphicsItem>
 #include "figure.h"
 
-/* Наследуемся от класса Figure,
- * в котором реализован общий для всех фигур функционал
- * */
 class Romb : public Figure
 {
     Q_OBJECT
