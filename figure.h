@@ -42,6 +42,7 @@ signals:
     void pointChanged();
 
 
+
 private:
     QPointF m_startPoint;   // Стартовая точка
     QPointF m_endPoint;     // Конечная точка

@@ -26,6 +26,7 @@ void Triangle::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, 
     shapeName = "Triangle";
 
 
+
     QPointF p1(startPoint().x() + (endPoint().x() > startPoint().x() ? + 1 : - 1)*
                               abs((endPoint().x() - startPoint().x())/2), startPoint().y());
     QPointF p2((endPoint().x() > startPoint().x()) ? endPoint().x() : startPoint().x(),

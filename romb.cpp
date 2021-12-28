@@ -29,6 +29,7 @@ void Romb::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
 
 
 
+
     qreal radius= qSqrt(qPow(startPoint().x()-endPoint().x(),2)+qPow(startPoint().y()-endPoint().y(),2));
 
     painter->drawEllipse(startPoint(),radius,radius);

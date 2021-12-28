@@ -46,6 +46,9 @@ private slots:
     void on_pushButton_4_clicked();
     void on_sortA_Btn_clicked();
     void on_actionSave_Json_triggered();
+    void on_sortD_Btn_clicked();
+    void on_srch_Btn_clicked();
+
 };
 
 #endif // MAINWINDOW_H

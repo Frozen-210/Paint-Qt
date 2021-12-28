@@ -15,6 +15,7 @@ public:
 
 private:
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
+
     float sideLen;
 };
 

@@ -98,16 +98,70 @@ void MainWindow::on_horizontalSlider_sliderMoved(int position)
 
 
 //method for sort AScending (by perimeter) button.
-void MainWindow::on_sortA_Btn_clicked()
-{
-    qDebug()<<scene->ItemsVec->size();
-    qDebug()<<"sort button pressed";
-}
-
-
 void MainWindow::on_actionSave_Json_triggered()
 {
     json_utilities *x;
     x->save(scene);
+}
+//method for comparison that the sort() method will use when comparing the objects in the vector v
+bool compareAs(const Figure* first, const Figure* second){
+    return first->perimeter < second->perimeter;
+}
+//method for sort AScending (by perimeter) button.
+void MainWindow::on_sortA_Btn_clicked()
+{
+    //we make sure the button works
+        qDebug()<<"sort ascending button pressed";
+
+        //we sort the vector, parameters for sort here is begin,end of vector and the method used to compare LHs to LHs.
+        //in this case the method is compareAs which has Lhs as smaller
+        std::sort(scene->ItemsVec->begin(), scene->ItemsVec->end(), compareAs);
+        //create a temporary vector that we use for printing.
+        QVector<Figure*> *TempVec = scene->ItemsVec;
+        //iterate on the temporary vector and disaply the stuff in it
+        for (int i=0;i<TempVec->size();i++){
+          qDebug()<<(*TempVec)[i]->name<<"perimeter "<<(*TempVec)[i]->perimeter;
+        }
+        //from now on you just need to signal the table element to update the vector and display it
+}
+
+
+//function that compares descendingly (bigger element is first)
+bool compareDs(const Figure* first, const Figure* second){
+    return first->perimeter > second->perimeter;
+}
+//method for button that sorts descendingly.
+void MainWindow::on_sortD_Btn_clicked()
+{
+    //we make sure the button works
+        qDebug()<<"sort ascending button pressed";
+
+        //we sort the vector, parameters for sort here is begin,end of vector and the method used to compare LHs to LHs.
+        std::sort(scene->ItemsVec->begin(), scene->ItemsVec->end(), compareDs);
+        //create a temporary vector that we use for printing.
+        QVector<Figure*> *TempVec = scene->ItemsVec;
+        //iterate on the temporary vector and disaply the stuff in it
+        for (int i=0;i<TempVec->size();i++){
+          qDebug()<<(*TempVec)[i]->name<<"perimeter "<<(*TempVec)[i]->perimeter;
+        }
+        //from now on you just need to signal the table element to update the vector and disaply it
+}
+
+//Function that runs when search button is clicked
+void MainWindow::on_srch_Btn_clicked()
+{
+    //get the text from the textbox and place it into a string.
+       QString srchTxt = ui->lineEdit_srchTxt->text();
+       qDebug()<<"Searching for : "<<srchTxt;
+       //then we copy the Figure vector into a temporary vector,
+       QVector<Figure*> *TempVec = scene->ItemsVec;
+       //then we search that vector trying to find a match for (srchTxt), hopefully we can!
+           auto it = std::find_if(TempVec->begin(), TempVec->end(), [=] (Figure* const& element) {
+               return (element->name == srchTxt);
+               });
+           bool found = (it != TempVec->end());
+           if(found==true){
+              qDebug()<<"Item is here";
+           }else     qDebug()<<"Item is not here";
 }
 

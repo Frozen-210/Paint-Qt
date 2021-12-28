@@ -59,4 +59,3 @@ QPointF Figure::endPoint() const
 {
     return m_endPoint;
 }
-
