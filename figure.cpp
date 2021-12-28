@@ -44,10 +44,15 @@ void Figure::setStartPoint(const QPointF point)
     emit pointChanged();
 }
 
-void Figure::setEndPoint(const QPointF point)
+void Figure::setEndPoint(const QPointF point, bool test)
 {
+    if(test){
     m_endPoint = mapFromScene(point);
-    emit pointChanged();
+    emit pointChanged();}
+    else{
+        m_endPoint = point;
+        emit pointChanged();
+    }
 }
 
 QPointF Figure::startPoint() const

@@ -1,7 +1,12 @@
 #include "json_utilities.h"
 #include <QJsonArray>
-
-
+#include <QStack>
+#include"figure.h"
+#include "square.h"
+#include "commands.h"
+#include"romb.h"
+#include"line.h"
+#include"triangle.h"
 
 void json_utilities::save(PaintScene *scene, QString path)
 {
@@ -58,6 +63,7 @@ void json_utilities::open(PaintScene *scene, QString path)
     auto json_doc = QJsonDocument::fromJson(json_string.toUtf8());
     QJsonArray jArr = json_doc.array();
     QJsonValue c_val, val2, val3, val4, val5;
+    QStack<Figure*> tempStack;
 
     for(auto jsonObj : jArr)
     {
@@ -84,11 +90,33 @@ void json_utilities::open(PaintScene *scene, QString path)
         val5 = jsonObj.toObject().value("Shape");
         QString _ST = val5.toString();
 
-        qDebug() << color;
-        qDebug() << firstPoint;
-        qDebug() << endPoint;
-        qDebug() << LW;
-        qDebug() << _ST;
+        if(_ST=="Rectangle"){
+        Figure *item = new Square(firstPoint,color,LW);
+        item->setPos(firstPoint);
+        item->setEndPoint(endPoint,false);
+        QUndoCommand *addCommand = new AddCommand(scene,item,firstPoint);
+        scene->undoStack->push(addCommand);}
+        else if(_ST=="Circle"){
+            Figure *item = new Romb(firstPoint,color,LW);
+            item->setPos(firstPoint);
+            item->setEndPoint(endPoint,false);
+            QUndoCommand *addCommand = new AddCommand(scene,item,firstPoint);
+            scene->undoStack->push(addCommand);
+        }
+        else if(_ST=="Line"){
+            Figure *item = new Line(firstPoint,color,LW);
+            item->setPos(firstPoint);
+            item->setEndPoint(endPoint,false);
+            QUndoCommand *addCommand = new AddCommand(scene,item,firstPoint);
+            scene->undoStack->push(addCommand);
+        }
+        else if(_ST=="Triangle"){
+            Figure *item = new Triangle(firstPoint,color,LW);
+            item->setPos(firstPoint);
+            item->setEndPoint(endPoint,false);
+            QUndoCommand *addCommand = new AddCommand(scene,item,firstPoint);
+            scene->undoStack->push(addCommand);
+        }
 
     }
 }

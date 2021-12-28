@@ -1,5 +1,7 @@
 #include "square.h"
 #include <QPainter>
+#include<QUndoCommand>
+#include "commands.h"
 
 Square::Square(QPointF point,QColor color,int LineWeight, QObject *parent) :
     Figure(point,parent)
@@ -10,6 +12,8 @@ Square::Square(QPointF point,QColor color,int LineWeight, QObject *parent) :
     this->name=QString("Rectangle %1").arg(rCount);
     rCount++;
 }
+
+
 
 Square::~Square()
 {

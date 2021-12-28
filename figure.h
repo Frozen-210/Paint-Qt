@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QGraphicsItem>
 #include <QDebug>
+#include<QColor>
 static int lCount=1;
 static int rCount=1;
 static int cCount=1;
@@ -29,7 +30,7 @@ public:
     QPointF endPoint() const;
 
     void setStartPoint(const QPointF point);
-    void setEndPoint(const QPointF point);
+    void setEndPoint(const QPointF point, bool test= true);
 
     float perimeter;
     QString name;
