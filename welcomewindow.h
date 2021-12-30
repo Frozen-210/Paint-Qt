@@ -16,9 +16,11 @@ public:
     explicit WelcomeWindow(QWidget *parent = nullptr);
     ~WelcomeWindow();
     PaintWindow *p = new PaintWindow();
+    PaintScene* scene;
 
 private slots:
     void on_newPaintBtn_clicked();
+    void on_openPaintBtn_clicked();
 
 private:
     Ui::WelcomeWindow *ui;

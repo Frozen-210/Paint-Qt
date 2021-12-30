@@ -149,15 +149,15 @@ void PaintWindow::on_verticalSlider_sliderMoved(int position)
 }
 
 // table animation
-void PaintWindow::on_tableBtn_clicked()
-{
-    QSequentialAnimationGroup* animationGroup = new QSequentialAnimationGroup(this);
-    QPropertyAnimation* hamda = new QPropertyAnimation(ui->moveLO,"geometry");
-    hamda->setDuration(1000);
-    hamda->setStartValue(ui->moveLO->geometry());
-    hamda->setEndValue(ui->moveLO->geometry().translated(100,0));
-    animationGroup->addAnimation(hamda);
-    qDebug() << "ya rab";
+//void PaintWindow::on_tableBtn_clicked()
+//{
+//    QSequentialAnimationGroup* animationGroup = new QSequentialAnimationGroup(this);
+//    QPropertyAnimation* hamda = new QPropertyAnimation(ui->moveLO,"geometry");
+//    hamda->setDuration(1000);
+//    hamda->setStartValue(ui->moveLO->geometry());
+//    hamda->setEndValue(ui->moveLO->geometry().translated(100,0));
+//    animationGroup->addAnimation(hamda);
+//    qDebug() << "ya rab";
 
-}
+//}
 

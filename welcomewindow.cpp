@@ -1,5 +1,8 @@
 #include "welcomewindow.h"
 #include "ui_welcomewindow.h"
+#include <QFileDialog>
+#include "json_utilities.h"
+#include "paintscene.h"
 
 WelcomeWindow::WelcomeWindow(QWidget *parent) :
     QMainWindow(parent, Qt::FramelessWindowHint | Qt::WindowSystemMenuHint),
@@ -7,6 +10,7 @@ WelcomeWindow::WelcomeWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_TranslucentBackground);
+    scene = new PaintScene();
 
     QString cs1="QPushButton {"
                    "background-color: black;"
@@ -32,5 +36,16 @@ void WelcomeWindow::on_newPaintBtn_clicked()
 {
     p->show();
     this->hide();
+}
+
+
+void WelcomeWindow::on_openPaintBtn_clicked()
+{
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"),
+                                                    "/c://",
+                                                    tr("JSON (*.json)"));
+
+    json_utilities *jsonSaveObject;
+    jsonSaveObject->open(scene, fileName);
 }
 
