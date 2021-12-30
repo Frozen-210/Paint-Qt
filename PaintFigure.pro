@@ -17,20 +17,29 @@ SOURCES += main.cpp\
     json_utilities.cpp \
     line.cpp \
     mainwindow.cpp \
+    paintwindow.cpp \
     romb.cpp \
     paintscene.cpp \
     figure.cpp \
     triangle.cpp \
-    square.cpp
+    square.cpp \
+    welcomewindow.cpp
 
 HEADERS  += mainwindow.h \
     commands.h \
     json_utilities.h \
     line.h \
+    paintwindow.h \
     romb.h \
     paintscene.h \
     figure.h \
     triangle.h \
-    square.h
+    square.h \
+    welcomewindow.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    paintwindow.ui \
+    welcomewindow.ui
+
+RESOURCES += \
+    resources.qrc
