@@ -24,4 +24,23 @@ private:
 };
  QString createCommandString( const QPointF &point);
 
+
+ class DeleteCommand : public QUndoCommand
+ {
+ public:
+     DeleteCommand(PaintScene *graphicsScene,
+                Figure* item,QPointF LastPoint,QUndoCommand *parent = 0);
+
+     ~DeleteCommand();
+
+     void undo() Q_DECL_OVERRIDE;
+     void redo() Q_DECL_OVERRIDE;
+
+ private:
+     Figure *myDiagramItem;
+     PaintScene *myGraphicsScene;
+     QPointF initialPosition;
+ };
+  QString createCommandString( const QPointF &point);
+
 #endif // COMMANDS_H

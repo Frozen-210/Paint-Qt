@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    scene = new PaintScene();
+    scene = new PaintScene(ui->graphicsView);
     ui->graphicsView->setScene(scene);
     ui->graphicsView->setRenderHint(QPainter::Antialiasing);
     ui->graphicsView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -118,8 +118,10 @@ void MainWindow::on_sortA_Btn_clicked()
     //we make sure the button works
         qDebug()<<"sort ascending button pressed";
 
-        //we sort the vector, parameters for sort here is begin,end of vector and the method used to compare LHs to LHs.
-        //in this case the method is compareAs which has Lhs as smaller
+        /*we sort the vector, parameters for sort here is begin,end of vector and the method used to compare LHs to LHs.
+        in this case the method is compareAs which has Lhs as smaller
+        complexity for this sort is Nlog2(N) where N is this distance bet. elements compared,
+        it also modifies the original vector*/
         std::sort(scene->ItemsVec->begin(), scene->ItemsVec->end(), compareAs);
         //create a temporary vector that we use for printing.
         QVector<Figure*> *TempVec = scene->ItemsVec;
@@ -127,7 +129,8 @@ void MainWindow::on_sortA_Btn_clicked()
         for (int i=0;i<TempVec->size();i++){
           qDebug()<<(*TempVec)[i]->name<<"perimeter "<<(*TempVec)[i]->perimeter;
         }
-        //from now on you just need to signal the table element to update the vector and display it
+        delete[] TempVec;
+        //here  just signal the table element to update the vector and display it
 }
 
 
@@ -149,7 +152,8 @@ void MainWindow::on_sortD_Btn_clicked()
         for (int i=0;i<TempVec->size();i++){
           qDebug()<<(*TempVec)[i]->name<<"perimeter "<<(*TempVec)[i]->perimeter;
         }
-        //from now on you just need to signal the table element to update the vector and disaply it
+        delete[] TempVec;
+        //here  just signal the table element to update the vector and display it
 }
 
 //Function that runs when search button is clicked
@@ -161,13 +165,18 @@ void MainWindow::on_srch_Btn_clicked()
        //then we copy the Figure vector into a temporary vector,
        QVector<Figure*> *TempVec = scene->ItemsVec;
        //then we search that vector trying to find a match for (srchTxt), hopefully we can!
+       /* complextity of find_if= N applications where N = std::distance(first, last). */
            auto it = std::find_if(TempVec->begin(), TempVec->end(), [=] (Figure* const& element) {
                return (element->name == srchTxt);
                });
            bool found = (it != TempVec->end());
            if(found==true){
+               //code for when the item is found
               qDebug()<<"Item is here";
-           }else     qDebug()<<"Item is not here";
+           }else     {
+               //code for when the item is not found.
+               qDebug()<<"Item is not here";
+           }
 }
 
 

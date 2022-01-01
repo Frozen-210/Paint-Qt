@@ -10,8 +10,6 @@ WelcomeWindow::WelcomeWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_TranslucentBackground);
-    scene = new PaintScene();
-
     QString cs1="QPushButton {"
                    "background-color: black;"
                    "color: white;"

@@ -45,6 +45,10 @@ private slots:
 
     void on_tableBtn_clicked();
 
+    void on_ersr_Btn_clicked();
+
+    void on_searchBar_returnPressed();
+
 private:
     Ui::PaintWindow *ui;
 };

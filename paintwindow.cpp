@@ -14,7 +14,7 @@ PaintWindow::PaintWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_TranslucentBackground);
-    scene = new PaintScene();
+    scene = new PaintScene(ui->graphicsView);
     ui->graphicsView->setScene(scene);
     ui->graphicsView->setRenderHint(QPainter::Antialiasing);
     ui->graphicsView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -61,6 +61,7 @@ PaintWindow::PaintWindow(QWidget *parent) :
     ui->lineBtn->setStyleSheet(upperBtnStyleSheet);
     ui->triangleBtn->setStyleSheet(upperBtnStyleSheet);
     ui->circleBtn->setStyleSheet(upperBtnStyleSheet);
+    ui->ersr_Btn->setStyleSheet(upperBtnStyleSheet);
 
     // assigning the stylesheet to the side buttons
     ui->colorBtn->setStyleSheet(sideBtnStyleSheet);
@@ -160,4 +161,44 @@ void PaintWindow::on_verticalSlider_sliderMoved(int position)
 //    qDebug() << "ya rab";
 
 //}
+
+/*Dummy method so the compiler stops screaming and launches,
+ * the one above is the actual method.at least it will be.*/
+void PaintWindow::on_tableBtn_clicked()
+{
+    qDebug() << "under construction.";
+}
+
+//Method for eraser button, the main idea is that it deletes the shape you're clicking.
+void PaintWindow::on_ersr_Btn_clicked()
+{
+    //debug message, I swear i use the debugger, i just like it when text shows up after i click a button.
+    qDebug()<<"Eraser selected";
+    /*we set the type figure as Erasertype, which is just a marker, so when the mouse is clicked, (i.e, mousePressEvent() runs)
+    the switch statment for type figure will run the code under the */
+    scene->setTypeFigure(PaintScene::EraserType);
+}
+
+//function for when the user clicks enter while on the search bar.
+void PaintWindow::on_searchBar_returnPressed()
+{
+    //get the text from the search bar and place it into a string.
+       QString srchTxt = ui->searchBar->text();
+       qDebug()<<"Searching for : "<<srchTxt;
+       //then we copy the Figure vector into a temporary vector,
+       QVector<Figure*> *TempVec = scene->ItemsVec;
+       /*then we search that vector trying to find a match for (srchTxt), hopefully we can!
+        complextity of find_if= N applications where N = std::distance(first, last). */
+           auto it = std::find_if(TempVec->begin(), TempVec->end(), [=] (Figure* const& element) {
+               return (element->name == srchTxt);
+               });
+           bool found = (it != TempVec->end());
+           if(found==true){
+               //code for when the item is found
+              qDebug()<<"Item is here";
+           }else     {
+               //code for when the item is not found.
+               qDebug()<<"Item is not here";
+           }
+}
 

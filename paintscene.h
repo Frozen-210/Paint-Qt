@@ -6,6 +6,7 @@
 #include "figure.h"
 #include<QUndoStack>
 #include"square.h"
+#include <QGraphicsView>
 
 
 class PaintScene : public QGraphicsScene
@@ -16,11 +17,12 @@ class PaintScene : public QGraphicsScene
                NOTIFY typeFigureChanged)
 
 public:
+    QGraphicsView* view;
     QPointF startPoint;
     QPointF EndPoint;
     QVector<Figure*> *ItemsVec;
     QUndoStack *undoStack;
-    explicit PaintScene(QObject *parent = 0);
+    explicit PaintScene(QGraphicsView *view, QObject *parent = 0);
     ~PaintScene();
 
     int typeFigure() const;
@@ -30,7 +32,8 @@ public:
         SquareType,
         RombType,
         TriangleType,
-        LineType
+        LineType,
+        EraserType
     };
     void setColor(QColor color);
     void setWeight(int Value);
@@ -39,7 +42,6 @@ signals:
     void typeFigureChanged();
 
 private:
-
     Figure *tempFigure;
 
 
@@ -50,6 +52,7 @@ private:
     QColor paintingColor;
     int LineWeight;
     int m_typeFigure;
+    bool selectingItem;
 
 
 };

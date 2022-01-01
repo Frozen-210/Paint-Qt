@@ -204,7 +204,6 @@ border-bottom-right-radius: 0px;</string>
     </property>
     <property name="font">
      <font>
-      <family>IROicons</family>
       <pointsize>21</pointsize>
       <italic>false</italic>
       <bold>false</bold>
@@ -244,7 +243,6 @@ font: 21pt &quot;IROicons&quot;;</string>
     </property>
     <property name="font">
      <font>
-      <family>IROicons</family>
       <pointsize>21</pointsize>
       <italic>false</italic>
       <bold>false</bold>
@@ -271,7 +269,6 @@ font: 21pt &quot;IROicons&quot;;</string>
     </property>
     <property name="font">
      <font>
-      <family>IROicons</family>
       <pointsize>20</pointsize>
       <italic>false</italic>
       <bold>false</bold>
@@ -301,7 +298,6 @@ font: 20pt &quot;IROicons&quot;;</string>
     </property>
     <property name="font">
      <font>
-      <family>IROicons</family>
       <pointsize>20</pointsize>
       <italic>false</italic>
       <bold>false</bold>
@@ -331,7 +327,6 @@ font: 20pt &quot;IROicons&quot;;</string>
     </property>
     <property name="font">
      <font>
-      <family>IROicons</family>
       <pointsize>28</pointsize>
       <italic>false</italic>
       <bold>false</bold>
@@ -361,7 +356,6 @@ font: 28pt &quot;IROicons&quot;;</string>
     </property>
     <property name="font">
      <font>
-      <family>IROicons</family>
       <pointsize>18</pointsize>
       <italic>false</italic>
       <bold>false</bold>
@@ -391,7 +385,6 @@ font: 18pt &quot;IROicons&quot;;</string>
     </property>
     <property name="font">
      <font>
-      <family>IROicons</family>
       <pointsize>19</pointsize>
       <italic>false</italic>
       <bold>false</bold>
@@ -471,7 +464,6 @@ font: 9pt &quot;Montserrat&quot;;
     </property>
     <property name="font">
      <font>
-      <family>IROicons</family>
       <pointsize>20</pointsize>
       <italic>false</italic>
       <bold>false</bold>
@@ -483,6 +475,35 @@ font: 9pt &quot;Montserrat&quot;;
     </property>
     <property name="text">
      <string>c</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ersr_Btn">
+    <property name="geometry">
+     <rect>
+      <x>680</x>
+      <y>20</y>
+      <width>101</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #f9f9f9;
+color: black;
+border-radius: 20px;
+font: 11pt &quot;Montserrat&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Eraser</string>
     </property>
    </widget>
   </widget>
