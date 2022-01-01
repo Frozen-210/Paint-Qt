@@ -21,7 +21,7 @@ AddCommand::AddCommand(PaintScene *scene,Figure* item, QPointF LastPoint,QUndoCo
 AddCommand::~AddCommand()
 {
     if (!myDiagramItem->scene())
-        delete myDiagramItem;
+        myDiagramItem->hide();
 }
 
 void AddCommand::undo()
@@ -91,7 +91,7 @@ void DeleteCommand::redo()
 //       qDebug()<<(*ItemsVec)[i]->name;
 //    }
 }
-QString createDeleteString( const QPointF &pos)
+QString createDeleteString(const QPointF &pos)
 {
     return QObject::tr("Square at (%2, %3)")
         .arg(pos.x()).arg(pos.y());

@@ -101,7 +101,6 @@ void PaintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
       item->setPos(event->pos());
       tempFigure = item;
       this->addItem(tempFigure);
-
       break;
 
     }
@@ -125,8 +124,8 @@ void PaintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
     case EraserType :{ //this is the case for when you're selecting the eraser button and clicked on something
 
         //this method gets the position of the mouse.
-        QPointF mousePos(event->buttonDownScenePos(Qt::LeftButton).rx(),
-                             event->buttonDownScenePos(Qt::LeftButton).ry());
+        QPointF mousePos(event->buttonDownScenePos(Qt::LeftButton).x(),
+                             event->buttonDownScenePos(Qt::LeftButton).y());
         //this gets the items at this position and puts them in the list.
         QVector<QGraphicsItem *> deletedItems = items(mousePos);
         //then we delete the item from the view and update.
