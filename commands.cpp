@@ -69,7 +69,7 @@ DeleteCommand::DeleteCommand(PaintScene *scene,Figure* item, QPointF LastPoint,Q
 DeleteCommand::~DeleteCommand()
 {
     if (!myDiagramItem->scene())
-        delete myDiagramItem;
+        myDiagramItem->hide();
 }
 
 void DeleteCommand::undo()
