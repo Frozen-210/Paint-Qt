@@ -3,6 +3,7 @@
 #include <QFileDialog>
 #include "json_utilities.h"
 #include "paintscene.h"
+#include "paintwindow.h"
 
 WelcomeWindow::WelcomeWindow(QWidget *parent) :
     QMainWindow(parent, Qt::FramelessWindowHint | Qt::WindowSystemMenuHint),
@@ -42,8 +43,8 @@ void WelcomeWindow::on_openPaintBtn_clicked()
     QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"),
                                                     "/c://",
                                                     tr("JSON (*.json)"));
-
-    json_utilities *jsonSaveObject;
-    jsonSaveObject->open(scene, fileName);
+    p->show();
+    this->hide();
+    p->open(fileName);
 }
 

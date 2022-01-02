@@ -20,6 +20,8 @@ public:
     ~PaintWindow();
     PaintScene *scene;
     QTimer *timer;
+    void open(QString path);
+
 
 private slots:
     void slotTimer();

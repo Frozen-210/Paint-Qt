@@ -14,8 +14,7 @@ AddCommand::AddCommand(PaintScene *scene,Figure* item, QPointF LastPoint,QUndoCo
     scene->update();
     ++itemCount;
     setText(QObject::tr("Add %1")
-        .arg(createCommandString( LastPoint)));
-
+        .arg(createCommandString(LastPoint)));
 }
 
 AddCommand::~AddCommand()
@@ -62,7 +61,7 @@ DeleteCommand::DeleteCommand(PaintScene *scene,Figure* item, QPointF LastPoint,Q
     scene->update();
     ++itemCount;
     setText(QObject::tr("Add %1")
-        .arg(createCommandString( LastPoint)));
+        .arg(createCommandString(LastPoint)));
 
 }
 
