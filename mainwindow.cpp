@@ -1,6 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include<QColorDialog>
+#include <QFileDialog>
+#include "paintscene.h"
+#include "json_utilities.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -8,15 +11,15 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    scene = new PaintScene();   // Инициализируем графическую сцену
+    scene = new PaintScene(ui->graphicsView);
     ui->graphicsView->setScene(scene);
-    ui->graphicsView->setRenderHint(QPainter::Antialiasing);                // Устанавливаем сглаживание
-    ui->graphicsView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);   // Отключаем скроллбар по вертикали
-    ui->graphicsView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff); // Отключаем скроллбар по горизонтали
+    ui->graphicsView->setRenderHint(QPainter::Antialiasing);
+    ui->graphicsView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    ui->graphicsView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
-    timer = new QTimer();       // Инициализируем таймер
+    timer = new QTimer();
     connect(timer, &QTimer::timeout, this, &MainWindow::slotTimer);
-    timer->start(100);          // Запускаем таймер
+    timer->start(100);
     undoView = new QUndoView(scene->undoStack);
     undoView->setWindowTitle(tr("Command List"));
     undoView->show();
@@ -30,9 +33,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::slotTimer()
 {
-    /* Переопределяем размеры графической сцены в зависимости
-     * от размеров окна
-     * */
+
     timer->stop();
     scene->setSceneRect(0,0, ui->graphicsView->width() - 20, ui->graphicsView->height() - 20);
 }
@@ -95,4 +96,98 @@ void MainWindow::on_horizontalSlider_sliderMoved(int position)
 
 
 
+//method for sort AScending (by perimeter) button.
+void MainWindow::on_actionSave_Json_triggered()
+{
+
+    QString fileName = QFileDialog::getSaveFileName(this,
+            tr("Save As"), "",
+            tr("JSON (*.json);; All Files (*)"));
+
+    qDebug() << fileName;
+    json_utilities *jsonSaveObject;
+    jsonSaveObject->save(scene, fileName);
+}
+//method for comparison that the sort() method will use when comparing the objects in the vector v
+bool compareAs(const Figure* first, const Figure* second){
+    return first->perimeter < second->perimeter;
+}
+//method for sort AScending (by perimeter) button.
+void MainWindow::on_sortA_Btn_clicked()
+{
+    //we make sure the button works
+        qDebug()<<"sort ascending button pressed";
+
+        /*we sort the vector, parameters for sort here is begin,end of vector and the method used to compare LHs to LHs.
+        in this case the method is compareAs which has Lhs as smaller
+        complexity for this sort is Nlog2(N) where N is this distance bet. elements compared,
+        it also modifies the original vector*/
+        std::sort(scene->ItemsVec->begin(), scene->ItemsVec->end(), compareAs);
+        //create a temporary vector that we use for printing.
+        QVector<Figure*> *TempVec = scene->ItemsVec;
+        //iterate on the temporary vector and disaply the stuff in it
+        for (int i=0;i<TempVec->size();i++){
+          qDebug()<<(*TempVec)[i]->name<<"perimeter "<<(*TempVec)[i]->perimeter;
+        }
+        delete[] TempVec;
+        //here  just signal the table element to update the vector and display it
+}
+
+
+//function that compares descendingly (bigger element is first)
+bool compareDs(const Figure* first, const Figure* second){
+    return first->perimeter > second->perimeter;
+}
+//method for button that sorts descendingly.
+void MainWindow::on_sortD_Btn_clicked()
+{
+    //we make sure the button works
+        qDebug()<<"sort ascending button pressed";
+
+        //we sort the vector, parameters for sort here is begin,end of vector and the method used to compare LHs to LHs.
+        std::sort(scene->ItemsVec->begin(), scene->ItemsVec->end(), compareDs);
+        //create a temporary vector that we use for printing.
+        QVector<Figure*> *TempVec = scene->ItemsVec;
+        //iterate on the temporary vector and disaply the stuff in it
+        for (int i=0;i<TempVec->size();i++){
+          qDebug()<<(*TempVec)[i]->name<<"perimeter "<<(*TempVec)[i]->perimeter;
+        }
+        delete[] TempVec;
+        //here  just signal the table element to update the vector and display it
+}
+
+//Function that runs when search button is clicked
+void MainWindow::on_srch_Btn_clicked()
+{
+    //get the text from the textbox and place it into a string.
+       QString srchTxt = ui->lineEdit_srchTxt->text();
+       qDebug()<<"Searching for : "<<srchTxt;
+       //then we copy the Figure vector into a temporary vector,
+       QVector<Figure*> *TempVec = scene->ItemsVec;
+       //then we search that vector trying to find a match for (srchTxt), hopefully we can!
+       /* complextity of find_if= N applications where N = std::distance(first, last). */
+           auto it = std::find_if(TempVec->begin(), TempVec->end(), [=] (Figure* const& element) {
+               return (element->name == srchTxt);
+               });
+           bool found = (it != TempVec->end());
+           if(found==true){
+               //code for when the item is found
+              qDebug()<<"Item is here";
+           }else     {
+               //code for when the item is not found.
+               qDebug()<<"Item is not here";
+           }
+}
+
+
+void MainWindow::on_actionOpen_File_triggered()
+{
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"),
+                                                    "/c://",
+                                                    tr("JSON (*.json)"));
+
+    json_utilities *jsonSaveObject;
+    jsonSaveObject->open(scene, fileName);
+
+}
 

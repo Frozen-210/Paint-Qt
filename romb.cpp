@@ -1,5 +1,6 @@
 #include "romb.h"
 #include <QPainter>
+#include <QtMath>
 
 Romb::Romb(QPointF point,QColor color,int LineWeight, QObject *parent) :
     Figure(point,parent)
@@ -7,6 +8,9 @@ Romb::Romb(QPointF point,QColor color,int LineWeight, QObject *parent) :
     Q_UNUSED(point)
     shapeColor=color;
     this->LineWeight=LineWeight;
+    this->name=QString("Circle %1").arg(cCount);
+    cCount++;
+
 }
 
 
@@ -16,19 +20,21 @@ Romb::~Romb()
 }
 
 
-// Реализуем метод отрисовки
 void Romb::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
 
     painter->setPen(QPen(shapeColor, LineWeight));
+    shapeName = "Circle";
 
-    QRectF rect(endPoint().x() > startPoint().x() ? startPoint().x() : endPoint().x(),
-                endPoint().y() > startPoint().y() ? startPoint().y() : endPoint().y(),
-                qAbs(endPoint().x() - startPoint().x()),
-                qAbs(endPoint().x() - startPoint().x()));
 
-   // painter->drawRect(rect);
-    painter->drawEllipse(rect);
+
+
+    qreal radius= qSqrt(qPow(startPoint().x()-endPoint().x(),2)+qPow(startPoint().y()-endPoint().y(),2));
+
+    painter->drawEllipse(startPoint(),radius,radius);
+    this->perimeter=2*radius*M_PI;
+
+
 
 
     Q_UNUSED(option)

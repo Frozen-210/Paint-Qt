@@ -56,6 +56,7 @@ void json_utilities:: savePNG(PaintScene *scene, QString path){
 
 
 
+
 void json_utilities::open(PaintScene *scene, QString path)
 {
     QFile jsonFile(path);

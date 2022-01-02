@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QGraphicsItem>
 #include "figure.h"
+#include "paintscene.h"
 
 class Square : public Figure
 {
@@ -15,8 +16,8 @@ public:
 
 private:
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
-    QColor shapeColor;
-    int LineWeight;
+
+    float sideLen;
 };
 
 #endif // SQUARE_H

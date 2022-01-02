@@ -152,8 +152,6 @@ void PaintWindow::on_saveBtn_clicked()
      }
 
 
-
-
 }
 
 

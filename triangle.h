@@ -16,9 +16,8 @@ public:
 
 private:
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
-    QColor shapeColor;
-    int LineWeight;
 
+    float side1,side2,side3;
 };
 
 #endif // TRIANGLE_H

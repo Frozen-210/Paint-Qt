@@ -4,17 +4,24 @@
 #include "square.h"
 #include"line.h"
 #include "commands.h"
+#include <QVector>
+#include "figure.h"
+#include <QDebug>
+#include <QGraphicsScene>
+#include <QGraphicsView>
 
-PaintScene::PaintScene(QObject *parent) : QGraphicsScene(parent)
+PaintScene::PaintScene(QGraphicsView *view, QObject *parent) : QGraphicsScene(parent)
 {
-undoStack = new QUndoStack(this);
-paintingColor=Qt::black;
-LineWeight=1;
+    this->view=view;
+    undoStack = new QUndoStack(this);
+    paintingColor=Qt::black;
+    LineWeight=1;
+    ItemsVec=new QVector<Figure*>();
+    selectingItem=false;
 }
 
 PaintScene::~PaintScene()
 {
-
 }
 
 int PaintScene::typeFigure() const
@@ -25,6 +32,7 @@ int PaintScene::typeFigure() const
 void PaintScene::setTypeFigure(const int type)
 {
     m_typeFigure = type;
+
 }
 
 void PaintScene::setColor(QColor color)
@@ -39,34 +47,40 @@ void PaintScene::setWeight(int Value)
 
 void PaintScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
-    /* Устанавливаем конечную координату положения мыши
-     * в текущую отрисовываемую фигуру
-     * */
+
+    if(m_typeFigure!=EraserType){
     EndPoint=event->scenePos();
     tempFigure->setEndPoint(EndPoint);
 
-    /* Обновляем содержимое сцены,
-     * необходимо для устранения артефактов при отрисовке фигур
-     * */
 
-    this->update(QRectF(0,0,this->width(), this->height()));
+    this->update(QRectF(0,0,this->width(), this->height()));}
+
 }
 
 void PaintScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
-    EndPoint=event->scenePos();
-    tempFigure->setEndPoint(EndPoint);
 
-       this->update();
+
+
+    if (m_typeFigure!=EraserType){
+        EndPoint=event->scenePos();
+        tempFigure->setEndPoint(EndPoint);
+        this->update();
        QUndoCommand *addCommand = new AddCommand(this,tempFigure,startPoint);
-       undoStack->push(addCommand);
+       undoStack->push(addCommand);}
+    else{
+        if(selectingItem){
+        //we add the command for the deletion to the undo stack.
+        QUndoCommand *deleteCommand = new DeleteCommand(this,tempFigure,startPoint);
+        undoStack->push(deleteCommand);
+        selectingItem=false;
+        }
+
+    }
 
 }
 
-/* Как только нажали кнопку мыши, создаём фигуру одного из трёх типов
- * и помещаем её на сцену, сохранив указатель на неё в переменной
- * tempFigure
- * */
+
 void PaintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     switch (m_typeFigure) {
@@ -76,6 +90,8 @@ void PaintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
         EndPoint = event->pos();
         item->setPos(EndPoint);
         tempFigure = item;
+        this->addItem(tempFigure);
+
         break;
     }
     case RombType: {
@@ -84,6 +100,7 @@ void PaintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
       EndPoint = event->pos();
       item->setPos(event->pos());
       tempFigure = item;
+      this->addItem(tempFigure);
       break;
 
     }
@@ -93,6 +110,7 @@ void PaintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
       EndPoint = event->pos();
       item->setPos(event->pos());
       tempFigure = item;
+      this->addItem(tempFigure);
       break;
 
     }
@@ -100,17 +118,34 @@ void PaintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
         Figure *item = new Triangle(event->scenePos(),paintingColor,LineWeight);
         item->setPos(event->pos());
         tempFigure = item;
+        this->addItem(tempFigure);
+        break;
+    }
+    case EraserType :{ //this is the case for when you're selecting the eraser button and clicked on something
 
+        //this method gets the position of the mouse.
+        QPointF mousePos(event->buttonDownScenePos(Qt::LeftButton).x(),
+                             event->buttonDownScenePos(Qt::LeftButton).y());
+        //this gets the items at this position and puts them in the list.
+        QVector<QGraphicsItem *> deletedItems = items(mousePos);
+        //then we delete the item from the view and update.
+        if(!deletedItems.isEmpty()){
+            tempFigure= (Figure*)deletedItems[0];
+            selectingItem=true;
+            //we delete the item from the vector (ItemsVec) , NOT DONE.
+        }
         break;
     }
     default:{
         Square *item = new Square(event->scenePos(),paintingColor,LineWeight);
         item->setPos(event->pos());
         tempFigure = item;
+        this->addItem(tempFigure);
         break;
     }
     }
-    this->addItem(tempFigure);
-}
+
+
+    }
 
 
