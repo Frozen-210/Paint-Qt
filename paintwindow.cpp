@@ -132,13 +132,26 @@ void PaintWindow::on_colorBtn_clicked()
 
 void PaintWindow::on_saveBtn_clicked()
 {
-    QString fileName = QFileDialog::getSaveFileName(this,
-            tr("Save As"), "",
-            tr("JSON (*.json);; All Files (*)"));
+    //QString fileName = QFileDialog::getSaveFileName(this,
+      //      tr("Save As"), "",
+        //    tr("JSON (*.json);; All Files (*)"));
 
-    qDebug() << fileName;
+
+    QString selectedFilter;
+    QString fileName = QFileDialog::getSaveFileName(
+                this,
+                tr("Save As"), "",
+                tr("JSON (*.json);;PNG (*.png );; All Files (*)"),&selectedFilter);
     json_utilities *jsonSaveObject;
-    jsonSaveObject->save(scene, fileName);
+
+    if (selectedFilter == "JSON (*.json)") {
+      jsonSaveObject->save(scene, fileName);
+    }
+    else if (selectedFilter == "PNG (*.png )") {
+        jsonSaveObject->savePNG(scene, fileName);
+     }
+
+
 }
 
 

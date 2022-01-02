@@ -46,6 +46,14 @@ void json_utilities::save(PaintScene *scene, QString path)
     saveFile.write("]");
     saveFile.close();
 }
+void json_utilities:: savePNG(PaintScene *scene, QString path){
+     QFile saveFile(path);
+
+     QPixmap pixMap = scene->view->grab(scene->sceneRect().toRect());
+     pixMap.save(path);
+
+}
+
 
 
 

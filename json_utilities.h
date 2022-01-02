@@ -22,6 +22,8 @@ public:
     json_utilities();
     void save(PaintScene *scene, QString path);
     void open(PaintScene *scene, QString path);
+    void savePNG(PaintScene *scene, QString path);
+
 
 private:
     PaintScene *myGraphicsScene;
