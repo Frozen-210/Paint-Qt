@@ -160,46 +160,41 @@ void PaintWindow::on_verticalSlider_sliderMoved(int position)
     scene->setWeight(position);
 }
 
-// table animation
-//void PaintWindow::on_tableBtn_clicked()
-//{
-//    QSequentialAnimationGroup* animationGroup = new QSequentialAnimationGroup(this);
-//    QPropertyAnimation* hamda = new QPropertyAnimation(ui->moveLO,"geometry");
-//    hamda->setDuration(1000);
-//    hamda->setStartValue(ui->moveLO->geometry());
-//    hamda->setEndValue(ui->moveLO->geometry().translated(100,0));
-//    animationGroup->addAnimation(hamda);
-//    qDebug() << "ya rab";
 
-//}
-
-/*Dummy method so the compiler stops screaming and launches,
- * the one above is the actual method.at least it will be.*/
 void PaintWindow::on_tableBtn_clicked()
 {
     QPropertyAnimation *animTable = new QPropertyAnimation(ui->DataTable, "geometry");
+    QPropertyAnimation *animInfoTable = new QPropertyAnimation(ui->InfoTable, "geometry");
     QPropertyAnimation *animBtnA = new QPropertyAnimation(ui->SortASBtn , "geometry");
     QPropertyAnimation *animBtnD = new QPropertyAnimation(ui->SortDSBtn, "geometry");
     animBtnA->setDuration(400);
     animBtnD->setDuration(400);
     animTable->setDuration(400);
+    animInfoTable->setDuration(400);
+    animInfoTable ->setStartValue(ui->InfoTable->geometry());
     animTable->setStartValue(ui->DataTable->geometry());
     animBtnA->setStartValue(ui->SortASBtn->geometry());
     animBtnD->setStartValue(ui->SortDSBtn->geometry());
 
-    if(ui->DataTable->geometry() == QRect(1150,100,329,651)){ // Check table Pos
+    if(ui->DataTable->geometry() == QRect(1140,150,329,451)){ // Check table Pos
+        // if table is viewed out the view
 
-        animTable->setEndValue(QRect(800,100,329,651));
-        animBtnA->setEndValue(QRect(800,760,160,29));
-        animBtnD->setEndValue(QRect(968,760,160,29));
+        animTable->setEndValue(QRect(790,120,329,451));
+        animInfoTable->setEndValue(QRect(790,590,329,191));
+        animBtnA->setEndValue(QRect(790,90,160,29));
+        animBtnD->setEndValue(QRect(960,90,160,29));
     }
     else{
-        animTable->setEndValue(QRect(1150,100,329,651));
-        animBtnA->setEndValue(QRect(1150,760,160,29));
-        animBtnD->setEndValue(QRect(1318,760,160,29));
+        // if table is viewed over the view
+        animTable->setEndValue(QRect(1140,150,329,451));
+        animInfoTable->setEndValue(QRect(1140,620,329,191));
+        animBtnA->setEndValue(QRect(1140,90,160,29));
+        animBtnD->setEndValue(QRect(1310,90,160,29));
+
     }
   animTable->start();
   animBtnA->start();
+  animInfoTable->start();
   animBtnD->start();
 }
 
