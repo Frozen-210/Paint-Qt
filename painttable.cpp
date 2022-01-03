@@ -53,3 +53,4 @@ bool PaintTable::compareDs(const Figure *first, const Figure *second)
     return first->perimeter > second->perimeter;
 }
 
+
