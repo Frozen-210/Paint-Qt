@@ -506,6 +506,39 @@ font: 11pt &quot;Montserrat&quot;;</string>
      <string>Eraser</string>
     </property>
    </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>795</x>
+      <y>80</y>
+      <width>331</width>
+      <height>461</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QTableWidget" name="DataTable"/>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QPushButton" name="SortASBtn">
+         <property name="text">
+          <string>Sort Ascending</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="SortDSBtn">
+         <property name="text">
+          <string>Sort Dscending</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
   </widget>
  </widget>
  <resources>

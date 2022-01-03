@@ -16,7 +16,7 @@ SOURCES += main.cpp\
     commands.cpp \
     json_utilities.cpp \
     line.cpp \
-    mainwindow.cpp \
+    painttable.cpp \
     paintwindow.cpp \
     romb.cpp \
     paintscene.cpp \
@@ -25,10 +25,11 @@ SOURCES += main.cpp\
     square.cpp \
     welcomewindow.cpp
 
-HEADERS  += mainwindow.h \
+HEADERS  += \
     commands.h \
     json_utilities.h \
     line.h \
+    painttable.h \
     paintwindow.h \
     romb.h \
     paintscene.h \
@@ -37,7 +38,7 @@ HEADERS  += mainwindow.h \
     square.h \
     welcomewindow.h
 
-FORMS    += mainwindow.ui \
+FORMS    += \
     paintwindow.ui \
     welcomewindow.ui
 

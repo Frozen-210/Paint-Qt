@@ -7,6 +7,7 @@
 #include<QUndoStack>
 #include"square.h"
 #include <QGraphicsView>
+#include <QTableWidget>
 
 
 class PaintScene : public QGraphicsScene
@@ -22,7 +23,7 @@ public:
     QPointF EndPoint;
     QVector<Figure*> *ItemsVec;
     QUndoStack *undoStack;
-    explicit PaintScene(QGraphicsView *view, QObject *parent = 0);
+    explicit PaintScene(QGraphicsView *view,QTableWidget* table, QObject *parent = 0);
     ~PaintScene();
 
     int typeFigure() const;
@@ -53,6 +54,7 @@ private:
     int LineWeight;
     int m_typeFigure;
     bool selectingItem;
+    QTableWidget* table;
 
 
 };

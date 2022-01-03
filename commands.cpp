@@ -1,10 +1,11 @@
 #include "commands.h"
 #include<QGraphicsScene>
 #include "paintscene.h"
+#include"painttable.h"
 //PaintScene p;
 
 
-AddCommand::AddCommand(PaintScene *scene,Figure* item, QPointF LastPoint,QUndoCommand *parent)
+AddCommand::AddCommand(PaintScene *scene,Figure* item, QPointF LastPoint,QTableWidget* table,QUndoCommand *parent)
     : QUndoCommand(parent)
 {
     static int itemCount = 0;
@@ -13,6 +14,7 @@ AddCommand::AddCommand(PaintScene *scene,Figure* item, QPointF LastPoint,QUndoCo
     myDiagramItem = item;
     scene->update();
     ++itemCount;
+    this->table= table;
     setText(QObject::tr("Add %1")
         .arg(createCommandString(LastPoint)));
 }
@@ -30,6 +32,7 @@ void AddCommand::undo()
     // remove figure from the vector
     myGraphicsScene->ItemsVec->pop_back();
     myGraphicsScene->update();
+    PaintTable::UpdateTable(table, *myGraphicsScene->ItemsVec);
 //    for (int i=0;i<v.size();i++){
 //        qDebug()<<v[i]->name<<"perimeter "<<v[i]->perimeter;
 //    }
@@ -42,6 +45,7 @@ void AddCommand::redo()
     myDiagramItem->setPos(initialPosition);
     myGraphicsScene->clearSelection();
     myGraphicsScene->update();
+    PaintTable::UpdateTable(table, *myGraphicsScene->ItemsVec);
 
 
 }
@@ -51,13 +55,14 @@ QString createCommandString( const QPointF &pos)
         .arg(pos.x()).arg(pos.y());
 }
 
-DeleteCommand::DeleteCommand(PaintScene *scene,Figure* item, QPointF LastPoint,QUndoCommand *parent)
+DeleteCommand::DeleteCommand(PaintScene *scene,Figure* item, QPointF LastPoint,QTableWidget* table,QUndoCommand *parent)
     : QUndoCommand(parent)
 {
     static int itemCount = 0;
 
     myGraphicsScene = scene;
     myDiagramItem = item;
+    this->table= table;
     scene->update();
     ++itemCount;
     setText(QObject::tr("Add %1")
@@ -78,6 +83,7 @@ void DeleteCommand::undo()
         myDiagramItem->setPos(initialPosition);
         myGraphicsScene->clearSelection();
         myGraphicsScene->update();
+        PaintTable::UpdateTable(table, *myGraphicsScene->ItemsVec);
 }
 
 void DeleteCommand::redo()
@@ -86,6 +92,7 @@ void DeleteCommand::redo()
     // remove figure from the vector
     myGraphicsScene->ItemsVec->remove(myGraphicsScene->ItemsVec->indexOf(myDiagramItem));
     myGraphicsScene->update();
+    PaintTable::UpdateTable(table, *myGraphicsScene->ItemsVec);
 //    for (int i=0;i<ItemsVec->size();i++){
 //       qDebug()<<(*ItemsVec)[i]->name;
 //    }

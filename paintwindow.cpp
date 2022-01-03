@@ -7,6 +7,7 @@
 #include <QPropertyAnimation>
 #include <QDebug>
 #include <QSequentialAnimationGroup>
+#include "painttable.h"
 
 PaintWindow::PaintWindow(QWidget *parent) :
     QMainWindow(parent, Qt::FramelessWindowHint | Qt::WindowSystemMenuHint),
@@ -14,7 +15,7 @@ PaintWindow::PaintWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_TranslucentBackground);
-    scene = new PaintScene(ui->graphicsView);
+    scene = new PaintScene(ui->graphicsView,ui->DataTable);
     ui->graphicsView->setScene(scene);
     ui->graphicsView->setRenderHint(QPainter::Antialiasing);
     ui->graphicsView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -221,6 +222,33 @@ void PaintWindow::on_searchBar_returnPressed()
 void PaintWindow::open(QString path)
 {
     json_utilities *jsonSaveObject;
-    jsonSaveObject->open(scene, path);
+    jsonSaveObject->open(scene,ui->DataTable,path);
 
 }
+
+
+
+void PaintWindow::on_DataTable_cellChanged(int row, int column)
+{
+    if (column!= 0)
+        return;
+
+    (*scene->ItemsVec)[row]->name = ui->DataTable->item(row,column)->text();
+
+}
+
+
+void PaintWindow::on_SortASBtn_clicked()
+{
+    PaintTable::SortAVec(scene->ItemsVec);
+    PaintTable::UpdateTable(ui->DataTable,*scene->ItemsVec);
+}
+
+
+void PaintWindow::on_SortDSBtn_clicked()
+{
+    PaintTable::SortDVec(scene->ItemsVec);
+    PaintTable::UpdateTable(ui->DataTable,*scene->ItemsVec);
+}
+
+

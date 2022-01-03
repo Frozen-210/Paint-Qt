@@ -21,7 +21,7 @@ class json_utilities
 public:
     json_utilities();
     void save(PaintScene *scene, QString path);
-    void open(PaintScene *scene, QString path);
+    void open(PaintScene *scene,QTableWidget* table, QString path);
     void savePNG(PaintScene *scene, QString path);
 
 
