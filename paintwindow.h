@@ -60,6 +60,9 @@ private slots:
 
 
 
+
+    void on_DataTable_cellClicked(int row, int column);
+
 protected:
     void mouseMoveEvent(QMouseEvent* event);
     void mousePressEvent(QMouseEvent* event);

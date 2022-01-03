@@ -75,6 +75,8 @@ PaintWindow::PaintWindow(QWidget *parent) :
     // sets placeholder text to the search bar
     ui->searchBar->setPlaceholderText("Search");
 
+
+
 }
 
 
@@ -145,12 +147,11 @@ void PaintWindow::on_saveBtn_clicked()
                 tr("Save As"), "",
                 tr("JSON (*.json);;PNG (*.png );; All Files (*)"),&selectedFilter);
 
-    json_utilities *jsonSaveObject;
     if (selectedFilter == "JSON (*.json)") {
-        jsonSaveObject->save(scene, fileName);
+        json_utilities::save(scene, fileName);
     }
     else if (selectedFilter == "PNG (*.png )") {
-        jsonSaveObject->savePNG(scene, fileName);
+        json_utilities::savePNG(scene, fileName);
     }
 }
 
@@ -229,6 +230,8 @@ void PaintWindow::on_searchBar_returnPressed()
 
         // Get index of element from iterator
         ui->DataTable->selectRow(index);
+        Figure* item= (*scene->ItemsVec)[index];
+        PaintTable::UpdateInfoTable(ui->InfoTable,item);
     }
     else
         ui->DataTable->clearSelection();
@@ -238,8 +241,7 @@ void PaintWindow::on_searchBar_returnPressed()
 
 void PaintWindow::open(QString path)
 {
-    json_utilities *jsonSaveObject;
-    jsonSaveObject->open(scene,ui->DataTable,path);
+    json_utilities::open(scene,ui->DataTable,path);
 }
 
 
@@ -290,3 +292,14 @@ void PaintWindow::mouseReleaseEvent(QMouseEvent *event)
         mMoving = false;
     }
 }
+
+void PaintWindow::on_DataTable_cellClicked(int row, int column)
+{
+    Figure* item= (*scene->ItemsVec)[row];
+    PaintTable::UpdateInfoTable(ui->InfoTable,item);
+    Q_UNUSED(column)
+}
+
+
+
+
