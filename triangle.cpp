@@ -4,13 +4,17 @@
 Triangle::Triangle(QPointF point,QColor color,int LineWeight, QObject *parent) :
     Figure(point,parent)
 {
+    /*
+     *  Setting the color and Line weight and then make the name
+     *  Accoding to a counter to the class shapes (tCount)
+     *  Then Set the perimeter to the sum of the triangle sides
+     */
     Q_UNUSED(point)
     shapeColor=color;
     this->LineWeight=LineWeight;
     this->name=QString("Triangle %1").arg(tCount);
     tCount++;
     this->perimeter=side1+side2+side3;
-
 }
 
 Triangle::~Triangle()
@@ -22,7 +26,7 @@ void Triangle::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, 
 {
     painter->setPen(QPen(shapeColor, LineWeight));
     QPolygonF polygon;
-    shapeName = "Triangle";
+    shapeTypeName = "Triangle";
 
 
 

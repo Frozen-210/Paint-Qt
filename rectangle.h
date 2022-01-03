@@ -1,18 +1,18 @@
-#ifndef SQUARE_H
-#define SQUARE_H
+#ifndef RECTANGLE_H
+#define RECTANGLE_H
 
 #include <QObject>
 #include <QGraphicsItem>
 #include "figure.h"
 #include "paintscene.h"
 
-class Square : public Figure
+class Rectangle : public Figure
 {
     Q_OBJECT
 
 public:
-    explicit Square(QPointF point,QColor color,int LineWeight, QObject *parent = 0);
-    ~Square();
+    explicit Rectangle(QPointF point,QColor color,int LineWeight, QObject *parent = 0);
+    ~Rectangle();
 
 private:
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
@@ -20,4 +20,4 @@ private:
     float sideLen;
 };
 
-#endif // SQUARE_H
+#endif // RECTANGLE_H

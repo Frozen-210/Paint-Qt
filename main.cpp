@@ -1,18 +1,16 @@
 #include "mainwindow.h"
 #include <QApplication>
 #include "welcomewindow.h"
-#include "paintwindow.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-//    MainWindow w;
-//    w.show();
+
+    /*
+     * Initializing a welcome window and open it.
+     */
     WelcomeWindow ww;
     ww.show();
-
-//    PaintWindow p;
-//    p.show();
 
     return a.exec();
 }

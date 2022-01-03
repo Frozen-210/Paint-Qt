@@ -5,7 +5,7 @@
 #include <QGraphicsSceneMouseEvent>
 #include "figure.h"
 #include<QUndoStack>
-#include"square.h"
+#include"rectangle.h"
 #include <QGraphicsView>
 #include <QTableWidget>
 
@@ -30,8 +30,8 @@ public:
     void setTypeFigure(const int type);
 
     enum FigureTypes {
-        SquareType,
-        RombType,
+        RectangleType,
+        CircleType,
         TriangleType,
         LineType,
         EraserType

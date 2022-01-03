@@ -59,8 +59,15 @@ private slots:
     void on_SortDSBtn_clicked();
 
 
+
+protected:
+    void mouseMoveEvent(QMouseEvent* event);
+    void mousePressEvent(QMouseEvent* event);
+    void mouseReleaseEvent(QMouseEvent* event);
 private:
     Ui::PaintWindow *ui;
+    QPoint mLastMousePosition;
+    bool mMoving;
 };
 
 #endif // PAINTWINDOW_H

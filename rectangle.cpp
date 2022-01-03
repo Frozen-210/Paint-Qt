@@ -1,11 +1,15 @@
-#include "square.h"
+#include "rectangle.h"
 #include <QPainter>
 #include<QUndoCommand>
 #include "commands.h"
 
-Square::Square(QPointF point,QColor color,int LineWeight, QObject *parent) :
+Rectangle::Rectangle(QPointF point,QColor color,int LineWeight, QObject *parent) :
     Figure(point,parent)
 {
+    /*
+     *  Setting the color and Line weight and then make the name
+     *  Accoding to a counter to the class shapes (rCount)
+     */
     Q_UNUSED(point)
     shapeColor=color;
     this->LineWeight=LineWeight;
@@ -15,15 +19,15 @@ Square::Square(QPointF point,QColor color,int LineWeight, QObject *parent) :
 
 
 
-Square::~Square()
+Rectangle::~Rectangle()
 {
 
 }
 
-void Square::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void Rectangle::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     painter->setPen(QPen(shapeColor, LineWeight));
-    shapeName = "Rectangle";
+    shapeTypeName = "Rectangle";
 
 
     QRectF rect(endPoint().x() > startPoint().x() ? startPoint().x() : endPoint().x(),

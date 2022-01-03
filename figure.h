@@ -5,10 +5,7 @@
 #include <QGraphicsItem>
 #include <QDebug>
 #include<QColor>
-static int lCount=1;
-static int rCount=1;
-static int cCount=1;
-static int tCount=1;
+
 
 
 class Figure : public QObject, public QGraphicsItem
@@ -34,7 +31,12 @@ public:
     QString name;
     QColor shapeColor;
     int LineWeight;
-    QString shapeName;
+    QString shapeTypeName;
+
+    static int lCount;
+    static int rCount;
+    static int cCount;
+    static int tCount;
 
 
 signals:
@@ -50,7 +52,7 @@ private:
 
 
 public slots:
-    void updateRomb();
+    void updateCircle();
 };
 
 #endif // FIGURE_H
