@@ -284,4 +284,30 @@ void PaintWindow::on_SortDSBtn_clicked()
     PaintTable::UpdateTable(ui->DataTable,*scene->ItemsVec);
 }
 
+void PaintWindow::mouseMoveEvent(QMouseEvent *event)
+{
+    if( event->buttons().testFlag(Qt::LeftButton) && mMoving)
+        {
+            this->move(this->pos() + (event->pos() - mLastMousePosition));
+        }
+}
+
+void PaintWindow::mousePressEvent(QMouseEvent *event)
+{
+    if(event->button() == Qt::LeftButton)
+        {
+            mMoving = true;
+            mLastMousePosition = event->pos();
+    }
+}
+
+void PaintWindow::mouseReleaseEvent(QMouseEvent *event)
+{
+    if(event->button() == Qt::LeftButton)
+        {
+            mMoving = false;
+        }
+}
+
+
 
