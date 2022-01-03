@@ -180,7 +180,35 @@ void PaintWindow::on_verticalSlider_sliderMoved(int position)
  * the one above is the actual method.at least it will be.*/
 void PaintWindow::on_tableBtn_clicked()
 {
-    qDebug() << "under construction.";
+    QPropertyAnimation *animTable = new QPropertyAnimation(ui->DataTable, "geometry");
+    QPropertyAnimation *animBtnA = new QPropertyAnimation(ui->SortASBtn , "geometry");
+    QPropertyAnimation *animBtnD = new QPropertyAnimation(ui->SortDSBtn, "geometry");
+    animBtnA->setDuration(400);
+    animBtnD->setDuration(400);
+    animTable->setDuration(400);
+    animTable->setStartValue(ui->DataTable->geometry());
+    animBtnA->setStartValue(ui->SortASBtn->geometry());
+    animBtnD->setStartValue(ui->SortDSBtn->geometry());
+
+    if(ui->DataTable->geometry() == QRect(1150,100,329,651)){ // Check table Pos
+
+        animTable->setEndValue(QRect(800,100,329,651));
+        animBtnA->setEndValue(QRect(800,760,160,29));
+        animBtnD->setEndValue(QRect(968,760,160,29));
+
+}
+    else{
+        animTable->setEndValue(QRect(1150,100,329,651));
+        animBtnA->setEndValue(QRect(1150,760,160,29));
+        animBtnD->setEndValue(QRect(1318,760,160,29));
+
+    }
+
+
+
+  animTable->start();
+  animBtnA->start();
+  animBtnD->start();
 }
 
 //Method for eraser button, the main idea is that it deletes the shape you're clicking.
@@ -196,24 +224,29 @@ void PaintWindow::on_ersr_Btn_clicked()
 //function for when the user clicks enter while on the search bar.
 void PaintWindow::on_searchBar_returnPressed()
 {
+
+
+
     //get the text from the search bar and place it into a string.
        QString srchTxt = ui->searchBar->text();
-       qDebug()<<"Searching for : "<<srchTxt;
+
        //then we copy the Figure vector into a temporary vector,
        QVector<Figure*> *TempVec = scene->ItemsVec;
        /*then we search that vector trying to find a match for (srchTxt), hopefully we can!
         complextity of find_if= N applications where N = std::distance(first, last). */
-           auto it = std::find_if(TempVec->begin(), TempVec->end(), [=] (Figure* const& element) {
-               return (element->name == srchTxt);
+       auto it = std::find_if(TempVec->begin(), TempVec->end(), [=] (Figure* const& element) {
+         return (element->name == srchTxt);
                });
-           bool found = (it != TempVec->end());
-           if(found==true){
-               //code for when the item is found
-              qDebug()<<"Item is here";
-           }else     {
-               //code for when the item is not found.
-               qDebug()<<"Item is not here";
-           }
+        bool found = (it != TempVec->end());
+
+         if(found==true){
+         int index = std::distance(TempVec->begin(), it);   // Get index of element from iterator
+          ui->DataTable->selectRow(index);
+             }
+            else
+        ui->DataTable->clearSelection();
+
+
 }
 
 
