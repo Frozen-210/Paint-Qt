@@ -94,7 +94,7 @@ void PaintWindow::on_triangleBtn_clicked()
 
 void PaintWindow::on_rectangleBtn_clicked()
 {
-    scene->setTypeFigure(PaintScene::SquareType);
+    scene->setTypeFigure(PaintScene::RectangleType);
 }
 
 
@@ -106,7 +106,7 @@ void PaintWindow::on_lineBtn_clicked()
 
 void PaintWindow::on_circleBtn_clicked()
 {
-    scene->setTypeFigure(PaintScene::RombType);
+    scene->setTypeFigure(PaintScene::CircleType);
 }
 
 

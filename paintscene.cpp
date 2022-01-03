@@ -1,7 +1,7 @@
 #include "paintscene.h"
-#include "romb.h"
+#include "circle.h"
 #include "triangle.h"
-#include "square.h"
+#include "rectangle.h"
 #include"line.h"
 #include "commands.h"
 #include <QVector>
@@ -85,9 +85,9 @@ void PaintScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 void PaintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     switch (m_typeFigure) {
-    case SquareType: {
+    case RectangleType: {
         startPoint = event->scenePos();
-        Square *item = new Square(startPoint,paintingColor,LineWeight);
+        Rectangle *item = new Rectangle(startPoint,paintingColor,LineWeight);
         EndPoint = event->pos();
         item->setPos(EndPoint);
         tempFigure = item;
@@ -95,9 +95,9 @@ void PaintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
 
         break;
     }
-    case RombType: {
+    case CircleType: {
       startPoint = event->scenePos();
-      Romb *item = new Romb(startPoint,paintingColor,LineWeight);
+      Circle *item = new Circle(startPoint,paintingColor,LineWeight);
       EndPoint = event->pos();
       item->setPos(event->pos());
       tempFigure = item;
@@ -138,7 +138,7 @@ void PaintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
         break;
     }
     default:{
-        Square *item = new Square(event->scenePos(),paintingColor,LineWeight);
+        Rectangle *item = new Rectangle(event->scenePos(),paintingColor,LineWeight);
         item->setPos(event->pos());
         tempFigure = item;
         this->addItem(tempFigure);

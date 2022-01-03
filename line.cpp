@@ -9,7 +9,6 @@ Line::Line(QPointF point,QColor color,int LineWeight, QObject *parent) :
     this->LineWeight=LineWeight;
     this->name=QString("Line %1").arg(lCount);
     lCount++;
-
 }
 
 

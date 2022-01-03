@@ -1,8 +1,8 @@
-#include "romb.h"
+#include "circle.h"
 #include <QPainter>
 #include <QtMath>
 
-Romb::Romb(QPointF point,QColor color,int LineWeight, QObject *parent) :
+Circle::Circle(QPointF point,QColor color,int LineWeight, QObject *parent) :
     Figure(point,parent)
 {
     Q_UNUSED(point)
@@ -14,13 +14,13 @@ Romb::Romb(QPointF point,QColor color,int LineWeight, QObject *parent) :
 }
 
 
-Romb::~Romb()
+Circle::~Circle()
 {
 
 }
 
 
-void Romb::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void Circle::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
 
     painter->setPen(QPen(shapeColor, LineWeight));

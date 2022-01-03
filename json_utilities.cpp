@@ -2,9 +2,9 @@
 #include <QJsonArray>
 #include <QStack>
 #include"figure.h"
-#include "square.h"
+#include "rectangle.h"
 #include "commands.h"
-#include"romb.h"
+#include"circle.h"
 #include"line.h"
 #include"triangle.h"
 #include "painttable.h"
@@ -100,13 +100,13 @@ void json_utilities::open(PaintScene *scene,QTableWidget* table, QString path)
         QString _ST = val5.toString();
 
         if(_ST=="Rectangle"){
-        Figure *item = new Square(firstPoint,color,LW);
+        Figure *item = new Rectangle(firstPoint,color,LW);
         item->setPos(firstPoint);
         item->setEndPoint(endPoint,false);
         QUndoCommand *addCommand = new AddCommand(scene,item,firstPoint,table);
         scene->undoStack->push(addCommand);}
         else if(_ST=="Circle"){
-            Figure *item = new Romb(firstPoint,color,LW);
+            Figure *item = new Circle(firstPoint,color,LW);
             item->setPos(firstPoint);
             item->setEndPoint(endPoint,false);
             QUndoCommand *addCommand = new AddCommand(scene,item,firstPoint,table);

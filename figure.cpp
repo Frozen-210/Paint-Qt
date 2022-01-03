@@ -1,6 +1,11 @@
 #include "figure.h"
 #include <QPainter>
 
+int Figure::rCount = 1;
+int Figure::cCount = 1;
+int Figure::lCount = 1;
+int Figure::tCount = 1;
+
 Figure::Figure(QPointF point, QObject *parent) :
     QObject(parent), QGraphicsItem()
 {
