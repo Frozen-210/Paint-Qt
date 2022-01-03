@@ -31,7 +31,7 @@ public:
     QString name;
     QColor shapeColor;
     int LineWeight;
-    QString shapeName;
+    QString shapeTypeName;
 
     static int lCount;
     static int rCount;
@@ -52,7 +52,7 @@ private:
 
 
 public slots:
-    void updateRomb();
+    void updateCircle();
 };
 
 #endif // FIGURE_H

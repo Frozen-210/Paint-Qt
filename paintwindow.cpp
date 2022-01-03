@@ -30,41 +30,42 @@ PaintWindow::PaintWindow(QWidget *parent) :
     QString upperBtnStyleSheet="QPushButton {"
                    "background-color: #f9f9f9;"
                    "color: black;"
-                    "font-family: Montserrat;"
+                   "font-family: Montserrat;"
                    "border-radius: 20px;"
-                 "}"
-                 "QPushButton:hover{"
-                     "background-color: #e0e0e0;"
-                 "}"
-                 "QPushButton:focus{"
-                 "background-color: black;"
-                 "color: white;"
-                 "}";
+                   "}"
+                   "QPushButton:hover{"
+                   "background-color: #e0e0e0;"
+                   "}"
+                   "QPushButton:focus{"
+                   "background-color: black;"
+                   "color: white;"
+                   "}";
+
 
     // Styling of the side buttons
     QString sideBtnStyleSheet="QPushButton {"
                    "color: #a5aeaf;"
                    "border-radius: 10px;"
                    "text-align: left;"
-                "}"
-                "QPushButton:hover{"
-                     "color: #6f6f6f;"
-                "}"
-                "QPushButton:pressed{"
-                     "color: #000;"
-                     ""
-                "}";
+                   "}"
+                   "QPushButton:hover{"
+                   "color: #6f6f6f;"
+                   "}"
+                   "QPushButton:pressed{"
+                   "color: #000;"
+                   ""
+                   "}";
 
 
 
-    // assigning the stylesheet to the upper buttons
+    // Assigning the stylesheet to the upper buttons
     ui->rectangleBtn->setStyleSheet(upperBtnStyleSheet);
     ui->lineBtn->setStyleSheet(upperBtnStyleSheet);
     ui->triangleBtn->setStyleSheet(upperBtnStyleSheet);
     ui->circleBtn->setStyleSheet(upperBtnStyleSheet);
     ui->ersr_Btn->setStyleSheet(upperBtnStyleSheet);
 
-    // assigning the stylesheet to the side buttons
+    // Assigning the stylesheet to the side buttons
     ui->colorBtn->setStyleSheet(sideBtnStyleSheet);
     ui->redoBtn->setStyleSheet(sideBtnStyleSheet);
     ui->undoBtn->setStyleSheet(sideBtnStyleSheet);
@@ -76,16 +77,21 @@ PaintWindow::PaintWindow(QWidget *parent) :
 
 }
 
+
 PaintWindow::~PaintWindow()
 {
     delete ui;
 }
+
 void PaintWindow::slotTimer()
 {
-
     timer->stop();
     scene->setSceneRect(0,0, ui->graphicsView->width() - 20, ui->graphicsView->height() - 20);
 }
+
+/*
+ * Paint Window Buttons Clicked Functions
+ */
 void PaintWindow::on_triangleBtn_clicked()
 {
     scene->setTypeFigure(PaintScene::TriangleType);
@@ -133,30 +139,20 @@ void PaintWindow::on_colorBtn_clicked()
 
 void PaintWindow::on_saveBtn_clicked()
 {
-    //QString fileName = QFileDialog::getSaveFileName(this,
-      //      tr("Save As"), "",
-        //    tr("JSON (*.json);; All Files (*)"));
-
-
     QString selectedFilter;
     QString fileName = QFileDialog::getSaveFileName(
                 this,
                 tr("Save As"), "",
                 tr("JSON (*.json);;PNG (*.png );; All Files (*)"),&selectedFilter);
-    json_utilities *jsonSaveObject;
 
+    json_utilities *jsonSaveObject;
     if (selectedFilter == "JSON (*.json)") {
-      jsonSaveObject->save(scene, fileName);
+        jsonSaveObject->save(scene, fileName);
     }
     else if (selectedFilter == "PNG (*.png )") {
         jsonSaveObject->savePNG(scene, fileName);
-     }
-
-
+    }
 }
-
-
-
 
 
 void PaintWindow::on_verticalSlider_sliderMoved(int position)
@@ -196,17 +192,12 @@ void PaintWindow::on_tableBtn_clicked()
         animTable->setEndValue(QRect(800,100,329,651));
         animBtnA->setEndValue(QRect(800,760,160,29));
         animBtnD->setEndValue(QRect(968,760,160,29));
-
-}
+    }
     else{
         animTable->setEndValue(QRect(1150,100,329,651));
         animBtnA->setEndValue(QRect(1150,760,160,29));
         animBtnD->setEndValue(QRect(1318,760,160,29));
-
     }
-
-
-
   animTable->start();
   animBtnA->start();
   animBtnD->start();
@@ -215,39 +206,37 @@ void PaintWindow::on_tableBtn_clicked()
 //Method for eraser button, the main idea is that it deletes the shape you're clicking.
 void PaintWindow::on_ersr_Btn_clicked()
 {
-    //debug message, I swear i use the debugger, i just like it when text shows up after i click a button.
-    qDebug()<<"Eraser selected";
-    /*we set the type figure as Erasertype, which is just a marker, so when the mouse is clicked, (i.e, mousePressEvent() runs)
-    the switch statment for type figure will run the code under the */
     scene->setTypeFigure(PaintScene::EraserType);
 }
 
-//function for when the user clicks enter while on the search bar.
+
+// Function for when the user clicks enter while on the search bar.
 void PaintWindow::on_searchBar_returnPressed()
 {
-
-
-
     //get the text from the search bar and place it into a string.
-       QString srchTxt = ui->searchBar->text();
+    QString srchTxt = ui->searchBar->text();
 
-       //then we copy the Figure vector into a temporary vector,
-       QVector<Figure*> *TempVec = scene->ItemsVec;
-       /*then we search that vector trying to find a match for (srchTxt), hopefully we can!
-        complextity of find_if= N applications where N = std::distance(first, last). */
-       auto it = std::find_if(TempVec->begin(), TempVec->end(), [=] (Figure* const& element) {
-         return (element->name == srchTxt);
-               });
-        bool found = (it != TempVec->end());
+    //then we copy the Figure vector into a temporary vector,
+    QVector<Figure*> *TempVec = scene->ItemsVec;
 
-         if(found==true){
-         int index = std::distance(TempVec->begin(), it);   // Get index of element from iterator
-          ui->DataTable->selectRow(index);
-             }
-            else
+    /*
+     * Then we search that vector trying to find a match for (srchTxt), hopefully we can!
+     * complextity of find_if= N applications where N = std::distance(first, last).
+    */
+    auto it = std::find_if(TempVec->begin(), TempVec->end(), [=] (Figure* const& element) {
+        return (element->name == srchTxt);
+    });
+
+    bool found = (it != TempVec->end());
+
+    if(found==true){
+        int index = std::distance(TempVec->begin(), it);
+
+        // Get index of element from iterator
+        ui->DataTable->selectRow(index);
+    }
+    else
         ui->DataTable->clearSelection();
-
-
 }
 
 
@@ -256,9 +245,7 @@ void PaintWindow::open(QString path)
 {
     json_utilities *jsonSaveObject;
     jsonSaveObject->open(scene,ui->DataTable,path);
-
 }
-
 
 
 void PaintWindow::on_DataTable_cellChanged(int row, int column)
@@ -284,30 +271,27 @@ void PaintWindow::on_SortDSBtn_clicked()
     PaintTable::UpdateTable(ui->DataTable,*scene->ItemsVec);
 }
 
+
 void PaintWindow::mouseMoveEvent(QMouseEvent *event)
 {
-    if( event->buttons().testFlag(Qt::LeftButton) && mMoving)
-        {
-            this->move(this->pos() + (event->pos() - mLastMousePosition));
-        }
-}
-
-void PaintWindow::mousePressEvent(QMouseEvent *event)
-{
-    if(event->button() == Qt::LeftButton)
-        {
-            mMoving = true;
-            mLastMousePosition = event->pos();
+    if( event->buttons().testFlag(Qt::LeftButton) && mMoving){
+        this->move(this->pos() + (event->pos() - mLastMousePosition));
     }
 }
 
-void PaintWindow::mouseReleaseEvent(QMouseEvent *event)
+
+void PaintWindow::mousePressEvent(QMouseEvent *event)
 {
-    if(event->button() == Qt::LeftButton)
-        {
-            mMoving = false;
-        }
+    if(event->button() == Qt::LeftButton){
+        mMoving = true;
+        mLastMousePosition = event->pos();
+    }
 }
 
 
-
+void PaintWindow::mouseReleaseEvent(QMouseEvent *event)
+{
+    if(event->button() == Qt::LeftButton){
+        mMoving = false;
+    }
+}
