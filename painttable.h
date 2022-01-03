@@ -13,7 +13,6 @@ public:
     static void SortAVec(QVector<Figure*>* ItemVec);
 
 
-
 private:
     static bool compareAs(const Figure* first, const Figure* second);
     static bool compareDs(const Figure* first, const Figure* second);

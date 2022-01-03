@@ -6,6 +6,7 @@ Figure::Figure(QPointF point, QObject *parent) :
 {
     this->setStartPoint(mapFromScene(point));
     this->setEndPoint(mapFromScene(point));
+    setFlag(QGraphicsItem::ItemIsSelectable);
 
     connect(this, &Figure::pointChanged, this, &Figure::updateRomb);
 }

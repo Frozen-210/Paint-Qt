@@ -51,6 +51,14 @@ private slots:
 
     void on_searchBar_returnPressed();
 
+
+    void on_DataTable_cellChanged(int row, int column);
+
+    void on_SortASBtn_clicked();
+
+    void on_SortDSBtn_clicked();
+
+
 private:
     Ui::PaintWindow *ui;
 };

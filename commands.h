@@ -5,12 +5,13 @@
 #include "figure.h"
 #include "paintscene.h"
 #include "square.h"
+#include <QTableWidget>
 
 class AddCommand : public QUndoCommand
 {
 public:
     AddCommand(PaintScene *graphicsScene,
-               Figure* item,QPointF LastPoint,QUndoCommand *parent = 0);
+               Figure* item,QPointF LastPoint,QTableWidget* table,QUndoCommand *parent = 0);
 
     ~AddCommand();
 
@@ -21,6 +22,7 @@ private:
     Figure *myDiagramItem;
     PaintScene *myGraphicsScene;
     QPointF initialPosition;
+    QTableWidget* table;
 };
  QString createCommandString( const QPointF &point);
 
@@ -29,7 +31,7 @@ private:
  {
  public:
      DeleteCommand(PaintScene *graphicsScene,
-                Figure* item,QPointF LastPoint,QUndoCommand *parent = 0);
+                Figure* item,QPointF LastPoint,QTableWidget* table,QUndoCommand *parent = 0);
 
      ~DeleteCommand();
 
@@ -40,6 +42,7 @@ private:
      Figure *myDiagramItem;
      PaintScene *myGraphicsScene;
      QPointF initialPosition;
+     QTableWidget* table;
  };
   QString createCommandString( const QPointF &point);
 

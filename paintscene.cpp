@@ -10,7 +10,7 @@
 #include <QGraphicsScene>
 #include <QGraphicsView>
 
-PaintScene::PaintScene(QGraphicsView *view, QObject *parent) : QGraphicsScene(parent)
+PaintScene::PaintScene(QGraphicsView *view,QTableWidget* table, QObject *parent) : QGraphicsScene(parent)
 {
     this->view=view;
     undoStack = new QUndoStack(this);
@@ -18,6 +18,7 @@ PaintScene::PaintScene(QGraphicsView *view, QObject *parent) : QGraphicsScene(pa
     LineWeight=1;
     ItemsVec=new QVector<Figure*>();
     selectingItem=false;
+    this->table = table;
 }
 
 PaintScene::~PaintScene()
@@ -66,12 +67,12 @@ void PaintScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
         EndPoint=event->scenePos();
         tempFigure->setEndPoint(EndPoint);
         this->update();
-       QUndoCommand *addCommand = new AddCommand(this,tempFigure,startPoint);
+       QUndoCommand *addCommand = new AddCommand(this,tempFigure,startPoint,table);
        undoStack->push(addCommand);}
     else{
         if(selectingItem){
         //we add the command for the deletion to the undo stack.
-        QUndoCommand *deleteCommand = new DeleteCommand(this,tempFigure,startPoint);
+        QUndoCommand *deleteCommand = new DeleteCommand(this,tempFigure,startPoint,table);
         undoStack->push(deleteCommand);
         selectingItem=false;
         }

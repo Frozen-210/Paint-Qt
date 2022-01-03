@@ -7,6 +7,7 @@
 #include"romb.h"
 #include"line.h"
 #include"triangle.h"
+#include "painttable.h"
 
 void json_utilities::save(PaintScene *scene, QString path)
 {
@@ -57,7 +58,7 @@ void json_utilities:: savePNG(PaintScene *scene, QString path){
 
 
 
-void json_utilities::open(PaintScene *scene, QString path)
+void json_utilities::open(PaintScene *scene,QTableWidget* table, QString path)
 {
     QFile jsonFile(path);
     QString json_string;
@@ -102,27 +103,27 @@ void json_utilities::open(PaintScene *scene, QString path)
         Figure *item = new Square(firstPoint,color,LW);
         item->setPos(firstPoint);
         item->setEndPoint(endPoint,false);
-        QUndoCommand *addCommand = new AddCommand(scene,item,firstPoint);
+        QUndoCommand *addCommand = new AddCommand(scene,item,firstPoint,table);
         scene->undoStack->push(addCommand);}
         else if(_ST=="Circle"){
             Figure *item = new Romb(firstPoint,color,LW);
             item->setPos(firstPoint);
             item->setEndPoint(endPoint,false);
-            QUndoCommand *addCommand = new AddCommand(scene,item,firstPoint);
+            QUndoCommand *addCommand = new AddCommand(scene,item,firstPoint,table);
             scene->undoStack->push(addCommand);
         }
         else if(_ST=="Line"){
             Figure *item = new Line(firstPoint,color,LW);
             item->setPos(firstPoint);
             item->setEndPoint(endPoint,false);
-            QUndoCommand *addCommand = new AddCommand(scene,item,firstPoint);
+            QUndoCommand *addCommand = new AddCommand(scene,item,firstPoint,table);
             scene->undoStack->push(addCommand);
         }
         else if(_ST=="Triangle"){
             Figure *item = new Triangle(firstPoint,color,LW);
             item->setPos(firstPoint);
             item->setEndPoint(endPoint,false);
-            QUndoCommand *addCommand = new AddCommand(scene,item,firstPoint);
+            QUndoCommand *addCommand = new AddCommand(scene,item,firstPoint,table);
             scene->undoStack->push(addCommand);
         }
 
