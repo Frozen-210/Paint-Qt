@@ -19,8 +19,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>1141</width>
-      <height>861</height>
+      <width>1261</width>
+      <height>851</height>
      </rect>
     </property>
     <property name="font">
@@ -449,7 +449,19 @@ font: 19pt &quot;IROicons&quot;;</string>
      <cursorShape>ClosedHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(0, 0, 0);</string>
+     <string notr="true">
+
+.QSlider::groove:vertical {
+    border: 1px solid #262626;
+    width: 3px;
+	background: #000000;
+}
+
+.QSlider::handle:vertical {
+	background:#000000;
+    height: 8px;
+    margin: 0px -5px;
+}</string>
     </property>
     <property name="minimum">
      <number>1</number>
@@ -643,20 +655,33 @@ font: 22pt &quot;IROicons&quot;;</string>
     <property name="text">
      <string>e</string>
     </property>
+<<<<<<< HEAD
     <property name="shortcut">
      <string>Ctrl+S</string>
     </property>
     <property name="flat">
+=======
+   </widget>
+   <widget class="QTableWidget" name="DataTable">
+    <property name="enabled">
+>>>>>>> 7aa0f710cba3bd9bc06d77a19d9c1226996df633
      <bool>true</bool>
     </property>
    </widget>
    <widget class="QGroupBox" name="menuBox">
     <property name="geometry">
      <rect>
+<<<<<<< HEAD
       <x>0</x>
       <y>-81</y>
       <width>91</width>
       <height>71</height>
+=======
+      <x>1140</x>
+      <y>150</y>
+      <width>329</width>
+      <height>451</height>
+>>>>>>> 7aa0f710cba3bd9bc06d77a19d9c1226996df633
      </rect>
     </property>
     <property name="font">
@@ -665,9 +690,19 @@ font: 22pt &quot;IROicons&quot;;</string>
       <pointsize>6</pointsize>
      </font>
     </property>
+<<<<<<< HEAD
     <property name="styleSheet">
      <string notr="true">border-radius: 15px;
 background-color: #fff;</string>
+=======
+    <property name="geometry">
+     <rect>
+      <x>1310</x>
+      <y>120</y>
+      <width>160</width>
+      <height>29</height>
+     </rect>
+>>>>>>> 7aa0f710cba3bd9bc06d77a19d9c1226996df633
     </property>
     <property name="title">
      <string/>
@@ -727,10 +762,17 @@ background-color: #fff;</string>
    <widget class="QPushButton" name="logoBtn">
     <property name="geometry">
      <rect>
+<<<<<<< HEAD
       <x>21</x>
       <y>20</y>
       <width>39</width>
       <height>38</height>
+=======
+      <x>1140</x>
+      <y>120</y>
+      <width>160</width>
+      <height>29</height>
+>>>>>>> 7aa0f710cba3bd9bc06d77a19d9c1226996df633
      </rect>
     </property>
     <property name="mouseTracking">
@@ -749,6 +791,22 @@ background-color: #fff;</string>
      <bool>true</bool>
     </property>
    </widget>
+<<<<<<< HEAD
+=======
+   <widget class="QTableWidget" name="InfoTable">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>1140</x>
+      <y>620</y>
+      <width>329</width>
+      <height>191</height>
+     </rect>
+    </property>
+   </widget>
+>>>>>>> 7aa0f710cba3bd9bc06d77a19d9c1226996df633
   </widget>
  </widget>
  <resources>

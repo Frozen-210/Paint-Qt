@@ -9,6 +9,7 @@ class PaintTable
 public:
     PaintTable();
     static void UpdateTable(QTableWidget* table, QVector<Figure*> ItemVec);
+    static void UpdateInfoTable(QTableWidget*table, Figure* item);
     static void SortDVec(QVector<Figure*>* ItemVec);
     static void SortAVec(QVector<Figure*>* ItemVec);
 
