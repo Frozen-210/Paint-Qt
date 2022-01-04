@@ -24,7 +24,6 @@ public:
 
 
 private slots:
-
     void slotTimer();
     void on_triangleBtn_clicked();
 
@@ -61,13 +60,6 @@ private slots:
 
 
 
-    void on_logoBtn_clicked();
-    void on_newMenNew_clicked();
-
-    void on_newMenOpen_clicked();
-
-    void on_newMenSave_clicked();
-
 protected:
     void mouseMoveEvent(QMouseEvent* event);
     void mousePressEvent(QMouseEvent* event);
@@ -76,9 +68,6 @@ private:
     Ui::PaintWindow *ui;
     QPoint mLastMousePosition;
     bool mMoving;
-    QString tableBtnStyleSheet;
-    QString sideBtnStyleSheet;
-    QString upperBtnStyleSheet;
 };
 
 #endif // PAINTWINDOW_H
