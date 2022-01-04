@@ -19,8 +19,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>1141</width>
-      <height>861</height>
+      <width>1261</width>
+      <height>851</height>
      </rect>
     </property>
     <property name="font">
@@ -422,7 +422,19 @@ font: 19pt &quot;IROicons&quot;;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(0, 0, 0);</string>
+     <string notr="true">
+
+.QSlider::groove:vertical {
+    border: 1px solid #262626;
+    width: 3px;
+	background: #000000;
+}
+
+.QSlider::handle:vertical {
+	background:#000000;
+    height: 8px;
+    margin: 0px -5px;
+}</string>
     </property>
     <property name="minimum">
      <number>1</number>
@@ -515,17 +527,16 @@ font: 11pt &quot;Montserrat&quot;;</string>
      <string>Eraser</string>
     </property>
    </widget>
-
    <widget class="QTableWidget" name="DataTable">
     <property name="enabled">
      <bool>true</bool>
     </property>
     <property name="geometry">
      <rect>
-      <x>1150</x>
-      <y>100</y>
+      <x>1140</x>
+      <y>150</y>
       <width>329</width>
-      <height>651</height>
+      <height>451</height>
      </rect>
     </property>
    </widget>
@@ -535,8 +546,8 @@ font: 11pt &quot;Montserrat&quot;;</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>1318</x>
-      <y>760</y>
+      <x>1310</x>
+      <y>120</y>
       <width>160</width>
       <height>29</height>
      </rect>
@@ -551,8 +562,8 @@ font: 11pt &quot;Montserrat&quot;;</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>1150</x>
-      <y>760</y>
+      <x>1140</x>
+      <y>120</y>
       <width>160</width>
       <height>29</height>
      </rect>
@@ -561,7 +572,19 @@ font: 11pt &quot;Montserrat&quot;;</string>
      <string>Sort Ascending</string>
     </property>
    </widget>
-
+   <widget class="QTableWidget" name="InfoTable">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>1140</x>
+      <y>620</y>
+      <width>329</width>
+      <height>191</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources>
