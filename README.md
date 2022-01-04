@@ -1,6 +1,6 @@
 # CMP2241_F21_Team01
-##IroPaint 
-Paint program that paints basic shapes:
+## IroPaint 
+Paint program that paints basic shapes: <p>
  » Rectangle Line Circle and triangle	
  
  ### Examples:
