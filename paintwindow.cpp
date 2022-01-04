@@ -8,10 +8,14 @@
 #include <QDebug>
 #include <QSequentialAnimationGroup>
 #include "painttable.h"
+#include <QFontDatabase>
+#include <QMessageBox>
+#include "welcomewindow.h"
 
 PaintWindow::PaintWindow(QWidget *parent) :
     QMainWindow(parent, Qt::FramelessWindowHint | Qt::WindowSystemMenuHint),
     ui(new Ui::PaintWindow)
+
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_TranslucentBackground);
@@ -20,6 +24,10 @@ PaintWindow::PaintWindow(QWidget *parent) :
     ui->graphicsView->setRenderHint(QPainter::Antialiasing);
     ui->graphicsView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     ui->graphicsView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    QFontDatabase::addApplicationFont(":/font/resources/IROicons.otf");
+    QFontDatabase::addApplicationFont(":/font/resources/Montserrat-Regular.ttf");
+    QFont montFont = QFont("Montserrat");
+
 
     timer = new QTimer();
     connect(timer, &QTimer::timeout, this, &PaintWindow::slotTimer);
@@ -27,7 +35,7 @@ PaintWindow::PaintWindow(QWidget *parent) :
 
 
     // Styling of the upper buttons
-    QString upperBtnStyleSheet="QPushButton {"
+    upperBtnStyleSheet="QPushButton {"
                    "background-color: #f9f9f9;"
                    "color: black;"
                    "font-family: Montserrat;"
@@ -43,7 +51,7 @@ PaintWindow::PaintWindow(QWidget *parent) :
 
 
     // Styling of the side buttons
-    QString sideBtnStyleSheet="QPushButton {"
+    sideBtnStyleSheet="QPushButton {"
                    "color: #a5aeaf;"
                    "border-radius: 10px;"
                    "text-align: left;"
@@ -57,13 +65,48 @@ PaintWindow::PaintWindow(QWidget *parent) :
                    "}";
 
 
+    // Styling of the table buttons
+    tableBtnStyleSheet = "QPushButton{"
+                                 "background-color: #f9f9f9;"
+                                 "color: black;"
+                                 "border-radius: 20px;"
+                                 "font: 11pt Montserrat;"
+                                 "}"
+                         "QPushButton:hover{"
+                                 "background-color: #e0e0e0;"
+                                 "}"
+                         "QPushButton:pressed{"
+                                  "background-color: black;"
+                                  "color: white;"
+                                  "}";
+    // Styling of the menu buttons
+    QString menuBtnStyleSheet="QPushButton {"
+                   "color: #a5aeaf;"
+                   "border-radius: 10px;"
+                   "}"
+                   "QPushButton:hover{"
+                   "color: #6f6f6f;"
+                   "}"
+                   "QPushButton:pressed{"
+                   "color: #000;"
+                   ""
+                   "}";
+
+    QString logoBtnStyleSheet = "QPushButton:pressed{"
+                                "opacity: 0;"
+                         "}";
+
 
     // Assigning the stylesheet to the upper buttons
     ui->rectangleBtn->setStyleSheet(upperBtnStyleSheet);
     ui->lineBtn->setStyleSheet(upperBtnStyleSheet);
     ui->triangleBtn->setStyleSheet(upperBtnStyleSheet);
     ui->circleBtn->setStyleSheet(upperBtnStyleSheet);
-    ui->ersr_Btn->setStyleSheet(upperBtnStyleSheet);
+
+    ui->closeBtn->setFont(QFont("IROicons",21));
+    ui->miniBtn->setFont(QFont("IROicons",21));
+
+
 
     // Assigning the stylesheet to the side buttons
     ui->colorBtn->setStyleSheet(sideBtnStyleSheet);
@@ -71,9 +114,30 @@ PaintWindow::PaintWindow(QWidget *parent) :
     ui->undoBtn->setStyleSheet(sideBtnStyleSheet);
     ui->saveBtn->setStyleSheet(sideBtnStyleSheet);
     ui->tableBtn->setStyleSheet(sideBtnStyleSheet);
+    ui->ersr_Btn->setStyleSheet(sideBtnStyleSheet);
+
+    // setting embedded font to the icons
+    ui->colorBtn->setFont(QFont("IROicons",20));
+    ui->redoBtn->setFont(QFont("IROicons",20));
+    ui->undoBtn->setFont(QFont("IROicons",18));
+    ui->saveBtn->setFont(QFont("IROicons",19));
+    ui->tableBtn->setFont(QFont("IROicons",28));
+    ui->ersr_Btn->setFont(QFont("IROicons",22));
+
 
     // sets placeholder text to the search bar
     ui->searchBar->setPlaceholderText("Search");
+
+    // assigning the stylesheet to the table buttons
+    ui->SortASBtn->setStyleSheet(tableBtnStyleSheet);
+    ui->SortDSBtn->setStyleSheet(tableBtnStyleSheet);
+
+    ui->searchIcon->setFont(QFont("IROicons",20));
+    ui->logoBtn->setStyleSheet(logoBtnStyleSheet);
+
+    ui->newMenNew->setStyleSheet(menuBtnStyleSheet);
+    ui->newMenOpen->setStyleSheet(menuBtnStyleSheet);
+    ui->newMenSave->setStyleSheet(menuBtnStyleSheet);
 
 }
 
@@ -177,30 +241,22 @@ void PaintWindow::on_verticalSlider_sliderMoved(int position)
  * the one above is the actual method.at least it will be.*/
 void PaintWindow::on_tableBtn_clicked()
 {
-    QPropertyAnimation *animTable = new QPropertyAnimation(ui->DataTable, "geometry");
-    QPropertyAnimation *animBtnA = new QPropertyAnimation(ui->SortASBtn , "geometry");
-    QPropertyAnimation *animBtnD = new QPropertyAnimation(ui->SortDSBtn, "geometry");
-    animBtnA->setDuration(400);
-    animBtnD->setDuration(400);
-    animTable->setDuration(400);
-    animTable->setStartValue(ui->DataTable->geometry());
-    animBtnA->setStartValue(ui->SortASBtn->geometry());
-    animBtnD->setStartValue(ui->SortDSBtn->geometry());
+    QPropertyAnimation *animCont = new QPropertyAnimation(ui->Gbox, "geometry");
 
-    if(ui->DataTable->geometry() == QRect(1150,100,329,651)){ // Check table Pos
+    QRect startPos = QRect(1150,170,329,591); // postion of the container hidden
+    QRect endPos = QRect(811,170,329,591);  // postion of the container shown
 
-        animTable->setEndValue(QRect(800,100,329,651));
-        animBtnA->setEndValue(QRect(800,760,160,29));
-        animBtnD->setEndValue(QRect(968,760,160,29));
+    animCont->setDuration(400);         // time of animation
+    animCont->setStartValue(ui->Gbox->geometry());
+
+    if(ui->Gbox->geometry() == startPos){ // Check table Pos
+
+        animCont->setEndValue(endPos);
     }
     else{
-        animTable->setEndValue(QRect(1150,100,329,651));
-        animBtnA->setEndValue(QRect(1150,760,160,29));
-        animBtnD->setEndValue(QRect(1318,760,160,29));
+        animCont->setEndValue(startPos);
     }
-  animTable->start();
-  animBtnA->start();
-  animBtnD->start();
+  animCont->start();
 }
 
 //Method for eraser button, the main idea is that it deletes the shape you're clicking.
@@ -295,3 +351,53 @@ void PaintWindow::mouseReleaseEvent(QMouseEvent *event)
         mMoving = false;
     }
 }
+
+void PaintWindow::on_logoBtn_clicked()
+{
+    QPropertyAnimation *animCont = new QPropertyAnimation(ui->menuBox, "geometry");
+
+    QRect startPos = QRect(-4,-85,91,81); // postion of the container hidden
+    QRect endPos = QRect(-4,70,100,81);  // postion of the container shown
+
+    animCont->setDuration(5);         // time of animation
+    animCont->setStartValue(ui->menuBox->geometry());
+
+    if(ui->menuBox->geometry() == startPos){ // Check table Pos
+
+        animCont->setEndValue(endPos);
+    }
+    else{
+        animCont->setEndValue(startPos);
+    }
+  animCont->start();
+}
+
+
+
+void PaintWindow::on_newMenNew_clicked()
+{
+    PaintWindow *p = new PaintWindow();
+    p->show();
+    this->hide();
+}
+
+
+void PaintWindow::on_newMenOpen_clicked()
+{
+    PaintWindow *p = new PaintWindow();
+
+    QString path = QFileDialog::getOpenFileName(p, tr("Open File"),
+                                                    "/c://",
+                                                    tr("JSON (*.json)"));
+    p->show();
+    this->hide();
+    p->open(path);
+}
+
+
+void PaintWindow::on_newMenSave_clicked()
+{
+    on_saveBtn_clicked();
+
+}
+
