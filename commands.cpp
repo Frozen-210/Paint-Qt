@@ -15,8 +15,8 @@ AddCommand::AddCommand(PaintScene *scene,Figure* item, QPointF LastPoint,QTableW
     scene->update();
     ++itemCount;
     this->table= table;
-    Q_UNUSED(LastPoint)
-
+    setText(QObject::tr("Add %1")
+        .arg(createCommandString(LastPoint)));
 }
 
 AddCommand::~AddCommand()
@@ -33,7 +33,9 @@ void AddCommand::undo()
     myGraphicsScene->ItemsVec->pop_back();
     myGraphicsScene->update();
     PaintTable::UpdateTable(table, *myGraphicsScene->ItemsVec);
-
+//    for (int i=0;i<v.size();i++){
+//        qDebug()<<v[i]->name<<"perimeter "<<v[i]->perimeter;
+//    }
 
 }
 
@@ -47,6 +49,11 @@ void AddCommand::redo()
 
 
 }
+QString createCommandString( const QPointF &pos)
+{
+    return QObject::tr("Square at (%2, %3)")
+        .arg(pos.x()).arg(pos.y());
+}
 
 DeleteCommand::DeleteCommand(PaintScene *scene,Figure* item, QPointF LastPoint,QTableWidget* table,QUndoCommand *parent)
     : QUndoCommand(parent)
@@ -58,8 +65,8 @@ DeleteCommand::DeleteCommand(PaintScene *scene,Figure* item, QPointF LastPoint,Q
     this->table= table;
     scene->update();
     ++itemCount;
-    Q_UNUSED(LastPoint)
-
+    setText(QObject::tr("Add %1")
+        .arg(createCommandString(LastPoint)));
 
 }
 
@@ -86,6 +93,13 @@ void DeleteCommand::redo()
     myGraphicsScene->ItemsVec->remove(myGraphicsScene->ItemsVec->indexOf(myDiagramItem));
     myGraphicsScene->update();
     PaintTable::UpdateTable(table, *myGraphicsScene->ItemsVec);
-
+//    for (int i=0;i<ItemsVec->size();i++){
+//       qDebug()<<(*ItemsVec)[i]->name;
+//    }
+}
+QString createDeleteString(const QPointF &pos)
+{
+    return QObject::tr("Square at (%2, %3)")
+        .arg(pos.x()).arg(pos.y());
 }
 

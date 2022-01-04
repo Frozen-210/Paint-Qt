@@ -159,5 +159,4 @@ void json_utilities::open(PaintScene *scene,QTableWidget* table, QString path)
             scene->undoStack->push(addCommand);
         }
     }
-    PaintTable::UpdateTable(table,*scene->ItemsVec);
 }

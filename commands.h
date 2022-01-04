@@ -24,6 +24,7 @@ private:
     QPointF initialPosition;
     QTableWidget* table;
 };
+ QString createCommandString( const QPointF &point);
 
 
  class DeleteCommand : public QUndoCommand
@@ -43,5 +44,6 @@ private:
      QPointF initialPosition;
      QTableWidget* table;
  };
+  QString createCommandString( const QPointF &point);
 
 #endif // COMMANDS_H

@@ -61,17 +61,12 @@ private slots:
 
 
 
-<<<<<<< HEAD
     void on_logoBtn_clicked();
     void on_newMenNew_clicked();
 
     void on_newMenOpen_clicked();
 
     void on_newMenSave_clicked();
-=======
-
-    void on_DataTable_cellClicked(int row, int column);
->>>>>>> 7aa0f710cba3bd9bc06d77a19d9c1226996df633
 
 protected:
     void mouseMoveEvent(QMouseEvent* event);
