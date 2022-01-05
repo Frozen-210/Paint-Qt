@@ -70,6 +70,7 @@ private slots:
 
     void on_menuSave_clicked();
 
+
 protected:
     void mouseMoveEvent(QMouseEvent* event);
     void mousePressEvent(QMouseEvent* event);

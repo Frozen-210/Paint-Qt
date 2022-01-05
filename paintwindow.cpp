@@ -11,6 +11,7 @@
 #include "painttable.h"
 
 
+
 PaintWindow::PaintWindow(QWidget *parent) :
     QMainWindow(parent, Qt::FramelessWindowHint | Qt::WindowSystemMenuHint),
     ui(new Ui::PaintWindow)
@@ -29,6 +30,7 @@ PaintWindow::PaintWindow(QWidget *parent) :
 
     QFontDatabase::addApplicationFont(":/fonts/resources/IROicons.otf");
     QFontDatabase::addApplicationFont(":/fonts/resources/Montserrat-Regular.ttf");
+
 
 
 
@@ -78,11 +80,13 @@ PaintWindow::PaintWindow(QWidget *parent) :
 
 
 
+
     // Assigning the stylesheet to the upper buttons
     ui->rectangleBtn->setStyleSheet(upperBtnStyleSheet);
     ui->lineBtn->setStyleSheet(upperBtnStyleSheet);
     ui->triangleBtn->setStyleSheet(upperBtnStyleSheet);
     ui->circleBtn->setStyleSheet(upperBtnStyleSheet);
+
 
     // Assigning the stylesheet to the side buttons
     ui->colorBtn->setStyleSheet(sideBtnStyleSheet);
@@ -98,6 +102,7 @@ PaintWindow::PaintWindow(QWidget *parent) :
     ui->menuNew->setStyleSheet(tableBtnStyleSheet);
     ui->menuOpen->setStyleSheet(tableBtnStyleSheet);
     ui->menuSave->setStyleSheet(tableBtnStyleSheet);
+
 
 
 
@@ -120,6 +125,7 @@ PaintWindow::PaintWindow(QWidget *parent) :
     ui->blueVal->setFont(QFont("Montserrat", 9));
     ui->greenVal->setFont(QFont("Montserrat", 9));
     ui->hexVal->setFont(QFont("Montserrat", 9));
+
 }
 
 
@@ -184,6 +190,7 @@ void PaintWindow::on_colorBtn_clicked()
         ui->hexVal->setText("HEX: " + newColor.name());
     }
 
+
 }
 
 
@@ -208,6 +215,7 @@ void PaintWindow::on_verticalSlider_sliderMoved(int position)
 {
     scene->setWeight(position);
     ui->lineWVal->setText("Line Weight: " + QString::number(position));
+
 }
 
 
@@ -229,6 +237,7 @@ void PaintWindow::on_tableBtn_clicked()
 
     }
   animCont->start();
+
 }
 
 //Method for eraser button, the main idea is that it deletes the shape you're clicking.

@@ -5,6 +5,7 @@
  <data>
   <variable>EnvironmentId</variable>
   <value type="QByteArray">{fa82d144-90b6-4311-8ef9-9e64548881c1}</value>
+
  </data>
  <data>
   <variable>ProjectExplorer.Project.ActiveTarget</variable>
@@ -101,6 +102,7 @@
     <value type="int" key="EnableQmlDebugging">0</value>
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">D:\My PC\Projects\C++\Data Struc\build-PaintFigure-Desktop_Qt_6_2_2_MinGW_64_bit-Debug</value>
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">D:/My PC/Projects/C++/Data Struc/build-PaintFigure-Desktop_Qt_6_2_2_MinGW_64_bit-Debug</value>
+
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
@@ -140,6 +142,7 @@
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.1">
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">D:\My PC\Projects\C++\Data Struc\build-PaintFigure-Desktop_Qt_6_2_2_MinGW_64_bit-Release</value>
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">D:/My PC/Projects/C++/Data Struc/build-PaintFigure-Desktop_Qt_6_2_2_MinGW_64_bit-Release</value>
+
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
@@ -181,6 +184,7 @@
     <value type="int" key="EnableQmlDebugging">0</value>
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">D:\My PC\Projects\C++\Data Struc\build-PaintFigure-Desktop_Qt_6_2_2_MinGW_64_bit-Profile</value>
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">D:/My PC/Projects/C++/Data Struc/build-PaintFigure-Desktop_Qt_6_2_2_MinGW_64_bit-Profile</value>
+
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
@@ -242,12 +246,14 @@
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:D:/My PC/Projects/C++/Data Struc/CMP2241_F21_Team01/PaintFigure.pro</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">D:/My PC/Projects/C++/Data Struc/CMP2241_F21_Team01/PaintFigure.pro</value>
+
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
     <value type="QString" key="RunConfiguration.WorkingDirectory.default">D:/My PC/Projects/C++/Data Struc/build-PaintFigure-Desktop_Qt_6_2_2_MinGW_64_bit-Debug</value>
+
    </valuemap>
    <value type="qlonglong" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
   </valuemap>
