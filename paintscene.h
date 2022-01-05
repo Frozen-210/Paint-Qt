@@ -22,6 +22,7 @@ public:
     QPointF startPoint;
     QPointF EndPoint;
     QVector<Figure*> *ItemsVec;
+    QTableWidget* table;
     QUndoStack *undoStack;
     explicit PaintScene(QGraphicsView *view,QTableWidget* table, QObject *parent = 0);
     ~PaintScene();
@@ -54,7 +55,7 @@ private:
     int LineWeight;
     int m_typeFigure;
     bool selectingItem;
-    QTableWidget* table;
+
 
 
 };

@@ -271,11 +271,16 @@ void PaintWindow::on_searchBar_returnPressed()
 
         // Get index of element from iterator
         ui->DataTable->selectRow(index);
+
         Figure* item= (*scene->ItemsVec)[index];
         PaintTable::UpdateInfoTable(ui->InfoTable,item);
+        if  (ui->tableCont->geometry() == QRect(1220,149,321,571)) // Check tables visibiity
+                             on_tableBtn_clicked();
+
     }
     else
         ui->DataTable->clearSelection();
+
 }
 
 
@@ -334,6 +339,7 @@ void PaintWindow::mouseReleaseEvent(QMouseEvent *event)
     }
 }
 
+
 void PaintWindow::on_DataTable_cellClicked(int row, int column)
 {
     Figure* item= (*scene->ItemsVec)[row];
@@ -367,6 +373,14 @@ void PaintWindow::on_logoBtn_clicked()
 
 void PaintWindow::on_menuNew_clicked()
 {
+    delete this->scene->ItemsVec;
+    delete this->scene->undoStack;
+    scene->clear();
+    this->scene->undoStack =new QUndoStack();
+    this->scene->ItemsVec = new QVector<Figure*>();
+    PaintTable::UpdateTable(scene->table, *scene->ItemsVec);
+    Figure::countZero();
+
 
 }
 
