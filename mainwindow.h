@@ -2,55 +2,50 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include<QPointF>
+#include <QTimer>
+#include <QResizeEvent>
+#include <QUndoView>
+#include "paintscene.h"
 
-QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
-QT_END_NAMESPACE
-
-class QUndoStack;
-class DiagramScene;
-class DiagramItem;
-class QUndoView;
+namespace Ui {
+class MainWindow;
+}
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    bool TriangleTriggered=0;
-
-
-public slots:
-    void itemMoved(DiagramItem *movedDiagram, const QPointF &moveStartPosition);
-
-private slots:
-    void addBox();
-    void on_Triangle_clicked();
-    void deleteItem();
-    void on_Rectangle_clicked();
-
-    void on_actionUndo_triggered();
-
-    void on_actionRedo_triggered();
 
 private:
     Ui::MainWindow *ui;
-    QUndoStack *undoStack;
-    DiagramScene *diagramScene;
-    QAction *addBoxAction;
-    QAction *undoAction;
-    QAction *redoAction;
+    PaintScene *scene;
+    QTimer *timer;
+
+private:
+
+    void resizeEvent(QResizeEvent * event);
     QUndoView *undoView;
-    bool isDrawing;
-    QPointF LastPoint;
-    QPointF EndPoint;
-    int type;
 
-    void mousePressEvent(QMouseEvent *event) override;
+private slots:
+    void slotTimer();
+    void on_pushButton_clicked();
+    void on_pushButton_2_clicked();
+    void on_pushButton_3_clicked();
 
-    void mouseReleaseEvent(QMouseEvent *event) override;
+    void on_actionUndo_triggered();
+    void on_actionRedo_triggered();
+    void on_actionColor_triggered();
+    void on_horizontalSlider_sliderMoved(int position);
+    void on_pushButton_4_clicked();
+    void on_sortA_Btn_clicked();
+    void on_actionSave_Json_triggered();
+    void on_sortD_Btn_clicked();
+    void on_srch_Btn_clicked();
+
+    void on_actionOpen_File_triggered();
 };
+
 #endif // MAINWINDOW_H

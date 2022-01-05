@@ -1,108 +1,91 @@
-#include <QtWidgets>
-#include<QPointF>
+#include "commands.h"
+#include<QGraphicsScene>
+#include "paintscene.h"
+#include"painttable.h"
+//PaintScene p;
 
-  #include "commands.h"
-  #include "diagramitem.h"
 
-  MoveCommand::MoveCommand(DiagramItem *diagramItem, const QPointF &oldPos,
-                   QUndoCommand *parent)
-      : QUndoCommand(parent)
-  {
-      myDiagramItem = diagramItem;
-      newPos = diagramItem->pos();
-      myOldPos = oldPos;
-  }
+AddCommand::AddCommand(PaintScene *scene,Figure* item, QPointF LastPoint,QTableWidget* table,QUndoCommand *parent)
+    : QUndoCommand(parent)
+{
+    static int itemCount = 0;
 
-  bool MoveCommand::mergeWith(const QUndoCommand *command)
-  {
-      const MoveCommand *moveCommand = static_cast<const MoveCommand *>(command);
-      DiagramItem *item = moveCommand->myDiagramItem;
+    myGraphicsScene = scene;
+    myDiagramItem = item;
+    scene->update();
+    ++itemCount;
+    this->table= table;
+    Q_UNUSED(LastPoint)
 
-      if (myDiagramItem != item)
-      return false;
+}
 
-      newPos = item->pos();
-      setText(QObject::tr("Move %1")
-          .arg(createCommandString(myDiagramItem, newPos)));
+AddCommand::~AddCommand()
+{
+    if (!myDiagramItem->scene())
+        myDiagramItem->hide();
+}
 
-      return true;
-  }
+void AddCommand::undo()
+{
 
-  void MoveCommand::undo()
-  {
-      myDiagramItem->setPos(myOldPos);
-      myDiagramItem->scene()->update();
-      setText(QObject::tr("Move %1")
-          .arg(createCommandString(myDiagramItem, newPos)));
-  }
+    myGraphicsScene->removeItem(myDiagramItem);
+    // remove figure from the vector
+    myGraphicsScene->ItemsVec->pop_back();
+    myGraphicsScene->update();
+    PaintTable::UpdateTable(table, *myGraphicsScene->ItemsVec);
 
-  void MoveCommand::redo()
-  {
-      myDiagramItem->setPos(newPos);
-      setText(QObject::tr("Move %1")
-          .arg(createCommandString(myDiagramItem, newPos)));
-  }
 
-  DeleteCommand::DeleteCommand(QGraphicsScene *scene, QUndoCommand *parent)
-      : QUndoCommand(parent)
-  {
-      myGraphicsScene = scene;
-      QList<QGraphicsItem *> list = myGraphicsScene->selectedItems();
-      list.first()->setSelected(false);
-      myDiagramItem = static_cast<DiagramItem *>(list.first());
-      setText(QObject::tr("Delete %1")
-          .arg(createCommandString(myDiagramItem, myDiagramItem->pos())));
-  }
+}
 
-  void DeleteCommand::undo()
-  {
-      myGraphicsScene->addItem(myDiagramItem);
-      myGraphicsScene->update();
-  }
+void AddCommand::redo()
+{   myGraphicsScene->ItemsVec->push_back(myDiagramItem);
+    myGraphicsScene->addItem(myDiagramItem);
+    myDiagramItem->setPos(initialPosition);
+    myGraphicsScene->clearSelection();
+    myGraphicsScene->update();
+    PaintTable::UpdateTable(table, *myGraphicsScene->ItemsVec);
 
-  void DeleteCommand::redo()
-  {
-      myGraphicsScene->removeItem(myDiagramItem);
-  }
 
-  AddCommand::AddCommand(DiagramItem::DiagramType addType,
-                         QGraphicsScene *scene,QPointF LastPoint,QPointF EndPoint, QUndoCommand *parent)
-      : QUndoCommand(parent)
-  {
-      static int itemCount = 0;
+}
 
-      myGraphicsScene = scene;
-      myDiagramItem = new DiagramItem(addType,LastPoint,EndPoint);
-      initialPosition = QPointF(LastPoint.rx()-305,LastPoint.ry()-108);
-      scene->update();
-      ++itemCount;
-      setText(QObject::tr("Add %1")
-          .arg(createCommandString(myDiagramItem, initialPosition)));
-  }
+DeleteCommand::DeleteCommand(PaintScene *scene,Figure* item, QPointF LastPoint,QTableWidget* table,QUndoCommand *parent)
+    : QUndoCommand(parent)
+{
+    static int itemCount = 0;
 
-  AddCommand::~AddCommand()
-  {
-      if (!myDiagramItem->scene())
-          delete myDiagramItem;
-  }
+    myGraphicsScene = scene;
+    myDiagramItem = item;
+    this->table= table;
+    scene->update();
+    ++itemCount;
+    Q_UNUSED(LastPoint)
 
-  void AddCommand::undo()
-  {
-      myGraphicsScene->removeItem(myDiagramItem);
-      myGraphicsScene->update();
-  }
 
-  void AddCommand::redo()
-  {
-      myGraphicsScene->addItem(myDiagramItem);
-      myDiagramItem->setPos(initialPosition);
-      myGraphicsScene->clearSelection();
-      myGraphicsScene->update();
-  }
+}
 
-  QString createCommandString(DiagramItem *item, const QPointF &pos)
-  {
-      return QObject::tr("%1 at (%2, %3)")
-          .arg(item->diagramType() == DiagramItem::Box ? "Box" : "Triangle")
-          .arg(pos.x()).arg(pos.y());
-  }
+DeleteCommand::~DeleteCommand()
+{
+    if (!myDiagramItem->scene())
+        myDiagramItem->hide();
+}
+
+void DeleteCommand::undo()
+{
+        myGraphicsScene->ItemsVec->push_back(myDiagramItem);
+        myGraphicsScene->addItem(myDiagramItem);
+        myDiagramItem->setPos(initialPosition);
+        myGraphicsScene->clearSelection();
+        myGraphicsScene->update();
+        PaintTable::UpdateTable(table, *myGraphicsScene->ItemsVec);
+}
+
+void DeleteCommand::redo()
+{
+    myGraphicsScene->removeItem(myDiagramItem);
+    // remove figure from the vector
+    myGraphicsScene->ItemsVec->remove(myGraphicsScene->ItemsVec->indexOf(myDiagramItem));
+    myGraphicsScene->update();
+    PaintTable::UpdateTable(table, *myGraphicsScene->ItemsVec);
+
+}
+

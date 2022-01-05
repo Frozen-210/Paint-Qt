@@ -1,0 +1,828 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PaintWindow</class>
+ <widget class="QMainWindow" name="PaintWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1215</width>
+    <height>859</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="backgorund">
+    <property name="geometry">
+     <rect>
+      <x>68</x>
+      <y>1</y>
+      <width>1261</width>
+      <height>851</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="resources.qrc">:/stockes/resources/whiteBackground.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="rectangleBtn">
+    <property name="geometry">
+     <rect>
+      <x>308</x>
+      <y>21</y>
+      <width>101</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #f9f9f9;
+color: black;
+border-radius: 20px;
+font: 11pt &quot;Montserrat&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Rectangle</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="triangleBtn">
+    <property name="geometry">
+     <rect>
+      <x>641</x>
+      <y>21</y>
+      <width>101</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #f9f9f9;
+color: black;
+border-radius: 20px;
+font: 11pt &quot;Montserrat&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Triangle</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="circleBtn">
+    <property name="geometry">
+     <rect>
+      <x>531</x>
+      <y>21</y>
+      <width>101</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #f9f9f9;
+color: black;
+border-radius: 20px;
+font: 11pt &quot;Montserrat&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Circle</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="lineBtn">
+    <property name="geometry">
+     <rect>
+      <x>419</x>
+      <y>21</y>
+      <width>101</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #f9f9f9;
+color: black;
+border-radius: 20px;
+font: 11pt &quot;Montserrat&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Line</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="logo">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>19</y>
+      <width>41</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="resources.qrc">:/stockes/resources/Logo.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView">
+    <property name="geometry">
+     <rect>
+      <x>138</x>
+      <y>72</y>
+      <width>1069</width>
+      <height>751</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font/>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #f4f5f5;
+border-radius: 20px;
+border-top-right-radius: 0px;
+border-bottom-right-radius: 0px;</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="closeBtn">
+    <property name="geometry">
+     <rect>
+      <x>1168</x>
+      <y>31</y>
+      <width>20</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>21</pointsize>
+      <italic>false</italic>
+      <bold>false</bold>
+      <kerning>false</kerning>
+     </font>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius:10px;
+color: #710101;
+text-align: left;
+font: 21pt &quot;IROicons&quot;;</string>
+    </property>
+    <property name="text">
+     <string>x</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="miniBtn">
+    <property name="geometry">
+     <rect>
+      <x>1143</x>
+      <y>31</y>
+      <width>20</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>21</pointsize>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius:10px;
+color: #000;
+text-align: left;
+font: 21pt &quot;IROicons&quot;;</string>
+    </property>
+    <property name="text">
+     <string>y</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="colorBtn">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>131</y>
+      <width>26</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>20</pointsize>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius:10px;
+color: #a5aeaf;
+text-align: left;
+font: 20pt &quot;IROicons&quot;;</string>
+    </property>
+    <property name="text">
+     <string>i</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="redoBtn">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>311</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>20</pointsize>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius:10px;
+color: #a5aeaf;
+text-align: left;
+font: 20pt &quot;IROicons&quot;;</string>
+    </property>
+    <property name="text">
+     <string>r</string>
+    </property>
+    <property name="shortcut">
+     <string>Ctrl+Y</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="tableBtn">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>800</y>
+      <width>29</width>
+      <height>34</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>28</pointsize>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius:10px;
+color: #a5aeaf;
+text-align: left;
+font: 28pt &quot;IROicons&quot;;</string>
+    </property>
+    <property name="text">
+     <string>o</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="undoBtn">
+    <property name="geometry">
+     <rect>
+      <x>88</x>
+      <y>251</y>
+      <width>29</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>18</pointsize>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius:10px;
+color: #a5aeaf;
+text-align: left;
+font: 18pt &quot;IROicons&quot;;</string>
+    </property>
+    <property name="text">
+     <string>u</string>
+    </property>
+    <property name="shortcut">
+     <string>Ctrl+Z</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="saveBtn">
+    <property name="geometry">
+     <rect>
+      <x>94</x>
+      <y>371</y>
+      <width>21</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>19</pointsize>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius:10px;
+color: #a5aeaf;
+text-align: left;
+font: 19pt &quot;IROicons&quot;;</string>
+    </property>
+    <property name="text">
+     <string>f</string>
+    </property>
+    <property name="shortcut">
+     <string>Ctrl+S</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QSlider" name="verticalSlider">
+    <property name="geometry">
+     <rect>
+      <x>94</x>
+      <y>471</y>
+      <width>16</width>
+      <height>301</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+
+.QSlider::groove:vertical {
+    border: 1px solid #262626;
+    width: 3px;
+	background: #000000;
+}
+
+.QSlider::handle:vertical {
+	background:#000000;
+    height: 8px;
+    margin: 0px -5px;
+}</string>
+    </property>
+    <property name="minimum">
+     <number>1</number>
+    </property>
+    <property name="maximum">
+     <number>25</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="searchBar">
+    <property name="geometry">
+     <rect>
+      <x>897</x>
+      <y>26</y>
+      <width>201</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #f9f9f9;
+color: black;
+border-radius: 15px;
+padding: 45px;
+font: 9pt &quot;Montserrat&quot;;
+</string>
+    </property>
+    <property name="text">
+     <string>Search</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="searchIcon">
+    <property name="geometry">
+     <rect>
+      <x>912</x>
+      <y>27</y>
+      <width>22</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>20</pointsize>
+      <italic>false</italic>
+      <bold>false</bold>
+      <kerning>true</kerning>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 20pt &quot;IROicons&quot;;</string>
+    </property>
+    <property name="text">
+     <string>c</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ersr_Btn">
+    <property name="geometry">
+     <rect>
+      <x>88</x>
+      <y>191</y>
+      <width>29</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>22</pointsize>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius:10px;
+color: #a5aeaf;
+text-align: left;
+font: 22pt &quot;IROicons&quot;;</string>
+    </property>
+    <property name="text">
+     <string>e</string>
+    </property>
+    <property name="shortcut">
+     <string>Ctrl+Z</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="tableCont">
+    <property name="geometry">
+     <rect>
+      <x>1220</x>
+      <y>149</y>
+      <width>321</width>
+      <height>571</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius:0 px;</string>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <widget class="QTableWidget" name="DataTable">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>321</width>
+       <height>311</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QTableWidget" name="InfoTable">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>330</y>
+       <width>321</width>
+       <height>161</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="SortASBtn">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>-1</x>
+       <y>510</y>
+       <width>161</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: #f9f9f9;
+color: black;
+border-radius: 20px;
+font: 11pt &quot;Montserrat&quot;;</string>
+     </property>
+     <property name="text">
+      <string>Sort Ascending</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="SortDSBtn">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>510</y>
+       <width>161</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: #f9f9f9;
+color: black;
+border-radius: 20px;
+font: 11pt &quot;Montserrat&quot;;</string>
+     </property>
+     <property name="text">
+      <string>Sort Dscending</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="redVal">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>829</y>
+      <width>51</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Montserrat</family>
+     </font>
+    </property>
+    <property name="text">
+     <string>R: 0 </string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="greenVal">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>829</y>
+      <width>51</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font/>
+    </property>
+    <property name="text">
+     <string>G: 0  </string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="blueVal">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>829</y>
+      <width>51</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Montserrat</family>
+     </font>
+    </property>
+    <property name="text">
+     <string>B:0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="hexVal">
+    <property name="geometry">
+     <rect>
+      <x>920</x>
+      <y>829</y>
+      <width>101</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font/>
+    </property>
+    <property name="text">
+     <string>HEX: #FFFFF</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lineWVal">
+    <property name="geometry">
+     <rect>
+      <x>1060</x>
+      <y>829</y>
+      <width>111</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Montserrat</family>
+     </font>
+    </property>
+    <property name="text">
+     <string>Line Weight: 0</string>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="menu">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>-115</y>
+      <width>121</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:  #fff;
+border-radius: 15px;</string>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <widget class="QWidget" name="verticalLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>121</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QPushButton" name="menuNew">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);
+font: 9pt &quot;Montserrat&quot;;</string>
+        </property>
+        <property name="text">
+         <string>New</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="menuOpen">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);
+font: 9pt &quot;Montserrat&quot;;</string>
+        </property>
+        <property name="text">
+         <string>Open</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="menuSave">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);
+font: 9pt &quot;Montserrat&quot;;</string>
+        </property>
+        <property name="text">
+         <string>Save</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="logoBtn">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>20</y>
+      <width>40</width>
+      <height>42</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>closeBtn</sender>
+   <signal>clicked()</signal>
+   <receiver>PaintWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1180</x>
+     <y>76</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1161</x>
+     <y>39</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>miniBtn</sender>
+   <signal>clicked()</signal>
+   <receiver>PaintWindow</receiver>
+   <slot>showMinimized()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1147</x>
+     <y>72</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1151</x>
+     <y>19</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

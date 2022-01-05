@@ -1,0 +1,31 @@
+<RCC>
+    <qresource prefix="/stockes">
+        <file>resources/Back open.png</file>
+        <file>resources/Background.png</file>
+        <file>resources/Backgroundapp.png</file>
+        <file>resources/btn open.png</file>
+        <file>resources/Btn.png</file>
+        <file>resources/Circle       Line       Rectangle     Triangle.png</file>
+        <file>resources/close.png</file>
+        <file>resources/color.png</file>
+        <file>resources/Drawing Area.png</file>
+        <file>resources/Logo open.png</file>
+        <file>resources/Logo.png</file>
+        <file>resources/Minimize.png</file>
+        <file>resources/paintapp.fcp</file>
+        <file>resources/psds.png</file>
+        <file>resources/psdsopen.png</file>
+        <file>resources/redo.png</file>
+        <file>resources/Search Field.png</file>
+        <file>resources/Search icon.png</file>
+        <file>resources/Slider.png</file>
+        <file>resources/Table.png</file>
+        <file>resources/undo.png</file>
+        <file>resources/whiteBackground.png</file>
+        <file>resources/total.png</file>
+    </qresource>
+    <qresource prefix="/fonts">
+        <file>resources/IROicons.otf</file>
+        <file>resources/Montserrat-Regular.ttf</file>
+    </qresource>
+</RCC>

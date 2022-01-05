@@ -1,58 +1,47 @@
 #ifndef COMMANDS_H
-  #define COMMANDS_H
+#define COMMANDS_H
 
-  #include <QUndoCommand>
+#include <QUndoCommand>
+#include "figure.h"
+#include "paintscene.h"
+#include "rectangle.h"
+#include <QTableWidget>
 
-  #include "diagramitem.h"
+class AddCommand : public QUndoCommand
+{
+public:
+    AddCommand(PaintScene *graphicsScene,
+               Figure* item,QPointF LastPoint,QTableWidget* table,QUndoCommand *parent = 0);
 
-  class MoveCommand : public QUndoCommand
-  {
-  public:
-      enum { Id = 1234 };
+    ~AddCommand();
 
-      MoveCommand(DiagramItem *diagramItem, const QPointF &oldPos,
-                  QUndoCommand *parent = 0);
+    void undo() Q_DECL_OVERRIDE;
+    void redo() Q_DECL_OVERRIDE;
 
-      void undo() Q_DECL_OVERRIDE;
-      void redo() Q_DECL_OVERRIDE;
-      bool mergeWith(const QUndoCommand *command) Q_DECL_OVERRIDE;
-      int id() const Q_DECL_OVERRIDE { return Id; }
+private:
+    Figure *myDiagramItem;
+    PaintScene *myGraphicsScene;
+    QPointF initialPosition;
+    QTableWidget* table;
+};
 
-  private:
-      DiagramItem *myDiagramItem;
-      QPointF myOldPos;
-      QPointF newPos;
-  };
 
-  class DeleteCommand : public QUndoCommand
-  {
-  public:
-      explicit DeleteCommand(QGraphicsScene *graphicsScene, QUndoCommand *parent = 0);
+ class DeleteCommand : public QUndoCommand
+ {
+ public:
+     DeleteCommand(PaintScene *graphicsScene,
+                Figure* item,QPointF LastPoint,QTableWidget* table,QUndoCommand *parent = 0);
 
-      void undo() Q_DECL_OVERRIDE;
-      void redo() Q_DECL_OVERRIDE;
+     ~DeleteCommand();
 
-  private:
-      DiagramItem *myDiagramItem;
-      QGraphicsScene *myGraphicsScene;
-  };
+     void undo() Q_DECL_OVERRIDE;
+     void redo() Q_DECL_OVERRIDE;
 
-  class AddCommand : public QUndoCommand
-  {
-  public:
-      AddCommand(DiagramItem::DiagramType addType, QGraphicsScene *graphicsScene,
-                 QPointF LastPoint,QPointF EndPoint,QUndoCommand *parent = 0);
-      ~AddCommand();
+ private:
+     Figure *myDiagramItem;
+     PaintScene *myGraphicsScene;
+     QPointF initialPosition;
+     QTableWidget* table;
+ };
 
-      void undo() Q_DECL_OVERRIDE;
-      void redo() Q_DECL_OVERRIDE;
-
-  private:
-      DiagramItem *myDiagramItem;
-      QGraphicsScene *myGraphicsScene;
-      QPointF initialPosition;
-  };
-
-  QString createCommandString(DiagramItem *item, const QPointF &point);
-
-  #endif
+#endif // COMMANDS_H
