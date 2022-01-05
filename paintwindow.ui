@@ -8,7 +8,6 @@
     <y>0</y>
     <width>1208</width>
     <height>859</height>
-
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,7 +19,6 @@
      <rect>
       <x>68</x>
       <y>1</y>
-
       <width>1261</width>
       <height>851</height>
      </rect>
@@ -40,7 +38,6 @@
      <rect>
       <x>308</x>
       <y>21</y>
-
       <width>101</width>
       <height>41</height>
      </rect>
@@ -70,7 +67,6 @@ font: 11pt &quot;Montserrat&quot;;</string>
      <rect>
       <x>641</x>
       <y>21</y>
-
       <width>101</width>
       <height>41</height>
      </rect>
@@ -100,7 +96,6 @@ font: 11pt &quot;Montserrat&quot;;</string>
      <rect>
       <x>531</x>
       <y>21</y>
-
       <width>101</width>
       <height>41</height>
      </rect>
@@ -130,7 +125,6 @@ font: 11pt &quot;Montserrat&quot;;</string>
      <rect>
       <x>419</x>
       <y>21</y>
-
       <width>101</width>
       <height>41</height>
      </rect>
@@ -160,7 +154,6 @@ font: 11pt &quot;Montserrat&quot;;</string>
      <rect>
       <x>90</x>
       <y>19</y>
-
       <width>41</width>
       <height>51</height>
      </rect>
@@ -177,13 +170,15 @@ font: 11pt &quot;Montserrat&quot;;</string>
      <rect>
       <x>138</x>
       <y>72</y>
-
       <width>1069</width>
       <height>751</height>
      </rect>
     </property>
     <property name="font">
      <font/>
+    </property>
+    <property name="cursor" stdset="0">
+     <cursorShape>CrossCursor</cursorShape>
     </property>
     <property name="focusPolicy">
      <enum>Qt::NoFocus</enum>
@@ -200,7 +195,6 @@ border-bottom-right-radius: 0px;</string>
      <rect>
       <x>1168</x>
       <y>31</y>
-
       <width>20</width>
       <height>21</height>
      </rect>
@@ -218,6 +212,9 @@ border-bottom-right-radius: 0px;</string>
       <bold>false</bold>
       <kerning>false</kerning>
      </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="layoutDirection">
      <enum>Qt::LeftToRight</enum>
@@ -246,7 +243,6 @@ font: 21pt &quot;IROicons&quot;;</string>
      <rect>
       <x>1143</x>
       <y>31</y>
-
       <width>20</width>
       <height>21</height>
      </rect>
@@ -257,6 +253,9 @@ font: 21pt &quot;IROicons&quot;;</string>
       <italic>false</italic>
       <bold>false</bold>
      </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">border-radius:10px;
@@ -273,7 +272,6 @@ font: 21pt &quot;IROicons&quot;;</string>
      <rect>
       <x>90</x>
       <y>131</y>
-
       <width>26</width>
       <height>31</height>
      </rect>
@@ -284,6 +282,9 @@ font: 21pt &quot;IROicons&quot;;</string>
       <italic>false</italic>
       <bold>false</bold>
      </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">border-radius:10px;
@@ -303,7 +304,6 @@ font: 20pt &quot;IROicons&quot;;</string>
      <rect>
       <x>90</x>
       <y>311</y>
-
       <width>31</width>
       <height>31</height>
      </rect>
@@ -314,6 +314,9 @@ font: 20pt &quot;IROicons&quot;;</string>
       <italic>false</italic>
       <bold>false</bold>
      </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">border-radius:10px;
@@ -336,7 +339,6 @@ font: 20pt &quot;IROicons&quot;;</string>
      <rect>
       <x>90</x>
       <y>800</y>
-
       <width>29</width>
       <height>34</height>
      </rect>
@@ -347,6 +349,9 @@ font: 20pt &quot;IROicons&quot;;</string>
       <italic>false</italic>
       <bold>false</bold>
      </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">border-radius:10px;
@@ -366,7 +371,6 @@ font: 28pt &quot;IROicons&quot;;</string>
      <rect>
       <x>88</x>
       <y>251</y>
-
       <width>29</width>
       <height>24</height>
      </rect>
@@ -377,6 +381,9 @@ font: 28pt &quot;IROicons&quot;;</string>
       <italic>false</italic>
       <bold>false</bold>
      </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">border-radius:10px;
@@ -399,7 +406,6 @@ font: 18pt &quot;IROicons&quot;;</string>
      <rect>
       <x>94</x>
       <y>371</y>
-
       <width>21</width>
       <height>31</height>
      </rect>
@@ -410,6 +416,9 @@ font: 18pt &quot;IROicons&quot;;</string>
       <italic>false</italic>
       <bold>false</bold>
      </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">border-radius:10px;
@@ -432,7 +441,6 @@ font: 19pt &quot;IROicons&quot;;</string>
      <rect>
       <x>94</x>
       <y>471</y>
-
       <width>16</width>
       <height>301</height>
      </rect>
@@ -467,7 +475,6 @@ font: 19pt &quot;IROicons&quot;;</string>
      <rect>
       <x>897</x>
       <y>26</y>
-
       <width>201</width>
       <height>33</height>
      </rect>
@@ -496,7 +503,6 @@ font: 9pt &quot;Montserrat&quot;;
      <rect>
       <x>912</x>
       <y>27</y>
-
       <width>22</width>
       <height>31</height>
      </rect>
@@ -523,16 +529,17 @@ font: 9pt &quot;Montserrat&quot;;
       <y>191</y>
       <width>29</width>
       <height>24</height>
-
      </rect>
     </property>
     <property name="font">
      <font>
       <pointsize>22</pointsize>
-
       <italic>false</italic>
       <bold>false</bold>
      </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">border-radius:10px;
@@ -799,7 +806,6 @@ font: 9pt &quot;Montserrat&quot;;</string>
     <property name="flat">
      <bool>true</bool>
     </property>
-
    </widget>
   </widget>
  </widget>
@@ -816,7 +822,6 @@ font: 9pt &quot;Montserrat&quot;;</string>
     <hint type="sourcelabel">
      <x>1180</x>
      <y>76</y>
-
     </hint>
     <hint type="destinationlabel">
      <x>1161</x>
@@ -833,7 +838,6 @@ font: 9pt &quot;Montserrat&quot;;</string>
     <hint type="sourcelabel">
      <x>1147</x>
      <y>72</y>
-
     </hint>
     <hint type="destinationlabel">
      <x>1151</x>
