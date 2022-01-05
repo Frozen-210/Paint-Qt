@@ -39,8 +39,11 @@ HEADERS  += \
     welcomewindow.h
 
 FORMS    += \
+    closedialog.ui \
     paintwindow.ui \
     welcomewindow.ui
 
 RESOURCES += \
     resources.qrc
+
+RC_ICONS = icon.ico

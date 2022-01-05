@@ -23,10 +23,11 @@
         <file>resources/undo.png</file>
         <file>resources/whiteBackground.png</file>
         <file>resources/total.png</file>
+        <file>resources/Messagebox.png</file>
+        <file>resources/MessageboxFinal.png</file>
     </qresource>
     <qresource prefix="/fonts">
         <file>resources/IROicons.otf</file>
         <file>resources/Montserrat-Regular.ttf</file>
     </qresource>
-
 </RCC>
