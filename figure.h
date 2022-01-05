@@ -26,6 +26,7 @@ public:
 
     void setStartPoint(const QPointF point);
     void setEndPoint(const QPointF point, bool test= true);
+    static void countZero();
 
     float perimeter;
     QString name;

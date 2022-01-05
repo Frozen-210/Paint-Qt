@@ -86,3 +86,6 @@ QPointF Figure::endPoint() const
 {
     return m_endPoint;
 }
+void Figure :: countZero(){
+    lCount= rCount=cCount=tCount=1;
+}

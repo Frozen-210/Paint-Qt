@@ -229,9 +229,17 @@ void PaintWindow::on_searchBar_returnPressed()
 
         // Get index of element from iterator
         ui->DataTable->selectRow(index);
+<<<<<<< Updated upstream
+=======
+        Figure* item= (*scene->ItemsVec)[index];
+        PaintTable::UpdateInfoTable(ui->InfoTable,item);
+        if  (ui->tableCont->geometry() == QRect(1220,149,321,571)) // Check tables visibiity
+                             on_tableBtn_clicked();
+>>>>>>> Stashed changes
     }
     else
         ui->DataTable->clearSelection();
+
 }
 
 
@@ -290,3 +298,68 @@ void PaintWindow::mouseReleaseEvent(QMouseEvent *event)
         mMoving = false;
     }
 }
+<<<<<<< Updated upstream
+=======
+
+void PaintWindow::on_DataTable_cellClicked(int row, int column)
+{
+    Figure* item= (*scene->ItemsVec)[row];
+    PaintTable::UpdateInfoTable(ui->InfoTable,item);
+    Q_UNUSED(column)
+}
+
+
+
+
+
+void PaintWindow::on_logoBtn_clicked()
+{
+    QPropertyAnimation *animCont = new QPropertyAnimation(ui->menu, "geometry");
+    animCont->setDuration(5);
+    animCont->setStartValue(ui->tableCont->geometry());
+
+    if(ui->menu->geometry() == QRect(50,69,121,111)){ // Check table Pos
+        // if table is viewed out the view
+
+        animCont->setEndValue(QRect(50,-115,121,111));
+    }
+    else{
+        // if table is viewed over the view
+        animCont->setEndValue(QRect(50,69,121,111));
+
+    }
+  animCont->start();
+}
+
+
+void PaintWindow::on_menuNew_clicked()
+{
+    delete this->scene->ItemsVec;
+    delete this->scene->undoStack;
+    scene->clear();
+    this->scene->undoStack =new QUndoStack();
+    this->scene->ItemsVec = new QVector<Figure*>();
+    PaintTable::UpdateTable(scene->table, *scene->ItemsVec);
+    Figure::countZero();
+
+}
+
+
+void PaintWindow::on_menuOpen_clicked()
+{
+    PaintWindow *p = new PaintWindow();
+    QString path = QFileDialog::getOpenFileName(this, tr("Open File"),
+                                                    "/c://",
+                                                    tr("JSON (*.json)"));
+    p->show();
+    this->hide();
+    p->open(path);
+}
+
+
+void PaintWindow::on_menuSave_clicked()
+{
+    on_saveBtn_clicked();
+}
+
+>>>>>>> Stashed changes
