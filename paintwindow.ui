@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1215</width>
+    <width>1208</width>
     <height>859</height>
    </rect>
   </property>
@@ -626,9 +626,7 @@ font: 11pt &quot;Montserrat&quot;;</string>
      </rect>
     </property>
     <property name="font">
-     <font>
-      <family>Montserrat</family>
-     </font>
+     <font/>
     </property>
     <property name="text">
      <string>R: 0 </string>
@@ -660,9 +658,7 @@ font: 11pt &quot;Montserrat&quot;;</string>
      </rect>
     </property>
     <property name="font">
-     <font>
-      <family>Montserrat</family>
-     </font>
+     <font/>
     </property>
     <property name="text">
      <string>B:0</string>
@@ -694,9 +690,7 @@ font: 11pt &quot;Montserrat&quot;;</string>
      </rect>
     </property>
     <property name="font">
-     <font>
-      <family>Montserrat</family>
-     </font>
+     <font/>
     </property>
     <property name="text">
      <string>Line Weight: 0</string>
