@@ -24,4 +24,9 @@
         <file>resources/whiteBackground.png</file>
         <file>resources/total.png</file>
     </qresource>
+    <qresource prefix="/fonts">
+        <file>resources/IROicons.otf</file>
+        <file>resources/Montserrat-Regular.ttf</file>
+    </qresource>
+
 </RCC>
