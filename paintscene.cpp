@@ -89,7 +89,7 @@ void PaintScene::setWeight(int Value)
  */
 void PaintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
-    savingCounter++;
+
     switch (m_typeFigure) {
     case RectangleType: {
         // Getting the start point from the mouse event

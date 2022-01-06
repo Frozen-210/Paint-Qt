@@ -3,7 +3,7 @@
 #include <QFileDialog>
 #include "json_utilities.h"
 
-messageDialog::messageDialog(QWidget *parent) :
+messageDialog::messageDialog(QString message,QString LeftText,QString RightText,QWidget *parent) :
     QDialog(parent, Qt::FramelessWindowHint | Qt::WindowSystemMenuHint),
     ui(new Ui::messageDialog)
 {
@@ -39,6 +39,9 @@ messageDialog::messageDialog(QWidget *parent) :
     ui->yesBtn->setStyleSheet(yesBtnStyleSheet);
     ui->noBtn->setStyleSheet(noBtnStyleSheet);
 
+    ui->message->setText(message);
+    ui->yesBtn->setText(LeftText);
+    ui->noBtn->setText(RightText);
     this->setModal(true);
 }
 
@@ -49,52 +52,19 @@ messageDialog::~messageDialog()
 
 void messageDialog::on_yesBtn_clicked()
 {
-    switch (actionType){
-    case 1:{
-        dialogCheck = 1;
-        this->hide();
-        break;
-    }
-    case 2:{
-        dialogCheck = 2;
-        this->hide();
-        break;
-    }
-    case 5:{
-        dialogCheck = 5;
-        this->hide();
-        break;
-    }
-    }
+    accept();
 }
 
 
 void messageDialog::on_closeBtn_clicked()
 {
-    exitCheck = false;
-    this->hide();
+    closed=true;
+    close();
 }
 
 
 void messageDialog::on_noBtn_clicked()
 {
-    switch (actionType){
-    case 1:{
-        dialogCheck = 3;
-        this->hide();
-        break;
-    }
-    case 2:
-    {
-        dialogCheck = 4;
-        this->hide();
-        break;
-    }
-    case 5:{
-        exitCheck = true;
-        this->hide();
-        break;
-    }
-    }
+    reject();
 }
 

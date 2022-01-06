@@ -31,7 +31,7 @@ public:
 
     int typeFigure() const;
     void setTypeFigure(const int type);
-    int savingCounter = 0;
+    bool Modified = false;
 
     enum FigureTypes {
         RectangleType,
