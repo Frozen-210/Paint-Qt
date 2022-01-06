@@ -27,8 +27,10 @@ public:
     explicit PaintScene(QGraphicsView *view,QTableWidget* table, QObject *parent = 0);
     ~PaintScene();
 
+
     int typeFigure() const;
     void setTypeFigure(const int type);
+    int savingCounter = 0;
 
     enum FigureTypes {
         RectangleType,

@@ -169,13 +169,23 @@ void PaintWindow::on_circleBtn_clicked()
 
 void PaintWindow::on_undoBtn_clicked()
 {
+    if(!scene->undoStack->isClean()){
+        if(scene->savingCounter == 0){
+            scene->savingCounter++;
+        }else{
+            scene->savingCounter--;
+        }
+    }
     scene->undoStack->undo();
+
 }
 
 
 void PaintWindow::on_redoBtn_clicked()
 {
     scene->undoStack->redo();
+    if(!scene->undoStack->isClean())
+        scene->savingCounter++;
 }
 
 
@@ -374,9 +384,11 @@ void PaintWindow::on_logoBtn_clicked()
 void PaintWindow::on_menuNew_clicked()
 {
     messageDialog *s = new messageDialog();
-    s->show();
-    s->actionType = 2;
-    s->exec();
+    if(scene->savingCounter > 0){
+        s->show();
+        s->actionType = 2;
+        s->exec();
+    }
 
     if(s->exitCheck){
         delete this->scene->ItemsVec;
@@ -386,6 +398,7 @@ void PaintWindow::on_menuNew_clicked()
         this->scene->ItemsVec = new QVector<Figure*>();
         PaintTable::UpdateTable(scene->table, *scene->ItemsVec);
         Figure::countZero();
+        scene->savingCounter = 0;
     }
 }
 
@@ -393,9 +406,11 @@ void PaintWindow::on_menuNew_clicked()
 void PaintWindow::on_menuOpen_clicked()
 {
     messageDialog *s = new messageDialog();
-    s->show();
-    s->actionType = 1;
-    s->exec();
+    if(scene->savingCounter > 0){
+        s->show();
+        s->actionType = 1;
+        s->exec();
+    }
 
     if(s->exitCheck){
         delete this->scene->ItemsVec;
@@ -405,11 +420,11 @@ void PaintWindow::on_menuOpen_clicked()
         this->scene->ItemsVec = new QVector<Figure*>();
         PaintTable::UpdateTable(scene->table, *scene->ItemsVec);
         Figure::countZero();
+        scene->savingCounter = 0;
 
         QString path = QFileDialog::getOpenFileName(this, tr("Open File"),
                                                         "/c://",
                                                         tr("JSON (*.json)"));
-        qDebug() << path;
         this->open(path);
     }
 

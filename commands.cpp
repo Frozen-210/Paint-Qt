@@ -33,8 +33,6 @@ void AddCommand::undo()
     myGraphicsScene->ItemsVec->pop_back();
     myGraphicsScene->update();
     PaintTable::UpdateTable(table, *myGraphicsScene->ItemsVec);
-
-
 }
 
 void AddCommand::redo()
@@ -44,8 +42,6 @@ void AddCommand::redo()
     myGraphicsScene->clearSelection();
     myGraphicsScene->update();
     PaintTable::UpdateTable(table, *myGraphicsScene->ItemsVec);
-
-
 }
 
 DeleteCommand::DeleteCommand(PaintScene *scene,Figure* item, QPointF LastPoint,QTableWidget* table,QUndoCommand *parent)
@@ -86,6 +82,5 @@ void DeleteCommand::redo()
     myGraphicsScene->ItemsVec->remove(myGraphicsScene->ItemsVec->indexOf(myDiagramItem));
     myGraphicsScene->update();
     PaintTable::UpdateTable(table, *myGraphicsScene->ItemsVec);
-
 }
 
