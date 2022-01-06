@@ -303,6 +303,8 @@ void PaintWindow::on_DataTable_cellChanged(int row, int column)
 
 void PaintWindow::on_SortASBtn_clicked()
 {
+
+//    auto viewed =scene->ItemsVec;
     PaintTable::SortAVec(scene->ItemsVec);
     PaintTable::UpdateTable(ui->DataTable,*scene->ItemsVec);
 }
