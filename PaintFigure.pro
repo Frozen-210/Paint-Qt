@@ -17,6 +17,7 @@ SOURCES += main.cpp\
     commands.cpp \
     json_utilities.cpp \
     line.cpp \
+    messagedialog.cpp \
     painttable.cpp \
     paintwindow.cpp \
     rectangle.cpp \
@@ -30,6 +31,7 @@ HEADERS  += \
     commands.h \
     json_utilities.h \
     line.h \
+    messagedialog.h \
     painttable.h \
     paintwindow.h \
     rectangle.h \
@@ -39,7 +41,7 @@ HEADERS  += \
     welcomewindow.h
 
 FORMS    += \
-    closedialog.ui \
+    messagedialog.ui \
     paintwindow.ui \
     welcomewindow.ui
 
