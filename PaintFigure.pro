@@ -13,10 +13,12 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
+    about.cpp \
     circle.cpp \
     commands.cpp \
     json_utilities.cpp \
     line.cpp \
+    messagedialog.cpp \
     painttable.cpp \
     paintwindow.cpp \
     rectangle.cpp \
@@ -26,10 +28,12 @@ SOURCES += main.cpp\
     welcomewindow.cpp
 
 HEADERS  += \
+    about.h \
     circle.h \
     commands.h \
     json_utilities.h \
     line.h \
+    messagedialog.h \
     painttable.h \
     paintwindow.h \
     rectangle.h \
@@ -39,8 +43,12 @@ HEADERS  += \
     welcomewindow.h
 
 FORMS    += \
+    about.ui \
+    messagedialog.ui \
     paintwindow.ui \
     welcomewindow.ui
 
 RESOURCES += \
     resources.qrc
+
+RC_ICONS = icon.ico

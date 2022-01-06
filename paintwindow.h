@@ -6,6 +6,7 @@
 #include <QResizeEvent>
 #include <QUndoView>
 #include "paintscene.h"
+#include "messagedialog.h"
 
 namespace Ui {
 class PaintWindow;
@@ -21,6 +22,7 @@ public:
     PaintScene *scene;
     QTimer *timer;
     void open(QString path);
+    void on_menuSave(QString path);
 
 
 private slots:
@@ -40,8 +42,6 @@ private slots:
     void on_colorBtn_clicked();
 
     void on_saveBtn_clicked();
-
-    //void on_verticalSlider_actionTriggered(int action);
 
     void on_verticalSlider_sliderMoved(int position);
 
@@ -71,6 +71,10 @@ private slots:
     void on_menuSave_clicked();
 
 
+
+
+    void on_infoBtn_clicked();
+
 protected:
     void mouseMoveEvent(QMouseEvent* event);
     void mousePressEvent(QMouseEvent* event);
@@ -79,6 +83,7 @@ private:
     Ui::PaintWindow *ui;
     QPoint mLastMousePosition;
     bool mMoving;
+    void closeEvent(QCloseEvent *event);
 };
 
 #endif // PAINTWINDOW_H

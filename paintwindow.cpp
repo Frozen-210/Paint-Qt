@@ -9,6 +9,8 @@
 #include "paintscene.h"
 #include "json_utilities.h"
 #include "painttable.h"
+#include "about.h"
+#include"commands.h"
 
 
 
@@ -95,6 +97,7 @@ PaintWindow::PaintWindow(QWidget *parent) :
     ui->saveBtn->setStyleSheet(sideBtnStyleSheet);
     ui->tableBtn->setStyleSheet(sideBtnStyleSheet);
     ui->ersr_Btn->setStyleSheet(sideBtnStyleSheet);
+    ui->infoBtn->setStyleSheet(sideBtnStyleSheet);
 
     // Assigning the stylesheet to the container table buttons
     ui->SortASBtn->setStyleSheet(tableBtnStyleSheet);
@@ -119,6 +122,8 @@ PaintWindow::PaintWindow(QWidget *parent) :
     ui->searchIcon->setFont(QFont("IROicons", 20));
     ui->closeBtn->setFont(QFont("IROicons", 21));
     ui->miniBtn->setFont(QFont("IROicons", 21));
+    ui->infoBtn->setFont(QFont("IROicons", 19));
+
 
     //assign embedded font to the GUI
     ui->redVal->setFont(QFont("Montserrat", 9));
@@ -169,13 +174,16 @@ void PaintWindow::on_circleBtn_clicked()
 
 void PaintWindow::on_undoBtn_clicked()
 {
+
     scene->undoStack->undo();
+
 }
 
 
 void PaintWindow::on_redoBtn_clicked()
 {
     scene->undoStack->redo();
+
 }
 
 
@@ -196,18 +204,19 @@ void PaintWindow::on_colorBtn_clicked()
 
 void PaintWindow::on_saveBtn_clicked()
 {
-    QString selectedFilter;
-    QString fileName = QFileDialog::getSaveFileName(
-                this,
-                tr("Save As"), "",
-                tr("JSON (*.json);;PNG (*.png );; All Files (*)"),&selectedFilter);
-
-    if (selectedFilter == "JSON (*.json)") {
+    if(scene->defaultPath != ""){
+        json_utilities::save(scene, scene->defaultPath);
+    }
+    else{
+        QString selectedFilter;
+        QString fileName = QFileDialog::getSaveFileName(
+                    this,
+                    tr("Save As"), "",
+                    tr("JSON (*.json);; All Files (*)"),&selectedFilter);
+        scene->defaultPath = fileName;
         json_utilities::save(scene, fileName);
     }
-    else if (selectedFilter == "PNG (*.png )") {
-        json_utilities::savePNG(scene, fileName);
-    }
+    scene->Modified = 0;
 }
 
 
@@ -375,32 +384,137 @@ void PaintWindow::on_logoBtn_clicked()
 
 void PaintWindow::on_menuNew_clicked()
 {
-    delete this->scene->ItemsVec;
-    delete this->scene->undoStack;
-    scene->clear();
-    this->scene->undoStack =new QUndoStack();
-    this->scene->ItemsVec = new QVector<Figure*>();
-    PaintTable::UpdateTable(scene->table, *scene->ItemsVec);
-    Figure::countZero();
 
+    int action=2;
+    if(scene->Modified){
+      messageDialog *s = new messageDialog("Don't Hurry up, you left some art behind you.","Save","Discard");
+      action=s->exec();
+
+    if(!s->closed){
+
+        if(action==1){
+        // Saving The Last Sene
+        QString selectedFilter;
+        QString fileName = QFileDialog::getSaveFileName(
+                    this,
+                    tr("Save As"), "",
+                    tr("JSON (*.json)"),&selectedFilter);
+        json_utilities::save(scene, fileName);
+        }
+        ButtonsCommand::clearScene(scene);
+        PaintTable::UpdateTable(scene->table, *scene->ItemsVec);
+        Figure::countZero();
+        scene->Modified = 0;
+    }
+
+    s->deleteLater();}
+    else{
+        ButtonsCommand::clearScene(scene);
+        PaintTable::UpdateTable(scene->table, *scene->ItemsVec);
+        Figure::countZero();
+    }
 
 }
 
 
 void PaintWindow::on_menuOpen_clicked()
 {
-    PaintWindow *p = new PaintWindow();
-    QString path = QFileDialog::getOpenFileName(this, tr("Open File"),
-                                                    "/c://",
-                                                    tr("JSON (*.json)"));
-    p->show();
-    this->hide();
-    p->open(path);
+
+    if(scene->Modified){
+        messageDialog *s = new messageDialog("Don't Hurry up, you left some art behind you.","Save","Discard");
+        int action;
+        s->actionType = 1;
+        action=s->exec();
+
+
+    if(!s->closed){
+        if (action==1){
+        // Saving The Last Sene
+        QString selectedFilter;
+        QString fileName = QFileDialog::getSaveFileName(
+                    this,
+                    tr("Save As"), "",
+                    tr("JSON (*.json)"),&selectedFilter);
+        json_utilities::save(scene, fileName);
+    }
+        ButtonsCommand::clearScene(scene);
+        PaintTable::UpdateTable(scene->table, *scene->ItemsVec);
+        Figure::countZero();
+        scene->Modified = 0;
+
+        QString path = QFileDialog::getOpenFileName(this, tr("Open File"),
+                                                        "/c://",
+                                                        tr("JSON (*.json)"));
+        this->open(path);
+    }
+    s->deleteLater();
+}
+    else{
+        ButtonsCommand::clearScene(scene);
+        PaintTable::UpdateTable(scene->table, *scene->ItemsVec);
+        Figure::countZero();
+        scene->Modified = 0;
+
+        QString path = QFileDialog::getOpenFileName(this, tr("Open File"),
+                                                        "/c://",
+                                                        tr("JSON (*.json)"));
+        this->open(path);
+    }
 }
 
 
 void PaintWindow::on_menuSave_clicked()
 {
-    on_saveBtn_clicked();
+    QString selectedFilter;
+    QString fileName = QFileDialog::getSaveFileName(
+                this,
+                tr("Save As"), "",
+                tr("JSON (*.json);;PNG (*.png )"),&selectedFilter);
+
+    if (selectedFilter == "JSON (*.json)") {
+        json_utilities::save(scene, fileName);
+        scene->Modified = 0;
+    }
+    else if (selectedFilter == "PNG (*.png )") {
+        json_utilities::savePNG(scene, fileName);
+    }
+}
+
+void PaintWindow::closeEvent(QCloseEvent *event)
+{
+
+    if(scene->Modified){
+        messageDialog *s =new messageDialog("You Want to LEAVE? at least save your work","Save","Discard");
+        int action= s->exec();
+        if(!s->closed){
+        if(action){
+            QString selectedFilter;
+            QString fileName = QFileDialog::getSaveFileName(
+                        this,
+                        tr("Save As"), "",
+                        tr("JSON (*.json)"),&selectedFilter);
+            json_utilities::save(scene, fileName);
+        }
+        event->accept();
+    }
+    else{
+            event->ignore();
+        }
+    }
+    else{
+        messageDialog *s =new messageDialog("Please Stay with ME","OK","NO, I leave");
+        int action= s->exec();
+        if(action|| s->closed)
+            event->ignore();
+        else
+            event->accept();
+    }
+}
+
+
+void PaintWindow::on_infoBtn_clicked()
+{
+    about *ab = new about();
+    ab->exec();
 }
 

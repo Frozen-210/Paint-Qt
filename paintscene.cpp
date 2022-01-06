@@ -55,7 +55,6 @@ int PaintScene::typeFigure() const
 void PaintScene::setTypeFigure(const int type)
 {
     m_typeFigure = type;
-
 }
 
 /*
@@ -90,6 +89,7 @@ void PaintScene::setWeight(int Value)
  */
 void PaintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
+
     switch (m_typeFigure) {
     case RectangleType: {
         // Getting the start point from the mouse event
