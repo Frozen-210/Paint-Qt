@@ -73,6 +73,8 @@ private slots:
 
 
 
+    void on_infoBtn_clicked();
+
 protected:
     void mouseMoveEvent(QMouseEvent* event);
     void mousePressEvent(QMouseEvent* event);

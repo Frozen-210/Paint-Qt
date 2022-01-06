@@ -13,6 +13,7 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
+    about.cpp \
     circle.cpp \
     commands.cpp \
     json_utilities.cpp \
@@ -27,6 +28,7 @@ SOURCES += main.cpp\
     welcomewindow.cpp
 
 HEADERS  += \
+    about.h \
     circle.h \
     commands.h \
     json_utilities.h \
@@ -41,6 +43,7 @@ HEADERS  += \
     welcomewindow.h
 
 FORMS    += \
+    about.ui \
     messagedialog.ui \
     paintwindow.ui \
     welcomewindow.ui

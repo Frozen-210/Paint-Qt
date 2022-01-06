@@ -9,6 +9,7 @@
 #include "paintscene.h"
 #include "json_utilities.h"
 #include "painttable.h"
+#include "about.h"
 #include"commands.h"
 
 
@@ -96,6 +97,7 @@ PaintWindow::PaintWindow(QWidget *parent) :
     ui->saveBtn->setStyleSheet(sideBtnStyleSheet);
     ui->tableBtn->setStyleSheet(sideBtnStyleSheet);
     ui->ersr_Btn->setStyleSheet(sideBtnStyleSheet);
+    ui->infoBtn->setStyleSheet(sideBtnStyleSheet);
 
     // Assigning the stylesheet to the container table buttons
     ui->SortASBtn->setStyleSheet(tableBtnStyleSheet);
@@ -120,6 +122,8 @@ PaintWindow::PaintWindow(QWidget *parent) :
     ui->searchIcon->setFont(QFont("IROicons", 20));
     ui->closeBtn->setFont(QFont("IROicons", 21));
     ui->miniBtn->setFont(QFont("IROicons", 21));
+    ui->infoBtn->setFont(QFont("IROicons", 19));
+
 
     //assign embedded font to the GUI
     ui->redVal->setFont(QFont("Montserrat", 9));
@@ -503,5 +507,12 @@ void PaintWindow::closeEvent(QCloseEvent *event)
         else
             event->accept();
     }
+}
+
+
+void PaintWindow::on_infoBtn_clicked()
+{
+    about *ab = new about();
+    ab->exec();
 }
 
