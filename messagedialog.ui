@@ -61,10 +61,10 @@ font: 11pt &quot;Montserrat&quot;;</string>
   <widget class="QLabel" name="message">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>98</y>
-     <width>331</width>
-     <height>51</height>
+     <x>50</x>
+     <y>88</y>
+     <width>411</width>
+     <height>61</height>
     </rect>
    </property>
    <property name="font">

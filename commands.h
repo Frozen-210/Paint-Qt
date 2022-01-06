@@ -23,6 +23,7 @@ private:
     PaintScene *myGraphicsScene;
     QPointF initialPosition;
     QTableWidget* table;
+    bool WasModified;
 };
 
 
@@ -42,6 +43,12 @@ private:
      PaintScene *myGraphicsScene;
      QPointF initialPosition;
      QTableWidget* table;
+     bool WasModified;
+ };
+
+ class ButtonsCommand{
+ public:
+     static void clearScene(PaintScene* scene);
  };
 
 #endif // COMMANDS_H
