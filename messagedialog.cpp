@@ -1,5 +1,7 @@
 #include "messagedialog.h"
 #include "ui_messagedialog.h"
+#include <QFileDialog>
+#include "json_utilities.h"
 
 messageDialog::messageDialog(QWidget *parent) :
     QDialog(parent, Qt::FramelessWindowHint | Qt::WindowSystemMenuHint),
@@ -44,3 +46,64 @@ messageDialog::~messageDialog()
 {
     delete ui;
 }
+
+void messageDialog::on_yesBtn_clicked()
+{
+    switch (actionType){
+    case 1:{
+        // Saving The Last Sene
+        PaintWindow *p = new PaintWindow();
+        QString selectedFilter;
+        QString fileName = QFileDialog::getSaveFileName(
+                    this,
+                    tr("Save As"), "",
+                    tr("JSON (*.json);; All Files (*)"),&selectedFilter);
+        p->on_menuSave(fileName);
+
+        // Opening the wanted File
+        QString path = QFileDialog::getOpenFileName(this, tr("Open File"),
+                                                        "/c://",
+                                                        tr("JSON (*.json)"));
+
+        p->show();
+        this->hide();
+        p->open(path);
+        break;
+    }
+    case 2:
+        PaintWindow *p = new PaintWindow();
+        QString selectedFilter;
+        QString fileName = QFileDialog::getSaveFileName(
+                    this,
+                    tr("Save As"), "",
+                    tr("JSON (*.json);; All Files (*)"),&selectedFilter);
+        p->on_menuSave(fileName);
+        this->hide();
+        break;
+    }
+}
+
+
+void messageDialog::on_closeBtn_clicked()
+{
+    exitCheck = false;
+    this->hide();
+}
+
+
+void messageDialog::on_noBtn_clicked()
+{
+    switch (actionType){
+    case 1:{
+
+        this->hide();
+        break;
+    }
+    case 2:
+    {
+        this->hide();
+        break;
+    }
+    }
+}
+

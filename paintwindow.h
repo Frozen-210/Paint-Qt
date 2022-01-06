@@ -6,6 +6,7 @@
 #include <QResizeEvent>
 #include <QUndoView>
 #include "paintscene.h"
+#include "messagedialog.h"
 
 namespace Ui {
 class PaintWindow;
@@ -21,6 +22,7 @@ public:
     PaintScene *scene;
     QTimer *timer;
     void open(QString path);
+    void on_menuSave(QString path);
 
 
 private slots:

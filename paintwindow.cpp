@@ -373,32 +373,55 @@ void PaintWindow::on_logoBtn_clicked()
 
 void PaintWindow::on_menuNew_clicked()
 {
-    delete this->scene->ItemsVec;
-    delete this->scene->undoStack;
-    scene->clear();
-    this->scene->undoStack =new QUndoStack();
-    this->scene->ItemsVec = new QVector<Figure*>();
-    PaintTable::UpdateTable(scene->table, *scene->ItemsVec);
-    Figure::countZero();
+    messageDialog *s = new messageDialog();
+    s->show();
+    s->actionType = 2;
+    s->exec();
 
-
+    if(s->exitCheck){
+        delete this->scene->ItemsVec;
+        delete this->scene->undoStack;
+        scene->clear();
+        this->scene->undoStack =new QUndoStack();
+        this->scene->ItemsVec = new QVector<Figure*>();
+        PaintTable::UpdateTable(scene->table, *scene->ItemsVec);
+        Figure::countZero();
+    }
 }
 
 
 void PaintWindow::on_menuOpen_clicked()
 {
-    PaintWindow *p = new PaintWindow();
-    QString path = QFileDialog::getOpenFileName(this, tr("Open File"),
-                                                    "/c://",
-                                                    tr("JSON (*.json)"));
-    p->show();
-    this->hide();
-    p->open(path);
+    messageDialog *s = new messageDialog();
+    s->show();
+    s->actionType = 1;
+    s->exec();
+
+    if(s->exitCheck){
+        delete this->scene->ItemsVec;
+        delete this->scene->undoStack;
+        scene->clear();
+        this->scene->undoStack =new QUndoStack();
+        this->scene->ItemsVec = new QVector<Figure*>();
+        PaintTable::UpdateTable(scene->table, *scene->ItemsVec);
+        Figure::countZero();
+
+        QString path = QFileDialog::getOpenFileName(this, tr("Open File"),
+                                                        "/c://",
+                                                        tr("JSON (*.json)"));
+        qDebug() << path;
+        this->open(path);
+    }
+
 }
 
 
 void PaintWindow::on_menuSave_clicked()
 {
     on_saveBtn_clicked();
+}
+
+void PaintWindow:: on_menuSave(QString path){
+    json_utilities::save(scene, path);
 }
 
