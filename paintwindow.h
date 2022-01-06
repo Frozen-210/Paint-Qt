@@ -43,8 +43,6 @@ private slots:
 
     void on_saveBtn_clicked();
 
-    //void on_verticalSlider_actionTriggered(int action);
-
     void on_verticalSlider_sliderMoved(int position);
 
     void on_tableBtn_clicked();
@@ -73,6 +71,8 @@ private slots:
     void on_menuSave_clicked();
 
 
+
+
 protected:
     void mouseMoveEvent(QMouseEvent* event);
     void mousePressEvent(QMouseEvent* event);
@@ -81,6 +81,7 @@ private:
     Ui::PaintWindow *ui;
     QPoint mLastMousePosition;
     bool mMoving;
+    void closeEvent(QCloseEvent *event);
 };
 
 #endif // PAINTWINDOW_H

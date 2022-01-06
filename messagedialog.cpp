@@ -51,35 +51,20 @@ void messageDialog::on_yesBtn_clicked()
 {
     switch (actionType){
     case 1:{
-        // Saving The Last Sene
-        PaintWindow *p = new PaintWindow();
-        QString selectedFilter;
-        QString fileName = QFileDialog::getSaveFileName(
-                    this,
-                    tr("Save As"), "",
-                    tr("JSON (*.json);; All Files (*)"),&selectedFilter);
-        p->on_menuSave(fileName);
-
-        // Opening the wanted File
-        QString path = QFileDialog::getOpenFileName(this, tr("Open File"),
-                                                        "/c://",
-                                                        tr("JSON (*.json)"));
-
-        p->show();
+        dialogCheck = 1;
         this->hide();
-        p->open(path);
         break;
     }
-    case 2:
-        PaintWindow *p = new PaintWindow();
-        QString selectedFilter;
-        QString fileName = QFileDialog::getSaveFileName(
-                    this,
-                    tr("Save As"), "",
-                    tr("JSON (*.json);; All Files (*)"),&selectedFilter);
-        p->on_menuSave(fileName);
+    case 2:{
+        dialogCheck = 2;
         this->hide();
         break;
+    }
+    case 5:{
+        dialogCheck = 5;
+        this->hide();
+        break;
+    }
     }
 }
 
@@ -95,12 +80,18 @@ void messageDialog::on_noBtn_clicked()
 {
     switch (actionType){
     case 1:{
-
+        dialogCheck = 3;
         this->hide();
         break;
     }
     case 2:
     {
+        dialogCheck = 4;
+        this->hide();
+        break;
+    }
+    case 5:{
+        exitCheck = true;
         this->hide();
         break;
     }

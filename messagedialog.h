@@ -16,6 +16,7 @@ public:
     ~messageDialog();
     int actionType;
     bool exitCheck = true;
+    int dialogCheck;
 
 private slots:
     void on_yesBtn_clicked();
