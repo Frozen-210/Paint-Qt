@@ -807,6 +807,41 @@ font: 9pt &quot;Montserrat&quot;;</string>
      <bool>true</bool>
     </property>
    </widget>
+   <widget class="QPushButton" name="infoBtn">
+    <property name="geometry">
+     <rect>
+      <x>1170</x>
+      <y>822</y>
+      <width>21</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>19</pointsize>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius:10px;
+color: #a5aeaf;
+text-align: left;
+font: 19pt &quot;IROicons&quot;;</string>
+    </property>
+    <property name="text">
+     <string>l</string>
+    </property>
+    <property name="shortcut">
+     <string>Ctrl+S</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources>

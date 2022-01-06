@@ -18,7 +18,7 @@
     <rect>
      <x>50</x>
      <y>40</y>
-     <width>411</width>
+     <width>407</width>
      <height>181</height>
     </rect>
    </property>
@@ -127,7 +127,6 @@ font: 11pt &quot;Montserrat&quot;;</string>
    </property>
    <property name="font">
     <font>
-     <family>Montserrat Light</family>
      <pointsize>11</pointsize>
     </font>
    </property>
