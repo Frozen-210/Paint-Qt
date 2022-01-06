@@ -52,8 +52,10 @@ void WelcomeWindow::on_openPaintBtn_clicked()
     QString path = QFileDialog::getOpenFileName(this, tr("Open File"),
                                                     "/c://",
                                                     tr("JSON (*.json)"));
+    if (!path.isNull()){
     p->show();
     this->hide();
     p->open(path);
+}
 }
 
