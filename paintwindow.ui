@@ -704,7 +704,7 @@ font: 11pt &quot;Montserrat&quot;;</string>
      <font/>
     </property>
     <property name="text">
-     <string>HEX: #FFFFF</string>
+     <string>HEX: #000000</string>
     </property>
    </widget>
    <widget class="QLabel" name="lineWVal">
