@@ -447,7 +447,10 @@ void PaintWindow::on_menuOpen_clicked()
         if (!path.isNull()){
         this->open(path);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
             ButtonsCommand::clearScene(scene);
             PaintTable::UpdateTable(scene->table, *scene->ItemsVec);
             Figure::countZero();

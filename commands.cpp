@@ -88,7 +88,11 @@ void DeleteCommand::redo()
     myGraphicsScene->removeItem(myDiagramItem);
     // remove figure from the vector
     myGraphicsScene->ItemsVec->remove(myGraphicsScene->ItemsVec->indexOf(myDiagramItem));
+<<<<<<< Updated upstream
     myGraphicsScene->ItemsVec->remove(myGraphicsScene->SavedVec->indexOf(myDiagramItem));
+=======
+    myGraphicsScene->SavedVec->remove(myGraphicsScene->SavedVec->indexOf(myDiagramItem));
+>>>>>>> Stashed changes
     myGraphicsScene->update();
     PaintTable::UpdateTable(table, *myGraphicsScene->ItemsVec);
     myGraphicsScene->Modified=true;
