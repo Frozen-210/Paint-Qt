@@ -38,6 +38,7 @@ void json_utilities::save(PaintScene *scene, QString path)
         QColor color = newVec->at(i)->shapeColor;
         int LineW = newVec->at(i)->LineWeight;
         QString shapeName = newVec->at(i)->shapeTypeName;
+        QString name = newVec->at(i)->name;
 
         // Setting the above values to the setting to path it the file
         settings[QString("Shape")] = QString("%1").arg(shapeName);
@@ -45,6 +46,7 @@ void json_utilities::save(PaintScene *scene, QString path)
         settings[QString("EndPoint")] = QString("%1, %2").arg(point2.rx()).arg(point2.ry());
         settings[QString("Color")] = QString("%1, %2, %3").arg(color.red()).arg(color.green()).arg(color.blue());
         settings[QString("LineWeight")] = QString("%1").arg(LineW);
+        settings[QString("ShapeName")] = QString("%1").arg(name);
 
         // Make a JSON Object and pass it to the file
         QJsonObject jsonobj = QJsonObject::fromVariantMap(settings);
@@ -96,7 +98,7 @@ void json_utilities::open(PaintScene *scene,QTableWidget* table, QString path)
 
     auto json_doc = QJsonDocument::fromJson(json_string.toUtf8());
     QJsonArray jArr = json_doc.array();
-    QJsonValue c_val, val2, val3, val4, val5;
+    QJsonValue c_val, val2, val3, val4, val5, name_val;
 
     // Looping in the file shapes
     for(auto jsonObj : jArr)
@@ -128,12 +130,17 @@ void json_utilities::open(PaintScene *scene,QTableWidget* table, QString path)
         val5 = jsonObj.toObject().value("Shape");
         QString _ST = val5.toString();
 
+        // Getting the shape name
+        name_val = jsonObj.toObject().value("ShapeName");
+        QString _SN = name_val.toString();
+
         // Conditions for each shape to initialize it
 
         if(_ST=="Rectangle"){
             Figure *item = new Rectangle(firstPoint,color,LW);
             item->setPos(firstPoint);
             item->setEndPoint(endPoint,false);
+            item->name = _SN;
             QUndoCommand *addCommand = new AddCommand(scene,item,firstPoint,table);
             scene->undoStack->push(addCommand);}
 
@@ -141,6 +148,7 @@ void json_utilities::open(PaintScene *scene,QTableWidget* table, QString path)
             Figure *item = new Circle(firstPoint,color,LW);
             item->setPos(firstPoint);
             item->setEndPoint(endPoint,false);
+            item->name = _SN;
             QUndoCommand *addCommand = new AddCommand(scene,item,firstPoint,table);
             scene->undoStack->push(addCommand);
         }
@@ -148,6 +156,7 @@ void json_utilities::open(PaintScene *scene,QTableWidget* table, QString path)
             Figure *item = new Line(firstPoint,color,LW);
             item->setPos(firstPoint);
             item->setEndPoint(endPoint,false);
+            item->name = _SN;
             QUndoCommand *addCommand = new AddCommand(scene,item,firstPoint,table);
             scene->undoStack->push(addCommand);
         }
@@ -155,6 +164,7 @@ void json_utilities::open(PaintScene *scene,QTableWidget* table, QString path)
             Figure *item = new Triangle(firstPoint,color,LW);
             item->setPos(firstPoint);
             item->setEndPoint(endPoint,false);
+            item->name = _SN;
             QUndoCommand *addCommand = new AddCommand(scene,item,firstPoint,table);
             scene->undoStack->push(addCommand);
         }
