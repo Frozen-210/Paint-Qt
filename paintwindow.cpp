@@ -472,7 +472,6 @@ void PaintWindow::on_menuOpen_clicked()
     scene->defaultPath = "";
 }
 
-
 void PaintWindow::on_menuSave_clicked()
 {
     QString selectedFilter;
@@ -528,3 +527,4 @@ void PaintWindow::on_infoBtn_clicked()
     ab->exec();
 }
 
+// after 100 commit in the branch
