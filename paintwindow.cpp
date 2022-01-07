@@ -423,7 +423,6 @@ void PaintWindow::on_menuOpen_clicked()
     if(scene->Modified){
         messageDialog *s = new messageDialog("Don't Hurry up, you left some art behind you.","Save","Discard");
         int action;
-        s->actionType = 1;
         action=s->exec();
 
 
@@ -449,33 +448,26 @@ void PaintWindow::on_menuOpen_clicked()
              Figure::countZero();
              scene->Modified = 0;
     }
-<<<<<<< Updated upstream
-    scene->Modified=false;
-    s->deleteLater();
-=======
-        scene->Modified = 0;
-
-   s->deleteLater();
->>>>>>> Stashed changes
+  s->deleteLater();
 }
     else{
 
         QString path = QFileDialog::getOpenFileName(this, tr("Open File"),
                                                         "/c://",
                                                         tr("JSON (*.json)"));
-<<<<<<< Updated upstream
+
         this->open(path);
         scene->Modified=false;
-=======
+
         if (!path.isNull()){
             ButtonsCommand::clearScene(scene);
             this->open(path);
+
             PaintTable::UpdateTable(scene->table, *scene->ItemsVec);
             Figure::countZero();
             scene->Modified = 0;
         }
-        scene->Modified = 0;
->>>>>>> Stashed changes
+
     }
     scene->defaultPath = "";
 }

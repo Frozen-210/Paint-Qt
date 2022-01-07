@@ -83,7 +83,7 @@ DeleteCommand::~DeleteCommand()
 void DeleteCommand::undo()
 {
         myGraphicsScene->ItemsVec->push_back(myDiagramItem);
-        myGraphicsScene->SavedVec->push_back(myDiagramItem);
+        myGraphicsScene->SavedVec->insert(ItemIndex, myDiagramItem);
         myGraphicsScene->addItem(myDiagramItem);
         myDiagramItem->setPos(initialPosition);
         myGraphicsScene->clearSelection();
@@ -98,11 +98,8 @@ void DeleteCommand::redo()
     myGraphicsScene->removeItem(myDiagramItem);
     // remove figure from the vector
     myGraphicsScene->ItemsVec->remove(myGraphicsScene->ItemsVec->indexOf(myDiagramItem));
-<<<<<<< Updated upstream
-    myGraphicsScene->ItemsVec->remove(myGraphicsScene->SavedVec->indexOf(myDiagramItem));
-=======
-    myGraphicsScene->SavedVec->remove(myGraphicsScene->SavedVec->indexOf(myDiagramItem));
->>>>>>> Stashed changes
+    ItemIndex=myGraphicsScene->SavedVec->indexOf(myDiagramItem);
+    myGraphicsScene->SavedVec->remove(ItemIndex);
     myGraphicsScene->update();
     PaintTable::UpdateTable(table, *myGraphicsScene->ItemsVec);
     if(IsFirstTime){
