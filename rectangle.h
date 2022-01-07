@@ -11,7 +11,7 @@ class Rectangle : public Figure
     Q_OBJECT
 
 public:
-    explicit Rectangle(QPointF point,QColor color,int LineWeightbool, bool isFilled, QObject *parent = 0);
+    explicit Rectangle(QPointF point,QColor color,int LineWeightbool, bool isFilled,QColor fillColor, QObject *parent = 0);
     ~Rectangle();
 
 private:

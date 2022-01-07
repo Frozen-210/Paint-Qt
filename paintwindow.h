@@ -86,7 +86,8 @@ private:
     QPoint mLastMousePosition;
     bool mMoving;
     void closeEvent(QCloseEvent *event);
-    bool isFilled=false;
+    bool isFilled=true;
+    QColor fillColor=Qt::black;
 };
 
 #endif // PAINTWINDOW_H

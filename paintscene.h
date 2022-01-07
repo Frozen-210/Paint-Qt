@@ -29,7 +29,7 @@ public:
     ~PaintScene();
     QString defaultPath = "";
 
-
+    void setFillColor(QColor color);
     int typeFigure() const;
     void setTypeFigure(const int type);
     bool Modified = false;
@@ -61,6 +61,7 @@ private:
     bool isFilled;
     int m_typeFigure;
     bool selectingItem;
+    QColor fillColor;
 
 
 

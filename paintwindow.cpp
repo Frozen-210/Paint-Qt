@@ -195,7 +195,11 @@ void PaintWindow::on_colorBtn_clicked()
 {
     QColor newColor = QColorDialog::getColor();
     if (newColor.isValid()){
-        scene->setColor(newColor);
+        scene->setFillColor(newColor);
+        if (newColor==Qt::white)
+            scene->setFilled(false);
+        else
+            scene->setFilled(true);
         ui->redVal->setText("R: " + QString::number(newColor.red()));
         ui->greenVal->setText("R: " + QString::number(newColor.green()));
         ui->blueVal->setText("R: " + QString::number(newColor.blue()));
@@ -535,13 +539,13 @@ void PaintWindow::on_infoBtn_clicked()
 
 void PaintWindow::on_borderCBtn_clicked()
 {
-    if(!isFilled){
-        scene->setFilled(true);
-        isFilled=true;
-    }
-    else{
-        scene->setFilled(false);
-        isFilled=false;
+    QColor newColor = QColorDialog::getColor();
+    if (newColor.isValid()){
+        scene->setColor(newColor);
+        ui->redVal->setText("R: " + QString::number(newColor.red()));
+        ui->greenVal->setText("R: " + QString::number(newColor.green()));
+        ui->blueVal->setText("R: " + QString::number(newColor.blue()));
+        ui->hexVal->setText("HEX: " + newColor.name());
     }
 
 }
