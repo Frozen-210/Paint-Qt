@@ -32,7 +32,9 @@ public:
     QString name;
     QColor shapeColor;
     int LineWeight;
+    bool isFilled;
     QString shapeTypeName;
+
 
     static int lCount;
     static int rCount;

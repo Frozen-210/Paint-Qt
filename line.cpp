@@ -13,6 +13,7 @@ Line::Line(QPointF point,QColor color,int LineWeight, QObject *parent) :
     this->LineWeight=LineWeight;
     this->name=QString("Line %1").arg(lCount);
     lCount++;
+
 }
 
 
@@ -30,8 +31,13 @@ void Line::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
 
     // Draw the line with the start, end point and the painter
     QLineF line(startPoint().x(),startPoint().y(),endPoint().x(),endPoint().y());
+    //Fill shape in case fill button
+//    if(isFilled){
+//         painter->setBrush(shapeColor);
+//    }
     painter->drawLine(line);
     this->perimeter=line.length();
+
 
 
     Q_UNUSED(option)
