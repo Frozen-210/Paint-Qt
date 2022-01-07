@@ -15,9 +15,10 @@ public:
     ~Rectangle();
 
 private:
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget, bool isFilled);
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
 
-    float sideLen;
+    float sideLen1,
+          sideLen2;
 };
 
 #endif // RECTANGLE_H

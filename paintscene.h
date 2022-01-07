@@ -29,6 +29,7 @@ public:
     ~PaintScene();
     QString defaultPath = "";
 
+    bool isFilled;
 
     int typeFigure() const;
     void setTypeFigure(const int type);
@@ -39,7 +40,8 @@ public:
         CircleType,
         TriangleType,
         LineType,
-        EraserType
+        EraserType,
+        FillType
     };
     void setColor(QColor color);
     void setWeight(int Value);

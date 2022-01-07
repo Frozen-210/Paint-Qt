@@ -15,7 +15,7 @@ public:
     ~Triangle();
 
 private:
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget, bool isFilled);
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
 
     float side1,side2,side3;
 };

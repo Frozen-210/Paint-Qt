@@ -532,3 +532,9 @@ void PaintWindow::on_infoBtn_clicked()
 }
 
 // after 100 commit in the branch
+
+void PaintWindow::on_borderCBtn_clicked()
+{
+    scene->setTypeFigure(PaintScene::FillType);
+}
+

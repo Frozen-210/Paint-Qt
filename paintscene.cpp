@@ -10,6 +10,7 @@
 #include <QGraphicsScene>
 #include <QGraphicsView>
 
+
 PaintScene::PaintScene(QGraphicsView *view,QTableWidget* table, QObject *parent) : QGraphicsScene(parent)
 {
     this->view = view;
@@ -21,6 +22,9 @@ PaintScene::PaintScene(QGraphicsView *view,QTableWidget* table, QObject *parent)
 
     // Initializing the Line weigh of the shapes with 1
     LineWeight = 1;
+
+    // Initialize filling status
+    isFilled=0;
 
     // Initializing vector to contain the shapes info
     ItemsVec = new QVector<Figure*>();
@@ -97,7 +101,7 @@ void PaintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
         startPoint = event->scenePos();
 
         // Make an object from the rectangle class to draw the shape
-        Rectangle *item = new Rectangle(startPoint,paintingColor, 0,LineWeight);
+        Rectangle *item = new Rectangle(startPoint,paintingColor,isFilled,LineWeight);
 
         // Getting the end point and pass it the the above object
         EndPoint = event->pos();
@@ -113,7 +117,7 @@ void PaintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
       startPoint = event->scenePos();
 
       // Make an object from the circle class to draw the shape
-      Circle *item = new Circle(startPoint,paintingColor,0,LineWeight);
+      Circle *item = new Circle(startPoint,paintingColor,isFilled,LineWeight);
 
       // Getting the end point and pass it the the above object
       EndPoint = event->pos();
@@ -130,7 +134,7 @@ void PaintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
       startPoint = event->scenePos();
 
       // Make an object from the Line class to draw the shape
-      Line *item = new Line(startPoint,paintingColor,0,LineWeight);
+      Line *item = new Line(startPoint,paintingColor,LineWeight);
 
       // Getting the end point and pass it the the above object
       EndPoint = event->pos();
@@ -147,7 +151,7 @@ void PaintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
         startPoint = event->scenePos();
 
         // Make an object from the Triangle class to draw the shape
-        Figure *item = new Triangle(startPoint, paintingColor,0, LineWeight);
+        Figure *item = new Triangle(startPoint, paintingColor,isFilled, LineWeight);
         item->setPos(event->pos());
 
         // Set the above object to the tempFigure to use it later
@@ -176,11 +180,15 @@ void PaintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
         }
         break;
     }
+    case FillType:{
+       isFilled=!isFilled;
+        break;
+    }
     /*
      * By Default, The Rectangle button is pressed.
      */
     default:{
-        Rectangle *item = new Rectangle(event->scenePos(),paintingColor, 0,LineWeight);
+        Rectangle *item = new Rectangle(event->scenePos(),paintingColor, isFilled,LineWeight);
         item->setPos(event->pos());
         tempFigure = item;
         this->addItem(tempFigure);

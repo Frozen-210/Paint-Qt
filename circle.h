@@ -16,7 +16,7 @@ public:
     ~Circle();
 
 private:
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget, bool isFilled);
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
 
 };
 

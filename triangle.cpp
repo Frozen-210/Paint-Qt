@@ -23,11 +23,11 @@ Triangle::~Triangle()
 
 }
 
-void Triangle::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget, bool isFilled)
-{
+void Triangle::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget){
     painter->setPen(QPen(shapeColor, LineWeight));
     QPolygonF polygon;
     shapeTypeName = "Triangle";
+
 
 
 
@@ -48,7 +48,10 @@ void Triangle::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, 
     this->side3=line3.length();
     this->perimeter=side1+side2+side3;
 
-
+    //Fill shape in case fill button
+    if(!isFilled){
+         painter->setBrush(shapeColor);
+    }
 
     painter->drawPolygon(polygon);
 
