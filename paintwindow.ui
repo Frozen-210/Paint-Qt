@@ -271,7 +271,7 @@ font: 21pt &quot;IROicons&quot;;</string>
     <property name="geometry">
      <rect>
       <x>90</x>
-      <y>131</y>
+      <y>110</y>
       <width>26</width>
       <height>31</height>
      </rect>
@@ -303,7 +303,7 @@ font: 20pt &quot;IROicons&quot;;</string>
     <property name="geometry">
      <rect>
       <x>90</x>
-      <y>311</y>
+      <y>350</y>
       <width>31</width>
       <height>31</height>
      </rect>
@@ -370,7 +370,7 @@ font: 28pt &quot;IROicons&quot;;</string>
     <property name="geometry">
      <rect>
       <x>88</x>
-      <y>251</y>
+      <y>290</y>
       <width>29</width>
       <height>24</height>
      </rect>
@@ -405,7 +405,7 @@ font: 18pt &quot;IROicons&quot;;</string>
     <property name="geometry">
      <rect>
       <x>94</x>
-      <y>371</y>
+      <y>410</y>
       <width>21</width>
       <height>31</height>
      </rect>
@@ -526,7 +526,7 @@ font: 9pt &quot;Montserrat&quot;;
     <property name="geometry">
      <rect>
       <x>88</x>
-      <y>191</y>
+      <y>230</y>
       <width>29</width>
       <height>24</height>
      </rect>
@@ -831,6 +831,38 @@ font: 19pt &quot;IROicons&quot;;</string>
     </property>
     <property name="text">
      <string>l</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="borderCBtn">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>170</y>
+      <width>26</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>20</pointsize>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius:10px;
+color: #a5aeaf;
+text-align: left;
+font: 20pt &quot;IROicons&quot;;</string>
+    </property>
+    <property name="text">
+     <string>k</string>
     </property>
     <property name="flat">
      <bool>true</bool>

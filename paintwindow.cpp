@@ -98,6 +98,8 @@ PaintWindow::PaintWindow(QWidget *parent) :
     ui->tableBtn->setStyleSheet(sideBtnStyleSheet);
     ui->ersr_Btn->setStyleSheet(sideBtnStyleSheet);
     ui->infoBtn->setStyleSheet(sideBtnStyleSheet);
+    ui->borderCBtn->setStyleSheet(sideBtnStyleSheet);
+
 
     // Assigning the stylesheet to the container table buttons
     ui->SortASBtn->setStyleSheet(tableBtnStyleSheet);
@@ -123,6 +125,8 @@ PaintWindow::PaintWindow(QWidget *parent) :
     ui->closeBtn->setFont(QFont("IROicons", 21));
     ui->miniBtn->setFont(QFont("IROicons", 21));
     ui->infoBtn->setFont(QFont("IROicons", 19));
+    ui->borderCBtn->setFont(QFont("IROicons", 20));
+
 
 
     //assign embedded font to the GUI
