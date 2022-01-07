@@ -137,7 +137,7 @@ void json_utilities::open(PaintScene *scene,QTableWidget* table, QString path)
         // Conditions for each shape to initialize it
 
         if(_ST=="Rectangle"){
-            Figure *item = new Rectangle(firstPoint,color,0,LW);
+            Figure *item = new Rectangle(firstPoint,color,LW,0);
             item->setPos(firstPoint);
             item->setEndPoint(endPoint,false);
             item->name = _SN;
@@ -145,7 +145,7 @@ void json_utilities::open(PaintScene *scene,QTableWidget* table, QString path)
             scene->undoStack->push(addCommand);}
 
         else if(_ST=="Circle"){
-            Figure *item = new Circle(firstPoint,color,0,LW);
+            Figure *item = new Circle(firstPoint,color,LW,0);
             item->setPos(firstPoint);
             item->setEndPoint(endPoint,false);
             item->name = _SN;
@@ -161,7 +161,7 @@ void json_utilities::open(PaintScene *scene,QTableWidget* table, QString path)
             scene->undoStack->push(addCommand);
         }
         else if(_ST=="Triangle"){
-            Figure *item = new Triangle(firstPoint,color,0,LW);
+            Figure *item = new Triangle(firstPoint,color,LW,0);
             item->setPos(firstPoint);
             item->setEndPoint(endPoint,false);
             item->name = _SN;

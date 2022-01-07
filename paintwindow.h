@@ -86,6 +86,7 @@ private:
     QPoint mLastMousePosition;
     bool mMoving;
     void closeEvent(QCloseEvent *event);
+    bool isFilled=false;
 };
 
 #endif // PAINTWINDOW_H

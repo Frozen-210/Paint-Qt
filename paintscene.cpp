@@ -84,6 +84,11 @@ void PaintScene::setWeight(int Value)
     LineWeight=Value;
 }
 
+void PaintScene::setFilled(bool IsFilled)
+{
+    this->isFilled= IsFilled;
+}
+
 
 /*
  * ------------------ mousePressEvent Function --------------------
@@ -101,7 +106,7 @@ void PaintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
         startPoint = event->scenePos();
 
         // Make an object from the rectangle class to draw the shape
-        Rectangle *item = new Rectangle(startPoint,paintingColor,isFilled,LineWeight);
+        Rectangle *item = new Rectangle(startPoint,paintingColor,LineWeight,isFilled);
 
         // Getting the end point and pass it the the above object
         EndPoint = event->pos();
@@ -117,7 +122,7 @@ void PaintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
       startPoint = event->scenePos();
 
       // Make an object from the circle class to draw the shape
-      Circle *item = new Circle(startPoint,paintingColor,isFilled,LineWeight);
+      Circle *item = new Circle(startPoint,paintingColor,LineWeight,isFilled);
 
       // Getting the end point and pass it the the above object
       EndPoint = event->pos();
@@ -151,7 +156,7 @@ void PaintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
         startPoint = event->scenePos();
 
         // Make an object from the Triangle class to draw the shape
-        Figure *item = new Triangle(startPoint, paintingColor,isFilled, LineWeight);
+        Figure *item = new Triangle(startPoint, paintingColor, LineWeight,isFilled);
         item->setPos(event->pos());
 
         // Set the above object to the tempFigure to use it later
@@ -180,15 +185,11 @@ void PaintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
         }
         break;
     }
-    case FillType:{
-       isFilled=!isFilled;
-        break;
-    }
     /*
      * By Default, The Rectangle button is pressed.
      */
     default:{
-        Rectangle *item = new Rectangle(event->scenePos(),paintingColor, isFilled,LineWeight);
+        Rectangle *item = new Rectangle(event->scenePos(),paintingColor,LineWeight, isFilled);
         item->setPos(event->pos());
         tempFigure = item;
         this->addItem(tempFigure);

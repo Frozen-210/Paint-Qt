@@ -33,9 +33,14 @@ void Circle::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QW
     // Determining the raduis
     qreal radius= qSqrt(qPow(startPoint().x()-endPoint().x(),2)+qPow(startPoint().y()-endPoint().y(),2));
     //Fill shape in case fill button
-    if(!isFilled){
-         painter->setBrush(shapeColor);
+    if(isFilled){
+        painter->setBrush(Qt::SolidPattern);
+        painter->setBrush(shapeColor);
     }
+    else{
+        painter->setBrush(Qt::NoBrush);
+    }
+
 
     // The draw the circle according to this radius
     painter->drawEllipse(startPoint(),radius,radius);

@@ -535,6 +535,14 @@ void PaintWindow::on_infoBtn_clicked()
 
 void PaintWindow::on_borderCBtn_clicked()
 {
-    scene->setTypeFigure(PaintScene::FillType);
+    if(!isFilled){
+        scene->setFilled(true);
+        isFilled=true;
+    }
+    else{
+        scene->setFilled(false);
+        isFilled=false;
+    }
+
 }
 

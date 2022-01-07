@@ -28,6 +28,13 @@ Rectangle::~Rectangle()
 void Rectangle::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     painter->setPen(QPen(shapeColor, LineWeight));
+    if(isFilled){
+        painter->setBrush(Qt::SolidPattern);
+        painter->setBrush(shapeColor);
+    }
+    else{
+        painter->setBrush(Qt::NoBrush);
+    }
 
 
     shapeTypeName = "Rectangle";
@@ -43,10 +50,6 @@ void Rectangle::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
     this->sideLen2= line2.length();
     this-> perimeter=(sideLen1+sideLen2)*2;
 
-    //Fill shape in case fill button
-    if(!isFilled){
-    painter->setBrush(shapeColor);
-    }
 
 
     painter->drawRect(rect);

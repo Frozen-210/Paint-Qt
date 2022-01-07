@@ -29,7 +29,6 @@ public:
     ~PaintScene();
     QString defaultPath = "";
 
-    bool isFilled;
 
     int typeFigure() const;
     void setTypeFigure(const int type);
@@ -40,11 +39,11 @@ public:
         CircleType,
         TriangleType,
         LineType,
-        EraserType,
-        FillType
+        EraserType
     };
     void setColor(QColor color);
     void setWeight(int Value);
+    void setFilled(bool IsFilled);
 
 signals:
     void typeFigureChanged();
@@ -59,6 +58,7 @@ private:
     void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
     QColor paintingColor;
     int LineWeight;
+    bool isFilled;
     int m_typeFigure;
     bool selectingItem;
 
