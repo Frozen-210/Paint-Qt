@@ -27,6 +27,7 @@ Rectangle::~Rectangle()
 void Rectangle::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     painter->setPen(QPen(shapeColor, LineWeight));
+
     shapeTypeName = "Rectangle";
 
 
@@ -37,6 +38,8 @@ void Rectangle::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
     QLineF line(rect.bottomLeft().x(),rect.bottomLeft().y(),rect.bottomRight().x(),rect.bottomRight().y());
     this->sideLen= line.length();
     this-> perimeter=sideLen*4;
+    //painter->setBrush(QBrush(Qt::yellow));
+    //painter->fillRect(rect, Qt::SolidPattern);
 
     painter->drawRect(rect);
 

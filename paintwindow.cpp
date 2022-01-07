@@ -446,19 +446,17 @@ void PaintWindow::on_menuOpen_clicked()
                                                         tr("JSON (*.json)"));
         if (!path.isNull()){
         this->open(path);
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
+
+
             ButtonsCommand::clearScene(scene);
             PaintTable::UpdateTable(scene->table, *scene->ItemsVec);
             Figure::countZero();
             scene->Modified = 0;
         }
 
->>>>>>> Stashed changes
+
     }
+    scene->Modified=false;
     s->deleteLater();
 }
     else{
@@ -471,7 +469,9 @@ void PaintWindow::on_menuOpen_clicked()
                                                         "/c://",
                                                         tr("JSON (*.json)"));
         this->open(path);
+        scene->Modified=false;
     }
+    scene->defaultPath = "";
 }
 
 

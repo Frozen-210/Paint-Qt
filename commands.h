@@ -24,6 +24,8 @@ private:
     QPointF initialPosition;
     QTableWidget* table;
     bool WasModified;
+    bool IsFirstTime;
+    bool WillModify;
 };
 
 
@@ -44,6 +46,8 @@ private:
      QPointF initialPosition;
      QTableWidget* table;
      bool WasModified;
+     bool IsFirstTime;
+     bool WillModify;
  };
 
  class ButtonsCommand{
