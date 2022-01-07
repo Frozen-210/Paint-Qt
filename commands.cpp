@@ -16,6 +16,7 @@ AddCommand::AddCommand(PaintScene *scene,Figure* item, QPointF LastPoint,QTableW
     ++itemCount;
     this->table= table;
     WasModified= scene->Modified;
+    IsFirstTime=true;
     Q_UNUSED(LastPoint)
 
 }
@@ -34,6 +35,7 @@ void AddCommand::undo()
     myGraphicsScene->ItemsVec->pop_back();
     myGraphicsScene->update();
     PaintTable::UpdateTable(table, *myGraphicsScene->ItemsVec);
+    WillModify=myGraphicsScene->Modified;
     myGraphicsScene->Modified=WasModified;
 }
 
@@ -44,7 +46,13 @@ void AddCommand::redo()
     myGraphicsScene->clearSelection();
     myGraphicsScene->update();
     PaintTable::UpdateTable(table, *myGraphicsScene->ItemsVec);
+    if(IsFirstTime){
     myGraphicsScene->Modified=true;
+    IsFirstTime=false;
+    }
+    else{
+        myGraphicsScene->Modified=WillModify;
+    }
 }
 
 DeleteCommand::DeleteCommand(PaintScene *scene,Figure* item, QPointF LastPoint,QTableWidget* table,QUndoCommand *parent)
@@ -58,6 +66,7 @@ DeleteCommand::DeleteCommand(PaintScene *scene,Figure* item, QPointF LastPoint,Q
     scene->update();
     ++itemCount;
     WasModified= scene->Modified;
+    IsFirstTime=true;
     Q_UNUSED(LastPoint)
 
 
@@ -77,6 +86,7 @@ void DeleteCommand::undo()
         myGraphicsScene->clearSelection();
         myGraphicsScene->update();
         PaintTable::UpdateTable(table, *myGraphicsScene->ItemsVec);
+        WillModify=myGraphicsScene->Modified;
         myGraphicsScene->Modified=WasModified;
 }
 
@@ -87,7 +97,14 @@ void DeleteCommand::redo()
     myGraphicsScene->ItemsVec->remove(myGraphicsScene->ItemsVec->indexOf(myDiagramItem));
     myGraphicsScene->update();
     PaintTable::UpdateTable(table, *myGraphicsScene->ItemsVec);
+    if(IsFirstTime){
     myGraphicsScene->Modified=true;
+    IsFirstTime=false;
+    }
+    else{
+        myGraphicsScene->Modified=WillModify;
+    }
+
 }
 
 

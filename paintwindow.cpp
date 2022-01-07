@@ -448,6 +448,7 @@ void PaintWindow::on_menuOpen_clicked()
         this->open(path);
 
     }
+    scene->Modified=false;
     s->deleteLater();
 }
     else{
@@ -460,6 +461,7 @@ void PaintWindow::on_menuOpen_clicked()
                                                         "/c://",
                                                         tr("JSON (*.json)"));
         this->open(path);
+        scene->Modified=false;
     }
     scene->defaultPath = "";
 }
