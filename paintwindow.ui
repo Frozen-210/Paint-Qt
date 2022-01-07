@@ -550,9 +550,6 @@ font: 22pt &quot;IROicons&quot;;</string>
     <property name="text">
      <string>e</string>
     </property>
-    <property name="shortcut">
-     <string>Ctrl+Z</string>
-    </property>
     <property name="flat">
      <bool>true</bool>
     </property>
@@ -834,9 +831,6 @@ font: 19pt &quot;IROicons&quot;;</string>
     </property>
     <property name="text">
      <string>l</string>
-    </property>
-    <property name="shortcut">
-     <string>Ctrl+S</string>
     </property>
     <property name="flat">
      <bool>true</bool>
