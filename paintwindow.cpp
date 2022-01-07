@@ -437,15 +437,24 @@ void PaintWindow::on_menuOpen_clicked()
                     tr("JSON (*.json)"),&selectedFilter);
         json_utilities::save(scene, fileName);
     }
-        ButtonsCommand::clearScene(scene);
-        PaintTable::UpdateTable(scene->table, *scene->ItemsVec);
-        Figure::countZero();
-        scene->Modified = 0;
-
+        //ButtonsCommand::clearScene(scene);
+        //PaintTable::UpdateTable(scene->table, *scene->ItemsVec);
+        //Figure::countZero();
+        //scene->Modified = 0;
         QString path = QFileDialog::getOpenFileName(this, tr("Open File"),
                                                         "/c://",
                                                         tr("JSON (*.json)"));
+        if (!path.isNull()){
         this->open(path);
+<<<<<<< Updated upstream
+=======
+            ButtonsCommand::clearScene(scene);
+            PaintTable::UpdateTable(scene->table, *scene->ItemsVec);
+            Figure::countZero();
+            scene->Modified = 0;
+        }
+
+>>>>>>> Stashed changes
     }
     s->deleteLater();
 }

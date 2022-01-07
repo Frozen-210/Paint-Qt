@@ -24,6 +24,7 @@ PaintScene::PaintScene(QGraphicsView *view,QTableWidget* table, QObject *parent)
 
     // Initializing vector to contain the shapes info
     ItemsVec = new QVector<Figure*>();
+    SavedVec = new QVector<Figure*>();
     selectingItem=false;
     this->table = table;
 }

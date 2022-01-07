@@ -17,7 +17,7 @@
  */
 void json_utilities::save(PaintScene *scene, QString path)
 {
-    QVector<Figure*> *newVec = scene->ItemsVec;
+    QVector<Figure*> *newVec = scene->SavedVec;
 
     // Making JSON File in a specific Path
     QFile saveFile(path);

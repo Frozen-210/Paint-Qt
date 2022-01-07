@@ -22,6 +22,7 @@ public:
     QPointF startPoint;
     QPointF EndPoint;
     QVector<Figure*> *ItemsVec;
+    QVector<Figure*> *SavedVec;
     QTableWidget* table;
     QUndoStack *undoStack;
     explicit PaintScene(QGraphicsView *view,QTableWidget* table, QObject *parent = 0);
