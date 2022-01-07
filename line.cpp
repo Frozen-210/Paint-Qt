@@ -1,7 +1,7 @@
 #include "line.h"
 #include <QPainter>
 
-Line::Line(QPointF point,QColor color,int LineWeight, QObject *parent) :
+Line::Line(QPointF point,QColor color,int LineWeight, bool isFilled, QObject *parent) :
     Figure(point,parent)
 {
     /*
@@ -13,6 +13,7 @@ Line::Line(QPointF point,QColor color,int LineWeight, QObject *parent) :
     this->LineWeight=LineWeight;
     this->name=QString("Line %1").arg(lCount);
     lCount++;
+    this->isFilled=isFilled;
 }
 
 
@@ -22,7 +23,7 @@ Line::~Line()
 }
 
 
-void Line::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void Line::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget, bool isFilled)
 {
     // Setting the color, Line weight and the shape type
     painter->setPen(QPen(shapeColor, LineWeight));

@@ -10,12 +10,12 @@ class Triangle : public Figure
     Q_OBJECT
 
 public:
-    explicit Triangle(QPointF point,QColor color,int LineWeight, QObject *parent = 0);
+    explicit Triangle(QPointF point,QColor color,int LineWeight, bool isFilled, QObject *parent = 0);
 
     ~Triangle();
 
 private:
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget, bool isFilled);
 
     float side1,side2,side3;
 };

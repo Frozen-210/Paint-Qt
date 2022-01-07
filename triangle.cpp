@@ -1,7 +1,7 @@
 #include "triangle.h"
 #include <QPainter>
 
-Triangle::Triangle(QPointF point,QColor color,int LineWeight, QObject *parent) :
+Triangle::Triangle(QPointF point,QColor color,int LineWeight, bool isFilled, QObject *parent) :
     Figure(point,parent)
 {
     /*
@@ -14,6 +14,7 @@ Triangle::Triangle(QPointF point,QColor color,int LineWeight, QObject *parent) :
     this->LineWeight=LineWeight;
     this->name=QString("Triangle %1").arg(tCount);
     tCount++;
+    this->isFilled=isFilled;
     this->perimeter=side1+side2+side3;
 }
 
@@ -22,7 +23,7 @@ Triangle::~Triangle()
 
 }
 
-void Triangle::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void Triangle::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget, bool isFilled)
 {
     painter->setPen(QPen(shapeColor, LineWeight));
     QPolygonF polygon;

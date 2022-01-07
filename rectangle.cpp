@@ -3,7 +3,7 @@
 #include<QUndoCommand>
 #include "commands.h"
 
-Rectangle::Rectangle(QPointF point,QColor color,int LineWeight, QObject *parent) :
+Rectangle::Rectangle(QPointF point,QColor color,int LineWeight, bool isFilled, QObject *parent) :
     Figure(point,parent)
 {
     /*
@@ -14,6 +14,7 @@ Rectangle::Rectangle(QPointF point,QColor color,int LineWeight, QObject *parent)
     shapeColor=color;
     this->LineWeight=LineWeight;
     this->name=QString("Rectangle %1").arg(rCount);
+    this->isFilled=isFilled;
     rCount++;
 }
 
@@ -24,7 +25,7 @@ Rectangle::~Rectangle()
 
 }
 
-void Rectangle::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void Rectangle::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget, bool isFilled)
 {
     painter->setPen(QPen(shapeColor, LineWeight));
 

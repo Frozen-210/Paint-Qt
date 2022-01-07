@@ -2,7 +2,7 @@
 #include <QPainter>
 #include <QtMath>
 
-Circle::Circle(QPointF point,QColor color,int LineWeight, QObject *parent) :
+Circle::Circle(QPointF point,QColor color,int LineWeight, bool isFilled, QObject *parent) :
     Figure(point,parent)
 {
     Q_UNUSED(point)
@@ -14,6 +14,7 @@ Circle::Circle(QPointF point,QColor color,int LineWeight, QObject *parent) :
     this->LineWeight=LineWeight;
     this->name=QString("Circle %1").arg(cCount);
     cCount++;
+    this->isFilled=isFilled;
 }
 
 
@@ -23,7 +24,7 @@ Circle::~Circle()
 }
 
 
-void Circle::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void Circle::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget, bool isFilled)
 {
     // Setting the color and line weight and the shapeType
     painter->setPen(QPen(shapeColor, LineWeight));
