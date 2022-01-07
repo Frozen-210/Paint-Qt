@@ -48,6 +48,7 @@ private:
      bool WasModified;
      bool IsFirstTime;
      bool WillModify;
+     int ItemIndex;
  };
 
  class ButtonsCommand{
