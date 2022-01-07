@@ -33,6 +33,7 @@ void AddCommand::undo()
     myGraphicsScene->removeItem(myDiagramItem);
     // remove figure from the vector
     myGraphicsScene->ItemsVec->pop_back();
+    myGraphicsScene->SavedVec->pop_back();
     myGraphicsScene->update();
     PaintTable::UpdateTable(table, *myGraphicsScene->ItemsVec);
     WillModify=myGraphicsScene->Modified;
@@ -41,6 +42,7 @@ void AddCommand::undo()
 
 void AddCommand::redo()
 {   myGraphicsScene->ItemsVec->push_back(myDiagramItem);
+    myGraphicsScene->SavedVec->push_back(myDiagramItem);
     myGraphicsScene->addItem(myDiagramItem);
     myDiagramItem->setPos(initialPosition);
     myGraphicsScene->clearSelection();
@@ -81,6 +83,7 @@ DeleteCommand::~DeleteCommand()
 void DeleteCommand::undo()
 {
         myGraphicsScene->ItemsVec->push_back(myDiagramItem);
+        myGraphicsScene->SavedVec->push_back(myDiagramItem);
         myGraphicsScene->addItem(myDiagramItem);
         myDiagramItem->setPos(initialPosition);
         myGraphicsScene->clearSelection();
@@ -95,6 +98,11 @@ void DeleteCommand::redo()
     myGraphicsScene->removeItem(myDiagramItem);
     // remove figure from the vector
     myGraphicsScene->ItemsVec->remove(myGraphicsScene->ItemsVec->indexOf(myDiagramItem));
+<<<<<<< Updated upstream
+    myGraphicsScene->ItemsVec->remove(myGraphicsScene->SavedVec->indexOf(myDiagramItem));
+=======
+    myGraphicsScene->SavedVec->remove(myGraphicsScene->SavedVec->indexOf(myDiagramItem));
+>>>>>>> Stashed changes
     myGraphicsScene->update();
     PaintTable::UpdateTable(table, *myGraphicsScene->ItemsVec);
     if(IsFirstTime){
@@ -115,4 +123,5 @@ void ButtonsCommand::clearScene(PaintScene *scene)
     scene->clear();
     scene->undoStack =new QUndoStack();
     scene->ItemsVec = new QVector<Figure*>();
+    scene->SavedVec = new QVector<Figure*>();
 }
