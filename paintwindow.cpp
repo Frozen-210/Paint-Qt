@@ -248,7 +248,6 @@ void PaintWindow::on_saveBtn_clicked()
         scene->defaultPath = fileName;
         json_utilities::save(scene, fileName);
     }
-    scene->Modified = 0;
 }
 
 
@@ -528,13 +527,17 @@ void PaintWindow::on_menuSave_clicked()
                 this,
                 tr("Save As"), QDir::currentPath() + "/ArtBoard",
                 tr("JSON (*.json);;PNG (*.png )"),&selectedFilter);
-
-    if (selectedFilter == "JSON (*.json)") {
-        json_utilities::save(scene, fileName);
-        scene->Modified = 0;
-    }
+    if (!fileName.isNull()){
+        if (selectedFilter == "JSON (*.json)") {
+            json_utilities::save(scene, fileName);
+            scene->Modified = 0;
+        }
     else if (selectedFilter == "PNG (*.png )") {
         json_utilities::savePNG(scene, fileName);
+        }
+    }
+    else{
+        scene->Modified = 1;
     }
 }
 
