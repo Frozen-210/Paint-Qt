@@ -1,9 +1,6 @@
 #include "welcomewindow.h"
 #include "ui_welcomewindow.h"
 #include <QFileDialog>
-#include "json_utilities.h"
-#include "paintscene.h"
-#include "paintwindow.h"
 
 WelcomeWindow::WelcomeWindow(QWidget *parent) :
     QMainWindow(parent, Qt::FramelessWindowHint | Qt::WindowSystemMenuHint),

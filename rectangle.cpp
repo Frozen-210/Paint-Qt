@@ -1,6 +1,6 @@
 #include "rectangle.h"
 #include <QPainter>
-#include<QUndoCommand>
+#include <QUndoCommand>
 #include "commands.h"
 
 Rectangle::Rectangle(QPointF point,QColor color,int LineWeight, QColor fillColor, QObject *parent) :

@@ -1,6 +1,5 @@
 #ifndef CIRCLE_H
 #define CIRCLE_H
-#include "rectangle.h"
 
 #include <QObject>
 #include <QGraphicsItem>

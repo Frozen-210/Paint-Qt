@@ -10,7 +10,6 @@
 
 #include <QCoreApplication>
 #include <QVariantMap>
-#include <QPoint>
 #include <QPointF>
 #include <QDebug>
 #include <QJsonDocument>

@@ -1,9 +1,9 @@
 #ifndef PAINTTABLE_H
 #define PAINTTABLE_H
 
-#include<QTableWidget>
-#include"figure.h"
-#include<QVector>
+#include <QTableWidget>
+#include "figure.h"
+#include <QVector>
 class PaintTable
 {
 public:

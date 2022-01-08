@@ -4,7 +4,6 @@
 #include <QObject>
 #include <QGraphicsItem>
 #include "figure.h"
-#include "paintscene.h"
 
 class Rectangle : public Figure
 {

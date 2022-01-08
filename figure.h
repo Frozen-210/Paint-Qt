@@ -3,8 +3,7 @@
 
 #include <QObject>
 #include <QGraphicsItem>
-#include <QDebug>
-#include<QColor>
+#include <QColor>
 
 
 

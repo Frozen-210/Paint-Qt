@@ -4,7 +4,6 @@
 #include <QUndoCommand>
 #include "figure.h"
 #include "paintscene.h"
-#include "rectangle.h"
 #include <QTableWidget>
 
 class AddCommand : public QUndoCommand

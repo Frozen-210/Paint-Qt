@@ -40,7 +40,6 @@ void PaintTable::UpdateTable(QTableWidget *table, QVector<Figure *> ItemVec)
 
 void PaintTable::UpdateInfoTable(QTableWidget *table, Figure *item)
 {
-
     table->setEditTriggers(QAbstractItemView::NoEditTriggers);
     table->setRowCount(8);
     table->setColumnCount(1);
@@ -62,7 +61,6 @@ void PaintTable::UpdateInfoTable(QTableWidget *table, Figure *item)
     table->setItem(5, 0, new QTableWidgetItem(QString("%1, %2").arg(item->startPoint().rx()).arg(item->startPoint().ry())));
     table->setItem(6, 0, new QTableWidgetItem(QString("%1, %2").arg(item->endPoint().rx()).arg(item->endPoint().ry())));
     table->setItem(7, 0, new QTableWidgetItem(QString::number(item->LineWeight)));
-
 }
 
 /*
