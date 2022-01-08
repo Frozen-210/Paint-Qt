@@ -10,7 +10,7 @@ class Triangle : public Figure
     Q_OBJECT
 
 public:
-    explicit Triangle(QPointF point,QColor color,int LineWeight, QObject *parent = 0);
+    explicit Triangle(QPointF point,QColor color,int LineWeight, QColor fillColor, QObject *parent = 0);
 
     ~Triangle();
 

@@ -29,7 +29,7 @@ public:
     ~PaintScene();
     QString defaultPath = "";
 
-
+    void setFillColor(QColor color);
     int typeFigure() const;
     void setTypeFigure(const int type);
     bool Modified = false;
@@ -59,8 +59,7 @@ private:
     int LineWeight;
     int m_typeFigure;
     bool selectingItem;
-
-
+    QColor fillColor = Qt::white;
 
 };
 

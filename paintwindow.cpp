@@ -11,6 +11,7 @@
 #include "painttable.h"
 #include "about.h"
 #include"commands.h"
+#include<QRandomGenerator>
 
 
 
@@ -32,7 +33,7 @@ PaintWindow::PaintWindow(QWidget *parent) :
 
     QFontDatabase::addApplicationFont(":/fonts/resources/IROicons.otf");
     QFontDatabase::addApplicationFont(":/fonts/resources/Montserrat-Regular.ttf");
-
+    dialogMessage= *new QVector<QString>();
 
 
 
@@ -81,7 +82,34 @@ PaintWindow::PaintWindow(QWidget *parent) :
                    "}";
 
 
+    QList<QString> messages;
+    messages<<"Hold up, Your work is still unsaved!"
+           <<"You Want to LEAVE?🥺 at least save your work"
+           <<"Your work is in danger, you must save it"
+           <<"Your drawings are amazing! You must keep them"
+           <<"Remember, Hitler gave up on his Art ambitions."
+           <<"You're going to use photoshop? 🥺"
+           <<"Please Stay with ME🥺"
+           <<"NO, WAIT, I'M ALIVE, DON'T KILL ME plz😭 "
+           <<"Hold up, you left some art behind."
+           <<"You’re going to throw away some ART"
+           <<"A new one? 🤔 You didn’t even save the old one."
+           <<"The current drawing will be lost, FOREVER.";
 
+
+    QList<QString> rightAnswer;
+    rightAnswer<<"Save"<<"Save"<<"Save"<<"Save"<<"I'll stay"
+               <<"No, I'll stay"<<"OK"<<"keep it alive"<<"Save"
+               <<"Save"<<"Save"<<"Save";
+
+    QList<QString> leftAnswer;
+    leftAnswer<<"Discard"<<"Discard"<<"Let it die"<<"Discard"
+              <<"I'll give up"<<"Yes, it's better"<<"No, I'll leave"
+              <<"Kill the app"<<"Discard"<<"Discard"<<"Discard"<<"Discard";
+
+    dialogMessage.append(messages);
+    dialogMessage.append(rightAnswer);
+    dialogMessage.append(leftAnswer);
 
     // Assigning the stylesheet to the upper buttons
     ui->rectangleBtn->setStyleSheet(upperBtnStyleSheet);
@@ -98,6 +126,8 @@ PaintWindow::PaintWindow(QWidget *parent) :
     ui->tableBtn->setStyleSheet(sideBtnStyleSheet);
     ui->ersr_Btn->setStyleSheet(sideBtnStyleSheet);
     ui->infoBtn->setStyleSheet(sideBtnStyleSheet);
+    ui->borderCBtn->setStyleSheet(sideBtnStyleSheet);
+
 
     // Assigning the stylesheet to the container table buttons
     ui->SortASBtn->setStyleSheet(tableBtnStyleSheet);
@@ -123,6 +153,8 @@ PaintWindow::PaintWindow(QWidget *parent) :
     ui->closeBtn->setFont(QFont("IROicons", 21));
     ui->miniBtn->setFont(QFont("IROicons", 21));
     ui->infoBtn->setFont(QFont("IROicons", 19));
+    ui->borderCBtn->setFont(QFont("IROicons", 20));
+
 
 
     //assign embedded font to the GUI
@@ -191,7 +223,7 @@ void PaintWindow::on_colorBtn_clicked()
 {
     QColor newColor = QColorDialog::getColor();
     if (newColor.isValid()){
-        scene->setColor(newColor);
+        scene->setFillColor(newColor);
         ui->redVal->setText("R: " + QString::number(newColor.red()));
         ui->greenVal->setText("R: " + QString::number(newColor.green()));
         ui->blueVal->setText("R: " + QString::number(newColor.blue()));
@@ -385,9 +417,10 @@ void PaintWindow::on_logoBtn_clicked()
 void PaintWindow::on_menuNew_clicked()
 {
 
-    int action=2;
+    int action;
     if(scene->Modified){
-      messageDialog *s = new messageDialog("Don't Hurry up, you left some art behind you.","Save","Discard");
+      int choice=QRandomGenerator::global()->bounded(8,12);
+      messageDialog *s =new messageDialog(dialogMessage[choice],dialogMessage[choice+12],dialogMessage[choice+24]);
       action=s->exec();
 
     if(!s->closed){
@@ -400,11 +433,18 @@ void PaintWindow::on_menuNew_clicked()
                     tr("Save As"), "ArtBoard",
                     tr("JSON (*.json)"),&selectedFilter);
         json_utilities::save(scene, fileName);
-        }
+
+        if (!fileName.isNull()){
         ButtonsCommand::clearScene(scene);
         PaintTable::UpdateTable(scene->table, *scene->ItemsVec);
         Figure::countZero();
-        scene->Modified = 0;
+        scene->Modified = 0;}}
+        else{
+            ButtonsCommand::clearScene(scene);
+            PaintTable::UpdateTable(scene->table, *scene->ItemsVec);
+            Figure::countZero();
+            scene->Modified = 0;
+        }
     }
 
     s->deleteLater();}
@@ -421,7 +461,8 @@ void PaintWindow::on_menuOpen_clicked()
 {
 
     if(scene->Modified){
-        messageDialog *s = new messageDialog("Don't Hurry up, you left some art behind you.","Save","Discard");
+        int choice=QRandomGenerator::global()->bounded(8,12);
+        messageDialog *s =new messageDialog(dialogMessage[choice],dialogMessage[choice+12],dialogMessage[choice+24]);
         int action;
         action=s->exec();
 
@@ -436,8 +477,6 @@ void PaintWindow::on_menuOpen_clicked()
                     tr("JSON (*.json)"),&selectedFilter);
         json_utilities::save(scene, fileName);
     }
-        }
-
         QString path = QFileDialog::getOpenFileName(this, tr("Open File"),
                                                         "/c://",
                                                         tr("JSON (*.json)"));
@@ -447,6 +486,9 @@ void PaintWindow::on_menuOpen_clicked()
              PaintTable::UpdateTable(scene->table, *scene->ItemsVec);
              Figure::countZero();
              scene->Modified = 0;
+    }
+
+
     }
   s->deleteLater();
 }
@@ -472,13 +514,12 @@ void PaintWindow::on_menuOpen_clicked()
     scene->defaultPath = "";
 }
 
-
 void PaintWindow::on_menuSave_clicked()
 {
     QString selectedFilter;
     QString fileName = QFileDialog::getSaveFileName(
                 this,
-                tr("Save As"), "ArtBoard",
+                tr("Save As"), QDir::currentPath() + "/ArtBoard",
                 tr("JSON (*.json);;PNG (*.png )"),&selectedFilter);
 
     if (selectedFilter == "JSON (*.json)") {
@@ -494,7 +535,8 @@ void PaintWindow::closeEvent(QCloseEvent *event)
 {
 
     if(scene->Modified){
-        messageDialog *s =new messageDialog("You Want to LEAVE? at least save your work","Save","Discard");
+        int choice=QRandomGenerator::global()->bounded(0,4);
+        messageDialog *s =new messageDialog(dialogMessage[choice],dialogMessage[choice+12],dialogMessage[choice+24]);
         int action= s->exec();
         if(!s->closed){
         if(action){
@@ -512,7 +554,8 @@ void PaintWindow::closeEvent(QCloseEvent *event)
         }
     }
     else{
-        messageDialog *s =new messageDialog("Please Stay with ME","OK","NO, I leave");
+        int choice=QRandomGenerator::global()->bounded(4,8);
+        messageDialog *s =new messageDialog(dialogMessage[choice],dialogMessage[choice+12],dialogMessage[choice+24]);
         int action= s->exec();
         if(action|| s->closed)
             event->ignore();
@@ -526,5 +569,20 @@ void PaintWindow::on_infoBtn_clicked()
 {
     about *ab = new about();
     ab->exec();
+}
+
+// after 100 commit in the branch
+
+void PaintWindow::on_borderCBtn_clicked()
+{
+    QColor newColor = QColorDialog::getColor();
+    if (newColor.isValid()){
+        scene->setColor(newColor);
+        ui->redVal->setText("R: " + QString::number(newColor.red()));
+        ui->greenVal->setText("R: " + QString::number(newColor.green()));
+        ui->blueVal->setText("R: " + QString::number(newColor.blue()));
+        ui->hexVal->setText("HEX: " + newColor.name());
+    }
+
 }
 

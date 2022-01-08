@@ -12,7 +12,7 @@ class Circle : public Figure
 
 public:
 
-    explicit Circle(QPointF point,QColor color,int LineWeight, QObject *parent = 0);
+    explicit Circle(QPointF point,QColor color,int LineWeight, QColor fillColor, QObject *parent = 0);
     ~Circle();
 
 private:

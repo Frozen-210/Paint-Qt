@@ -10,6 +10,7 @@
 #include <QGraphicsScene>
 #include <QGraphicsView>
 
+
 PaintScene::PaintScene(QGraphicsView *view,QTableWidget* table, QObject *parent) : QGraphicsScene(parent)
 {
     this->view = view;
@@ -21,6 +22,8 @@ PaintScene::PaintScene(QGraphicsView *view,QTableWidget* table, QObject *parent)
 
     // Initializing the Line weigh of the shapes with 1
     LineWeight = 1;
+
+    // Initialize filling status
 
     // Initializing vector to contain the shapes info
     ItemsVec = new QVector<Figure*>();
@@ -34,6 +37,11 @@ PaintScene::PaintScene(QGraphicsView *view,QTableWidget* table, QObject *parent)
  */
 PaintScene::~PaintScene()
 {
+}
+
+void PaintScene::setFillColor(QColor color)
+{
+    fillColor =color;
 }
 
 /*
@@ -81,6 +89,7 @@ void PaintScene::setWeight(int Value)
 }
 
 
+
 /*
  * ------------------ mousePressEvent Function --------------------
  * Function to initialize the first point of a specific shape in
@@ -97,7 +106,7 @@ void PaintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
         startPoint = event->scenePos();
 
         // Make an object from the rectangle class to draw the shape
-        Rectangle *item = new Rectangle(startPoint,paintingColor,LineWeight);
+        Rectangle *item = new Rectangle(startPoint,paintingColor,LineWeight,fillColor);
 
         // Getting the end point and pass it the the above object
         EndPoint = event->pos();
@@ -113,7 +122,7 @@ void PaintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
       startPoint = event->scenePos();
 
       // Make an object from the circle class to draw the shape
-      Circle *item = new Circle(startPoint,paintingColor,LineWeight);
+      Circle *item = new Circle(startPoint,paintingColor,LineWeight,fillColor);
 
       // Getting the end point and pass it the the above object
       EndPoint = event->pos();
@@ -147,7 +156,7 @@ void PaintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
         startPoint = event->scenePos();
 
         // Make an object from the Triangle class to draw the shape
-        Figure *item = new Triangle(startPoint, paintingColor, LineWeight);
+        Figure *item = new Triangle(startPoint, paintingColor, LineWeight,fillColor);
         item->setPos(event->pos());
 
         // Set the above object to the tempFigure to use it later
@@ -180,7 +189,7 @@ void PaintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
      * By Default, The Rectangle button is pressed.
      */
     default:{
-        Rectangle *item = new Rectangle(event->scenePos(),paintingColor,LineWeight);
+        Rectangle *item = new Rectangle(event->scenePos(),paintingColor,LineWeight,fillColor);
         item->setPos(event->pos());
         tempFigure = item;
         this->addItem(tempFigure);

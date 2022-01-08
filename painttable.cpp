@@ -40,16 +40,13 @@ void PaintTable::UpdateTable(QTableWidget *table, QVector<Figure *> ItemVec)
 
 void PaintTable::UpdateInfoTable(QTableWidget *table, Figure *item)
 {
-<<<<<<< Updated upstream
-    table->setRowCount(7);
-=======
+
     table->setEditTriggers(QAbstractItemView::NoEditTriggers);
     table->setRowCount(8);
->>>>>>> Stashed changes
     table->setColumnCount(1);
     table->setColumnWidth(0,300);
     QStringList Vlist,Hlist;
-    Vlist<<"name"<<"type"<<"Perimeter"<<"Color"<<"StartPoint"<<"EndPoint"<<"LineWeight";
+    Vlist<<"name"<<"type"<<"Perimeter"<<"Borders Color"<<"Fill Color"<<"StartPoint"<<"EndPoint"<<"LineWeight";
     Hlist<<"Value";
     table->setVerticalHeaderLabels(Vlist);
     table->setHorizontalHeaderLabels(Hlist);
@@ -57,9 +54,10 @@ void PaintTable::UpdateInfoTable(QTableWidget *table, Figure *item)
     table->setItem(1, 0, new QTableWidgetItem(item->shapeTypeName));
     table->setItem(2, 0, new QTableWidgetItem(QString::number(item->perimeter)));
     table->setItem(3, 0, new QTableWidgetItem(item->shapeColor.name(QColor::HexRgb)));
-    table->setItem(4, 0, new QTableWidgetItem(QString("%1, %2").arg(item->startPoint().rx()).arg(item->startPoint().ry())));
-    table->setItem(5, 0, new QTableWidgetItem(QString("%1, %2").arg(item->endPoint().rx()).arg(item->endPoint().ry())));
-    table->setItem(6, 0, new QTableWidgetItem(QString::number(item->LineWeight)));
+    table->setItem(4, 0, new QTableWidgetItem(item->fillColor.name(QColor::HexRgb)));
+    table->setItem(5, 0, new QTableWidgetItem(QString("%1, %2").arg(item->startPoint().rx()).arg(item->startPoint().ry())));
+    table->setItem(6, 0, new QTableWidgetItem(QString("%1, %2").arg(item->endPoint().rx()).arg(item->endPoint().ry())));
+    table->setItem(7, 0, new QTableWidgetItem(QString::number(item->LineWeight)));
 
 }
 

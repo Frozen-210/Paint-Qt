@@ -75,6 +75,8 @@ private slots:
 
     void on_infoBtn_clicked();
 
+    void on_borderCBtn_clicked();
+
 protected:
     void mouseMoveEvent(QMouseEvent* event);
     void mousePressEvent(QMouseEvent* event);
@@ -84,6 +86,9 @@ private:
     QPoint mLastMousePosition;
     bool mMoving;
     void closeEvent(QCloseEvent *event);
+    bool isFilled=true;
+    QColor fillColor=Qt::black;
+    QVector<QString> dialogMessage;
 };
 
 #endif // PAINTWINDOW_H

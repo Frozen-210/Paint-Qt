@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 6.0.1, 2022-01-07T01:36:38. -->
+<!-- Written by QtCreator 6.0.1, 2022-01-08T03:30:11. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -240,8 +240,9 @@
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Users/zizo/Downloads/MyGitHub/New folder (2)/CMP2241_F21_Team01/PaintFigure.pro</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/zizo/Downloads/MyGitHub/New folder (2)/CMP2241_F21_Team01/PaintFigure.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">PaintFigure2</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Users/zizo/Downloads/MyGitHub/CMP2241_F21_Team01/PaintFigure.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/zizo/Downloads/MyGitHub/CMP2241_F21_Team01/PaintFigure.pro</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
