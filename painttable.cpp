@@ -8,6 +8,7 @@ PaintTable::PaintTable()
 void PaintTable::UpdateTable(QTableWidget *table, QVector<Figure *> ItemVec)
 {
     QStringList TableLabel;
+    //table->setEditTriggers(QAbstractItemView::NoEditTriggers);
     TableLabel<<"Name"<<"Type"<<"Perimter"<<"Color"<<"LineWeight";
 
     table->setColumnCount(3);
@@ -16,7 +17,7 @@ void PaintTable::UpdateTable(QTableWidget *table, QVector<Figure *> ItemVec)
     {
         table->removeRow(0);
     }
-
+    int rowcount=0;
     for(auto* item:ItemVec){
         // Initializing the Figure Values
         QString name= item->name;
@@ -29,13 +30,18 @@ void PaintTable::UpdateTable(QTableWidget *table, QVector<Figure *> ItemVec)
         // Setting the row values
         table->setItem(table->rowCount()-1, 0, new QTableWidgetItem(name));
         table->setItem(table->rowCount()-1, 1, new QTableWidgetItem(Type));
-        table->setItem(table->rowCount()-1, 2, new QTableWidgetItem(Perimeter));
-
+        table->setItem(table->rowCount()-1, 2, new QTableWidgetItem(Perimeter));      
+        table->item(rowcount,2)->setFlags(table->item(rowcount,2)->flags() &= ~Qt::ItemIsEditable);
+        table->item(rowcount,1)->setFlags(table->item(rowcount,1)->flags() &= ~Qt::ItemIsEditable);
+        rowcount++;
     }
+
 }
 
 void PaintTable::UpdateInfoTable(QTableWidget *table, Figure *item)
 {
+
+    table->setEditTriggers(QAbstractItemView::NoEditTriggers);
     table->setRowCount(8);
     table->setColumnCount(1);
     table->setColumnWidth(0,300);

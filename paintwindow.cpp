@@ -430,7 +430,7 @@ void PaintWindow::on_menuNew_clicked()
         QString selectedFilter;
         QString fileName = QFileDialog::getSaveFileName(
                     this,
-                    tr("Save As"), "",
+                    tr("Save As"), "ArtBoard",
                     tr("JSON (*.json)"),&selectedFilter);
         json_utilities::save(scene, fileName);
 
