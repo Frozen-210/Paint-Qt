@@ -88,6 +88,7 @@ private:
     void closeEvent(QCloseEvent *event);
     bool isFilled=true;
     QColor fillColor=Qt::black;
+    QVector<QString> dialogMessage;
 };
 
 #endif // PAINTWINDOW_H
