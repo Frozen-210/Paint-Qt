@@ -219,7 +219,6 @@ border-bottom-right-radius: 0px;</string>
     </property>
     <property name="font">
      <font>
-      <family>IROicons</family>
       <pointsize>21</pointsize>
       <italic>false</italic>
       <bold>false</bold>
@@ -535,7 +534,7 @@ font: 9pt &quot;Montserrat&quot;;
 </string>
     </property>
     <property name="text">
-     <string>Search</string>
+     <string extracomment="Search"/>
     </property>
    </widget>
    <widget class="QLabel" name="searchIcon">

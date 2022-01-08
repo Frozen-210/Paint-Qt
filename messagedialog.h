@@ -27,6 +27,7 @@ private slots:
 
     void on_noBtn_clicked();
 
+
 private:
     Ui::messageDialog *ui;
 };

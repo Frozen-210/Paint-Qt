@@ -54,7 +54,11 @@ void PaintTable::UpdateInfoTable(QTableWidget *table, Figure *item)
     table->setItem(1, 0, new QTableWidgetItem(item->shapeTypeName));
     table->setItem(2, 0, new QTableWidgetItem(QString::number(item->perimeter)));
     table->setItem(3, 0, new QTableWidgetItem(item->shapeColor.name(QColor::HexRgb)));
-    table->setItem(4, 0, new QTableWidgetItem(item->fillColor.name(QColor::HexRgb)));
+    if(item->fillColor == Qt::white){
+        table->setItem(4, 0, new QTableWidgetItem("NO Fill"));
+    }else{
+        table->setItem(4, 0, new QTableWidgetItem(item->fillColor.name(QColor::HexRgb)));
+    }
     table->setItem(5, 0, new QTableWidgetItem(QString("%1, %2").arg(item->startPoint().rx()).arg(item->startPoint().ry())));
     table->setItem(6, 0, new QTableWidgetItem(QString("%1, %2").arg(item->endPoint().rx()).arg(item->endPoint().ry())));
     table->setItem(7, 0, new QTableWidgetItem(QString::number(item->LineWeight)));

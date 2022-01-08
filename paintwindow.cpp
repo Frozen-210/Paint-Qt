@@ -244,7 +244,7 @@ void PaintWindow::on_saveBtn_clicked()
         QString fileName = QFileDialog::getSaveFileName(
                     this,
                     tr("Save As"), "",
-                    tr("JSON (*.json);; All Files (*)"),&selectedFilter);
+                    tr("JSON (*.json)"),&selectedFilter);
         scene->defaultPath = fileName;
         json_utilities::save(scene, fileName);
     }
@@ -276,6 +276,7 @@ void PaintWindow::on_tableBtn_clicked()
         animCont->setEndValue(QRect(1220,149,321,571));
 
     }
+    ui->tableCont->update();
   animCont->start();
 
 }
@@ -328,6 +329,7 @@ void PaintWindow::on_searchBar_returnPressed()
 void PaintWindow::open(QString path)
 {
     json_utilities::open(scene,ui->DataTable,path);
+    scene->Modified = 0;
 }
 
 
