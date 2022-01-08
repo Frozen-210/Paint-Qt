@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "paintwindow.h"
+
 namespace Ui {
 class messageDialog;
 }

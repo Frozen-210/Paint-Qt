@@ -3,11 +3,12 @@
 
 #include <QGraphicsScene>
 #include <QGraphicsSceneMouseEvent>
-#include "figure.h"
-#include<QUndoStack>
-#include"rectangle.h"
+#include <QUndoStack>
 #include <QGraphicsView>
 #include <QTableWidget>
+
+#include "figure.h"
+
 
 
 class PaintScene : public QGraphicsScene

@@ -2,13 +2,9 @@
 #include "circle.h"
 #include "triangle.h"
 #include "rectangle.h"
-#include"line.h"
+#include "line.h"
 #include "commands.h"
 #include <QVector>
-#include "figure.h"
-#include <QDebug>
-#include <QGraphicsScene>
-#include <QGraphicsView>
 
 
 PaintScene::PaintScene(QGraphicsView *view,QTableWidget* table, QObject *parent) : QGraphicsScene(parent)

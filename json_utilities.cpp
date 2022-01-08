@@ -1,13 +1,11 @@
 #include "json_utilities.h"
 #include <QJsonArray>
-#include <QStack>
-#include"figure.h"
 #include "rectangle.h"
-#include "commands.h"
-#include"circle.h"
-#include"line.h"
-#include"triangle.h"
+#include "circle.h"
+#include "line.h"
+#include "triangle.h"
 #include "painttable.h"
+#include "commands.h"
 
 /*
  * ----------------------Save Method----------------------

@@ -1,17 +1,15 @@
 #include <QColorDialog>
 #include <QFileDialog>
 #include <QPropertyAnimation>
-#include <QDebug>
 #include <QSequentialAnimationGroup>
 #include <QFontDatabase>
 #include "paintwindow.h"
 #include "ui_paintwindow.h"
-#include "paintscene.h"
 #include "json_utilities.h"
 #include "painttable.h"
 #include "about.h"
-#include"commands.h"
-#include<QRandomGenerator>
+#include "commands.h"
+#include <QRandomGenerator>
 
 
 

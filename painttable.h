@@ -2,8 +2,10 @@
 #define PAINTTABLE_H
 
 #include <QTableWidget>
-#include "figure.h"
 #include <QVector>
+
+#include "figure.h"
+
 class PaintTable
 {
 public:

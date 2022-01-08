@@ -1,5 +1,6 @@
 #ifndef LINE_H
 #define LINE_H
+
 #include <QObject>
 #include <QGraphicsItem>
 #include "figure.h"

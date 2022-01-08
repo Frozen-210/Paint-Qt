@@ -4,7 +4,6 @@
 #include <QMainWindow>
 #include <QTimer>
 #include <QResizeEvent>
-#include <QUndoView>
 #include "paintscene.h"
 #include "messagedialog.h"
 

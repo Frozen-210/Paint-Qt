@@ -1,8 +1,6 @@
 #include "commands.h"
-#include<QGraphicsScene>
-#include "paintscene.h"
-#include"painttable.h"
-//PaintScene p;
+#include <QGraphicsScene>
+#include "painttable.h"
 
 
 AddCommand::AddCommand(PaintScene *scene,Figure* item, QPointF LastPoint,QTableWidget* table,QUndoCommand *parent)

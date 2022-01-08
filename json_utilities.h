@@ -7,11 +7,7 @@
 #include "figure.h"
 #include <QFile>
 #include <QFileDialog>
-
-#include <QCoreApplication>
-#include <QVariantMap>
 #include <QPointF>
-#include <QDebug>
 #include <QJsonDocument>
 #include <QJsonObject>
 
