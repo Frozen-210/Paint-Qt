@@ -52,6 +52,9 @@
     <property name="cursor">
      <cursorShape>PointingHandCursor</cursorShape>
     </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Draw Rectangle&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
     <property name="styleSheet">
      <string notr="true">background-color: #f9f9f9;
 color: black;
@@ -80,6 +83,9 @@ font: 11pt &quot;Montserrat&quot;;</string>
     </property>
     <property name="cursor">
      <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Draw Triangle&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: #f9f9f9;
@@ -110,6 +116,9 @@ font: 11pt &quot;Montserrat&quot;;</string>
     <property name="cursor">
      <cursorShape>PointingHandCursor</cursorShape>
     </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Draw Circle&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
     <property name="styleSheet">
      <string notr="true">background-color: #f9f9f9;
 color: black;
@@ -138,6 +147,9 @@ font: 11pt &quot;Montserrat&quot;;</string>
     </property>
     <property name="cursor">
      <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Draw Line&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: #f9f9f9;
@@ -207,6 +219,7 @@ border-bottom-right-radius: 0px;</string>
     </property>
     <property name="font">
      <font>
+      <family>IROicons</family>
       <pointsize>21</pointsize>
       <italic>false</italic>
       <bold>false</bold>
@@ -215,6 +228,9 @@ border-bottom-right-radius: 0px;</string>
     </property>
     <property name="cursor">
      <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="toolTip">
+     <string/>
     </property>
     <property name="layoutDirection">
      <enum>Qt::LeftToRight</enum>
@@ -286,6 +302,12 @@ font: 21pt &quot;IROicons&quot;;</string>
     <property name="cursor">
      <cursorShape>PointingHandCursor</cursorShape>
     </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Fill Color&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="whatsThis">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Color&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
     <property name="styleSheet">
      <string notr="true">border-radius:10px;
 color: #a5aeaf;
@@ -317,6 +339,9 @@ font: 20pt &quot;IROicons&quot;;</string>
     </property>
     <property name="cursor">
      <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Redo&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">border-radius:10px;
@@ -353,6 +378,9 @@ font: 20pt &quot;IROicons&quot;;</string>
     <property name="cursor">
      <cursorShape>PointingHandCursor</cursorShape>
     </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Open Table&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
     <property name="styleSheet">
      <string notr="true">border-radius:10px;
 color: #a5aeaf;
@@ -384,6 +412,9 @@ font: 28pt &quot;IROicons&quot;;</string>
     </property>
     <property name="cursor">
      <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Undo&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">border-radius:10px;
@@ -420,6 +451,9 @@ font: 18pt &quot;IROicons&quot;;</string>
     <property name="cursor">
      <cursorShape>PointingHandCursor</cursorShape>
     </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Save&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
     <property name="styleSheet">
      <string notr="true">border-radius:10px;
 color: #a5aeaf;
@@ -444,6 +478,9 @@ font: 19pt &quot;IROicons&quot;;</string>
       <width>16</width>
       <height>301</height>
      </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Line Weight Slider&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">
@@ -485,6 +522,9 @@ font: 19pt &quot;IROicons&quot;;</string>
       <italic>false</italic>
       <bold>false</bold>
      </font>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Search for Item&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: #f9f9f9;
@@ -540,6 +580,9 @@ font: 9pt &quot;Montserrat&quot;;
     </property>
     <property name="cursor">
      <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Erase&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">border-radius:10px;
@@ -751,6 +794,9 @@ border-radius: 15px;</string>
       </property>
       <item>
        <widget class="QPushButton" name="menuNew">
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Make a New Draw&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
         <property name="styleSheet">
          <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);
@@ -763,6 +809,9 @@ font: 9pt &quot;Montserrat&quot;;</string>
       </item>
       <item>
        <widget class="QPushButton" name="menuOpen">
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Open a Draw&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
         <property name="styleSheet">
          <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);
@@ -775,6 +824,9 @@ font: 9pt &quot;Montserrat&quot;;</string>
       </item>
       <item>
        <widget class="QPushButton" name="menuSave">
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Save a Draw&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
         <property name="styleSheet">
          <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);
@@ -796,6 +848,9 @@ font: 9pt &quot;Montserrat&quot;;</string>
       <width>40</width>
       <height>42</height>
      </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Menu&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="text">
      <string/>
@@ -822,6 +877,9 @@ font: 9pt &quot;Montserrat&quot;;</string>
     </property>
     <property name="cursor">
      <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;About Us&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">border-radius:10px;
@@ -854,6 +912,9 @@ font: 19pt &quot;IROicons&quot;;</string>
     </property>
     <property name="cursor">
      <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Border Color&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">border-radius:10px;
