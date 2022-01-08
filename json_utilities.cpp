@@ -36,15 +36,18 @@ void json_utilities::save(PaintScene *scene, QString path)
         QPointF point = newVec->at(i)->startPoint();
         QPointF point2 = newVec->at(i)->endPoint();
         QColor color = newVec->at(i)->shapeColor;
+        QColor f_color = newVec->at(i)->fillColor;
         int LineW = newVec->at(i)->LineWeight;
         QString shapeName = newVec->at(i)->shapeTypeName;
         QString name = newVec->at(i)->name;
+
 
         // Setting the above values to the setting to path it the file
         settings[QString("Shape")] = QString("%1").arg(shapeName);
         settings[QString("FirstPoint")] = QString("%1, %2").arg(point.rx()).arg(point.ry());
         settings[QString("EndPoint")] = QString("%1, %2").arg(point2.rx()).arg(point2.ry());
         settings[QString("Color")] = QString("%1, %2, %3").arg(color.red()).arg(color.green()).arg(color.blue());
+        settings[QString("fillColor")] = QString("%1, %2, %3").arg(f_color.red()).arg(f_color.green()).arg(f_color.blue());
         settings[QString("LineWeight")] = QString("%1").arg(LineW);
         settings[QString("ShapeName")] = QString("%1").arg(name);
 
@@ -98,7 +101,7 @@ void json_utilities::open(PaintScene *scene,QTableWidget* table, QString path)
 
     auto json_doc = QJsonDocument::fromJson(json_string.toUtf8());
     QJsonArray jArr = json_doc.array();
-    QJsonValue c_val, val2, val3, val4, val5, name_val;
+    QJsonValue c_val, f_val, val2, val3, val4, val5, name_val;
 
     // Looping in the file shapes
     for(auto jsonObj : jArr)
@@ -108,6 +111,11 @@ void json_utilities::open(PaintScene *scene,QTableWidget* table, QString path)
         QString _color = c_val.toString();
         QStringList x = _color.split(", ");
         QColor color(x[0].toInt(), x[1].toInt(), x[2].toInt());
+
+        f_val = jsonObj.toObject().value("fillColor");
+        QString f_color = f_val.toString();
+        QStringList _f = _color.split(", ");
+        QColor fillColor(_f[0].toInt(), _f[1].toInt(), _f[2].toInt());
 
         // Getting The First Point as x, y values
         val2 = jsonObj.toObject().value("FirstPoint");
@@ -137,7 +145,7 @@ void json_utilities::open(PaintScene *scene,QTableWidget* table, QString path)
         // Conditions for each shape to initialize it
 
         if(_ST=="Rectangle"){
-            Figure *item = new Rectangle(firstPoint,color,LW,0, Qt::black);
+            Figure *item = new Rectangle(firstPoint,color,LW,0, fillColor);
             item->setPos(firstPoint);
             item->setEndPoint(endPoint,false);
             item->name = _SN;
@@ -145,7 +153,7 @@ void json_utilities::open(PaintScene *scene,QTableWidget* table, QString path)
             scene->undoStack->push(addCommand);}
 
         else if(_ST=="Circle"){
-            Figure *item = new Circle(firstPoint,color,LW,0,Qt::black);
+            Figure *item = new Circle(firstPoint,color,LW,0,fillColor);
             item->setPos(firstPoint);
             item->setEndPoint(endPoint,false);
             item->name = _SN;
@@ -161,7 +169,7 @@ void json_utilities::open(PaintScene *scene,QTableWidget* table, QString path)
             scene->undoStack->push(addCommand);
         }
         else if(_ST=="Triangle"){
-            Figure *item = new Triangle(firstPoint,color,LW,0,Qt::black);
+            Figure *item = new Triangle(firstPoint,color,LW,0, fillColor);
             item->setPos(firstPoint);
             item->setEndPoint(endPoint,false);
             item->name = _SN;
