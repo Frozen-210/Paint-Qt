@@ -208,6 +208,9 @@ void PaintWindow::on_undoBtn_clicked()
 {
 
     scene->undoStack->undo();
+    if(scene->ItemsVec->isEmpty()){
+        PaintTable::ClearInfoTable(ui->InfoTable);
+    }
 
 }
 
@@ -215,6 +218,9 @@ void PaintWindow::on_undoBtn_clicked()
 void PaintWindow::on_redoBtn_clicked()
 {
     scene->undoStack->redo();
+    if(scene->ItemsVec->isEmpty()){
+        PaintTable::ClearInfoTable(ui->InfoTable);
+    }
 
 }
 
@@ -439,6 +445,7 @@ void PaintWindow::on_menuNew_clicked()
             ButtonsCommand::clearScene(scene);
             PaintTable::UpdateTable(scene->table, *scene->ItemsVec);
             Figure::countZero();
+            PaintTable::ClearInfoTable(ui->InfoTable);
             scene->update();
             scene->Modified = 0;
         }
@@ -447,6 +454,7 @@ void PaintWindow::on_menuNew_clicked()
             ButtonsCommand::clearScene(scene);
             PaintTable::UpdateTable(scene->table, *scene->ItemsVec);
             Figure::countZero();
+            PaintTable::ClearInfoTable(ui->InfoTable);
             scene->update();
             scene->Modified = 0;
         }
@@ -457,6 +465,7 @@ void PaintWindow::on_menuNew_clicked()
         ButtonsCommand::clearScene(scene);
         PaintTable::UpdateTable(scene->table, *scene->ItemsVec);
         Figure::countZero();
+        PaintTable::ClearInfoTable(ui->InfoTable);
         scene->update();
     }
 

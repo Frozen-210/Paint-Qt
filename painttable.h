@@ -12,6 +12,7 @@ public:
     static void UpdateInfoTable(QTableWidget*table, Figure* item);
     static void SortDVec(QVector<Figure*>* ItemVec);
     static void SortAVec(QVector<Figure*>* ItemVec);
+    static void ClearInfoTable(QTableWidget* table);
 
 
 

@@ -76,6 +76,14 @@ void PaintTable::SortAVec(QVector<Figure *> *ItemVec)
     std::sort(ItemVec->begin(), ItemVec->end(), compareAs);
 }
 
+void PaintTable::ClearInfoTable(QTableWidget *table)
+{
+    while (table->rowCount() > 0)
+    {
+        table->removeRow(0);
+    }
+}
+
 /*
  * Function for the above buttons
  */
