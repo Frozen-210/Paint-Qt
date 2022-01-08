@@ -114,7 +114,7 @@ void json_utilities::open(PaintScene *scene,QTableWidget* table, QString path)
 
         f_val = jsonObj.toObject().value("fillColor");
         QString f_color = f_val.toString();
-        QStringList _f = _color.split(", ");
+        QStringList _f = f_color.split(", ");
         QColor fillColor(_f[0].toInt(), _f[1].toInt(), _f[2].toInt());
 
         // Getting The First Point as x, y values
@@ -145,7 +145,7 @@ void json_utilities::open(PaintScene *scene,QTableWidget* table, QString path)
         // Conditions for each shape to initialize it
 
         if(_ST=="Rectangle"){
-            Figure *item = new Rectangle(firstPoint,color,LW,0, fillColor);
+            Figure *item = new Rectangle(firstPoint,color,LW, fillColor);
             item->setPos(firstPoint);
             item->setEndPoint(endPoint,false);
             item->name = _SN;
@@ -153,7 +153,7 @@ void json_utilities::open(PaintScene *scene,QTableWidget* table, QString path)
             scene->undoStack->push(addCommand);}
 
         else if(_ST=="Circle"){
-            Figure *item = new Circle(firstPoint,color,LW,0,fillColor);
+            Figure *item = new Circle(firstPoint,color,LW,fillColor);
             item->setPos(firstPoint);
             item->setEndPoint(endPoint,false);
             item->name = _SN;
@@ -169,7 +169,7 @@ void json_utilities::open(PaintScene *scene,QTableWidget* table, QString path)
             scene->undoStack->push(addCommand);
         }
         else if(_ST=="Triangle"){
-            Figure *item = new Triangle(firstPoint,color,LW,0, fillColor);
+            Figure *item = new Triangle(firstPoint,color,LW, fillColor);
             item->setPos(firstPoint);
             item->setEndPoint(endPoint,false);
             item->name = _SN;

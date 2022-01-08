@@ -2,7 +2,7 @@
 #include <QPainter>
 #include <QtMath>
 
-Circle::Circle(QPointF point,QColor color,int LineWeight, bool isFilled,QColor fillColor, QObject *parent) :
+Circle::Circle(QPointF point,QColor color,int LineWeight, QColor fillColor, QObject *parent) :
     Figure(point,parent)
 {
     Q_UNUSED(point)
@@ -14,7 +14,6 @@ Circle::Circle(QPointF point,QColor color,int LineWeight, bool isFilled,QColor f
     this->LineWeight=LineWeight;
     this->name=QString("Circle %1").arg(cCount);
     cCount++;
-    this->isFilled=isFilled;
     this->fillColor = fillColor;
 }
 
@@ -34,9 +33,10 @@ void Circle::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QW
     // Determining the raduis
     qreal radius= qSqrt(qPow(startPoint().x()-endPoint().x(),2)+qPow(startPoint().y()-endPoint().y(),2));
     //Fill shape in case fill button
-    if(isFilled){
+    if(fillColor != Qt::white){
         painter->setBrush(Qt::SolidPattern);
         painter->setBrush(fillColor);
+        qDebug() << "--\n";
     }
     else{
         painter->setBrush(Qt::NoBrush);
