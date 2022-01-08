@@ -196,10 +196,6 @@ void PaintWindow::on_colorBtn_clicked()
     QColor newColor = QColorDialog::getColor();
     if (newColor.isValid()){
         scene->setFillColor(newColor);
-        if (newColor==Qt::white)
-            scene->setFilled(false);
-        else
-            scene->setFilled(true);
         ui->redVal->setText("R: " + QString::number(newColor.red()));
         ui->greenVal->setText("R: " + QString::number(newColor.green()));
         ui->blueVal->setText("R: " + QString::number(newColor.blue()));
@@ -485,7 +481,7 @@ void PaintWindow::on_menuSave_clicked()
     QString selectedFilter;
     QString fileName = QFileDialog::getSaveFileName(
                 this,
-                tr("Save As"), "ArtBoard",
+                tr("Save As"), QDir::currentPath() + "/ArtBoard",
                 tr("JSON (*.json);;PNG (*.png )"),&selectedFilter);
 
     if (selectedFilter == "JSON (*.json)") {

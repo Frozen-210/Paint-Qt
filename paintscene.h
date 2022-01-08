@@ -43,7 +43,6 @@ public:
     };
     void setColor(QColor color);
     void setWeight(int Value);
-    void setFilled(bool IsFilled);
 
 signals:
     void typeFigureChanged();
@@ -58,12 +57,9 @@ private:
     void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
     QColor paintingColor;
     int LineWeight;
-    bool isFilled;
     int m_typeFigure;
     bool selectingItem;
-    QColor fillColor;
-
-
+    QColor fillColor = Qt::white;
 
 };
 

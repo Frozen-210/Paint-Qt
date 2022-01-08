@@ -24,7 +24,6 @@ PaintScene::PaintScene(QGraphicsView *view,QTableWidget* table, QObject *parent)
     LineWeight = 1;
 
     // Initialize filling status
-    isFilled=0;
 
     // Initializing vector to contain the shapes info
     ItemsVec = new QVector<Figure*>();
@@ -89,10 +88,6 @@ void PaintScene::setWeight(int Value)
     LineWeight=Value;
 }
 
-void PaintScene::setFilled(bool IsFilled)
-{
-    this->isFilled= IsFilled;
-}
 
 
 /*
