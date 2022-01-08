@@ -435,14 +435,18 @@ void PaintWindow::on_menuNew_clicked()
         json_utilities::save(scene, fileName);
 
         if (!fileName.isNull()){
-        ButtonsCommand::clearScene(scene);
-        PaintTable::UpdateTable(scene->table, *scene->ItemsVec);
-        Figure::countZero();
-        scene->Modified = 0;}}
+            ButtonsCommand::clearScene(scene);
+            PaintTable::UpdateTable(scene->table, *scene->ItemsVec);
+            Figure::countZero();
+            scene->update();
+            scene->Modified = 0;
+        }
+        }
         else{
             ButtonsCommand::clearScene(scene);
             PaintTable::UpdateTable(scene->table, *scene->ItemsVec);
             Figure::countZero();
+            scene->update();
             scene->Modified = 0;
         }
     }
@@ -452,6 +456,7 @@ void PaintWindow::on_menuNew_clicked()
         ButtonsCommand::clearScene(scene);
         PaintTable::UpdateTable(scene->table, *scene->ItemsVec);
         Figure::countZero();
+        scene->update();
     }
 
 }
@@ -485,6 +490,7 @@ void PaintWindow::on_menuOpen_clicked()
              this->open(path);
              PaintTable::UpdateTable(scene->table, *scene->ItemsVec);
              Figure::countZero();
+             scene->update();
              scene->Modified = 0;
     }
 
@@ -503,6 +509,7 @@ void PaintWindow::on_menuOpen_clicked()
 
         if (!path.isNull()){
             ButtonsCommand::clearScene(scene);
+            scene->update();
             this->open(path);
 
             PaintTable::UpdateTable(scene->table, *scene->ItemsVec);
