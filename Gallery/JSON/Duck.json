@@ -3,1025 +3,797 @@
     "EndPoint": "883, 123",
     "FirstPoint": "883, 123",
     "LineWeight": "1",
-    "Shape": "Rectangle",
-    "ShapeName": "Rectangle 1",
-    "fillColor": "0, 0, 0"
+    "Shape": "Rectangle"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "617, 517",
     "FirstPoint": "466, 520",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 1",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "435, 531",
     "FirstPoint": "459, 530",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 2",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "621, 532",
     "FirstPoint": "620, 518",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 3",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "615, 566",
     "FirstPoint": "613, 527",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 4",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "652, 578",
     "FirstPoint": "624, 580",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 5",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "663, 527",
     "FirstPoint": "663, 568",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 6",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "655, 511",
     "FirstPoint": "655, 511",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 7",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "647, 498",
     "FirstPoint": "647, 498",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 8",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "655, 476",
     "FirstPoint": "655, 485",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 9",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "643, 440",
     "FirstPoint": "643, 468",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 10",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "631, 402",
     "FirstPoint": "632, 430",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 11",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "616, 397",
     "FirstPoint": "616, 397",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 12",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "626, 385",
     "FirstPoint": "626, 385",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 13",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "635, 385",
     "FirstPoint": "626, 385",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 14",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "635, 385",
     "FirstPoint": "626, 385",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 15",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "643, 375",
     "FirstPoint": "643, 375",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 16",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "655, 309",
     "FirstPoint": "655, 365",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 17",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "624, 300",
     "FirstPoint": "652, 300",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 18",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "615, 309",
     "FirstPoint": "615, 309",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 19",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "543, 325",
     "FirstPoint": "603, 323",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 20",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "533, 334",
     "FirstPoint": "533, 334",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 21",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "501, 344",
     "FirstPoint": "520, 344",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 22",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "487, 351",
     "FirstPoint": "487, 351",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 23",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "473, 365",
     "FirstPoint": "473, 365",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 24",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "456, 377",
     "FirstPoint": "456, 377",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 25",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "423, 386",
     "FirstPoint": "444, 386",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 26",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "395, 370",
     "FirstPoint": "416, 371",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 27",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "359, 359",
     "FirstPoint": "385, 359",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 28",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "339, 371",
     "FirstPoint": "348, 371",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 29",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "331, 386",
     "FirstPoint": "331, 386",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 30",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "319, 406",
     "FirstPoint": "319, 394",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 31",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "309, 415",
     "FirstPoint": "309, 415",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 32",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "299, 421",
     "FirstPoint": "299, 421",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 33",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "286, 434",
     "FirstPoint": "286, 434",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 34",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "284, 446",
     "FirstPoint": "284, 446",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 35",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "293, 455",
     "FirstPoint": "293, 455",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 36",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "342, 462",
     "FirstPoint": "302, 462",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 37",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "367, 450",
     "FirstPoint": "351, 450",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 38",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "375, 503",
     "FirstPoint": "375, 453",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 39",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "385, 512",
     "FirstPoint": "385, 512",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 40",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "423, 522",
     "FirstPoint": "423, 522",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 41",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "417, 508",
     "FirstPoint": "417, 508",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 42",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "419, 545",
     "FirstPoint": "419, 534",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 43",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "415, 566",
     "FirstPoint": "415, 559",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 44",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "383, 578",
     "FirstPoint": "406, 577",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 45",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "375, 542",
     "FirstPoint": "351, 542",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 46",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "353, 551",
     "FirstPoint": "353, 551",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 47",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "362, 566",
     "FirstPoint": "362, 566",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 48",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "370, 574",
     "FirstPoint": "370, 574",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 49",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "379, 534",
     "FirstPoint": "381, 517",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 50",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "255, 85, 0",
     "EndPoint": "339, 450",
     "FirstPoint": "304, 450",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 51",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "255, 85, 0",
     "EndPoint": "347, 439",
     "FirstPoint": "291, 440",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 52",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "255, 85, 0",
     "EndPoint": "302, 433",
     "FirstPoint": "346, 428",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 53",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "255, 85, 0",
     "EndPoint": "333, 424",
     "FirstPoint": "307, 424",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 54",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "255, 85, 0",
     "EndPoint": "346, 410",
     "FirstPoint": "319, 411",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 55",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "255, 85, 0",
     "EndPoint": "332, 406",
     "FirstPoint": "332, 406",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 56",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "255, 85, 0",
     "EndPoint": "331, 397",
     "FirstPoint": "331, 397",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 57",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "255, 85, 0",
     "EndPoint": "347, 411",
     "FirstPoint": "347, 411",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 58",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "255, 85, 0",
     "EndPoint": "347, 415",
     "FirstPoint": "347, 415",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 59",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "255, 85, 0",
     "EndPoint": "403, 511",
     "FirstPoint": "394, 512",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 60",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "255, 85, 0",
     "EndPoint": "413, 520",
     "FirstPoint": "392, 520",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 61",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "255, 85, 0",
     "EndPoint": "408, 544",
     "FirstPoint": "407, 529",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 62",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "255, 85, 0",
     "EndPoint": "395, 563",
     "FirstPoint": "395, 529",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 63",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "255, 85, 0",
     "EndPoint": "402, 562",
     "FirstPoint": "399, 550",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 64",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "255, 85, 0",
     "EndPoint": "388, 563",
     "FirstPoint": "388, 535",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 65",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "255, 85, 0",
     "EndPoint": "367, 552",
     "FirstPoint": "382, 553",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 66",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "255, 85, 0",
     "EndPoint": "377, 561",
     "FirstPoint": "372, 561",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 67",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "255, 85, 0",
     "EndPoint": "634, 498",
     "FirstPoint": "634, 498",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 68",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "255, 85, 0",
     "EndPoint": "638, 567",
     "FirstPoint": "636, 506",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 69",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "255, 85, 0",
     "EndPoint": "634, 567",
     "FirstPoint": "629, 514",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 70",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "255, 85, 0",
     "EndPoint": "628, 569",
     "FirstPoint": "627, 547",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 71",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "255, 85, 0",
     "EndPoint": "647, 566",
     "FirstPoint": "647, 506",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 72",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "255, 85, 0",
     "EndPoint": "652, 562",
     "FirstPoint": "655, 523",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 73",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "255, 85, 0",
     "EndPoint": "362, 435",
     "FirstPoint": "362, 435",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 74",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "255, 85, 0",
     "EndPoint": "359, 442",
     "FirstPoint": "359, 442",
     "LineWeight": "14",
-    "Shape": "Line",
-    "ShapeName": "Line 75",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "368, 384",
     "FirstPoint": "368, 384",
     "LineWeight": "11",
-    "Shape": "Line",
-    "ShapeName": "Line 76",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "346, 475",
     "FirstPoint": "343, 463",
     "LineWeight": "11",
-    "Shape": "Line",
-    "ShapeName": "Line 77",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "349, 485",
     "FirstPoint": "349, 485",
     "LineWeight": "11",
-    "Shape": "Line",
-    "ShapeName": "Line 78",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "346, 493",
     "FirstPoint": "346, 493",
     "LineWeight": "11",
-    "Shape": "Line",
-    "ShapeName": "Line 79",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "325, 490",
     "FirstPoint": "339, 492",
     "LineWeight": "11",
-    "Shape": "Line",
-    "ShapeName": "Line 80",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "325, 490",
     "FirstPoint": "325, 490",
     "LineWeight": "11",
-    "Shape": "Line",
-    "ShapeName": "Line 81",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "319, 466",
     "FirstPoint": "321, 478",
     "LineWeight": "11",
-    "Shape": "Line",
-    "ShapeName": "Line 82",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "307, 399",
     "FirstPoint": "307, 399",
     "LineWeight": "11",
-    "Shape": "Line",
-    "ShapeName": "Line 83",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "304, 391",
     "FirstPoint": "304, 391",
     "LineWeight": "11",
-    "Shape": "Line",
-    "ShapeName": "Line 84",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "296, 376",
     "FirstPoint": "298, 383",
     "LineWeight": "11",
-    "Shape": "Line",
-    "ShapeName": "Line 85",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "280, 366",
     "FirstPoint": "294, 368",
     "LineWeight": "11",
-    "Shape": "Line",
-    "ShapeName": "Line 86",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "259, 355",
     "FirstPoint": "275, 355",
     "LineWeight": "11",
-    "Shape": "Line",
-    "ShapeName": "Line 87",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "255, 366",
     "FirstPoint": "255, 366",
     "LineWeight": "11",
-    "Shape": "Line",
-    "ShapeName": "Line 88",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "255, 373",
     "FirstPoint": "255, 373",
     "LineWeight": "11",
-    "Shape": "Line",
-    "ShapeName": "Line 89",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "262, 378",
     "FirstPoint": "262, 378",
     "LineWeight": "11",
-    "Shape": "Line",
-    "ShapeName": "Line 90",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "268, 382",
     "FirstPoint": "268, 382",
     "LineWeight": "11",
-    "Shape": "Line",
-    "ShapeName": "Line 91",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "273, 396",
     "FirstPoint": "273, 396",
     "LineWeight": "11",
-    "Shape": "Line",
-    "ShapeName": "Line 92",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "275, 410",
     "FirstPoint": "273, 396",
     "LineWeight": "11",
-    "Shape": "Line",
-    "ShapeName": "Line 93",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "284, 419",
     "FirstPoint": "275, 410",
     "LineWeight": "11",
-    "Shape": "Line",
-    "ShapeName": "Line 94",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "271, 382",
     "FirstPoint": "271, 382",
     "LineWeight": "11",
-    "Shape": "Line",
-    "ShapeName": "Line 95",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "269, 390",
     "FirstPoint": "269, 390",
     "LineWeight": "11",
-    "Shape": "Line",
-    "ShapeName": "Line 96",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "170, 119, 110",
     "EndPoint": "329, 472",
     "FirstPoint": "329, 472",
     "LineWeight": "11",
-    "Shape": "Line",
-    "ShapeName": "Line 97",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "170, 119, 110",
     "EndPoint": "336, 480",
     "FirstPoint": "332, 472",
     "LineWeight": "11",
-    "Shape": "Line",
-    "ShapeName": "Line 98",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "170, 119, 110",
     "EndPoint": "336, 480",
     "FirstPoint": "336, 480",
     "LineWeight": "11",
-    "Shape": "Line",
-    "ShapeName": "Line 99",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "170, 119, 110",
     "EndPoint": "327, 478",
     "FirstPoint": "327, 478",
     "LineWeight": "11",
-    "Shape": "Line",
-    "ShapeName": "Line 100",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "170, 119, 110",
     "EndPoint": "337, 467",
     "FirstPoint": "337, 467",
     "LineWeight": "11",
-    "Shape": "Line",
-    "ShapeName": "Line 101",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "170, 119, 110",
     "EndPoint": "341, 483",
     "FirstPoint": "341, 483",
     "LineWeight": "11",
-    "Shape": "Line",
-    "ShapeName": "Line 102",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "167, 111, 84",
     "EndPoint": "331, 478",
     "FirstPoint": "331, 478",
     "LineWeight": "11",
-    "Shape": "Line",
-    "ShapeName": "Line 103",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "167, 111, 84",
     "EndPoint": "329, 481",
     "FirstPoint": "329, 481",
     "LineWeight": "11",
-    "Shape": "Line",
-    "ShapeName": "Line 104",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "167, 111, 84",
     "EndPoint": "339, 471",
     "FirstPoint": "339, 471",
     "LineWeight": "11",
-    "Shape": "Line",
-    "ShapeName": "Line 105",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "204, 204, 204",
     "EndPoint": "297, 402",
     "FirstPoint": "287, 381",
     "LineWeight": "11",
-    "Shape": "Line",
-    "ShapeName": "Line 106",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "204, 204, 204",
     "EndPoint": "267, 364",
     "FirstPoint": "269, 362",
     "LineWeight": "11",
-    "Shape": "Line",
-    "ShapeName": "Line 107",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "630, 390",
     "FirstPoint": "630, 390",
     "LineWeight": "11",
-    "Shape": "Line",
-    "ShapeName": "Line 108",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "85, 0, 0",
     "EndPoint": "607, 408",
     "FirstPoint": "607, 408",
     "LineWeight": "11",
-    "Shape": "Line",
-    "ShapeName": "Line 109",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "227, 227, 227",
     "EndPoint": "280, 374",
     "FirstPoint": "265, 370",
     "LineWeight": "11",
-    "Shape": "Line",
-    "ShapeName": "Line 110",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "227, 227, 227",
     "EndPoint": "280, 387",
     "FirstPoint": "277, 387",
     "LineWeight": "11",
-    "Shape": "Line",
-    "ShapeName": "Line 111",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "227, 227, 227",
     "EndPoint": "283, 395",
     "FirstPoint": "283, 395",
     "LineWeight": "11",
-    "Shape": "Line",
-    "ShapeName": "Line 112",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ,{
     "Color": "227, 227, 227",
     "EndPoint": "288, 407",
     "FirstPoint": "288, 407",
     "LineWeight": "11",
-    "Shape": "Line",
-    "ShapeName": "Line 113",
-    "fillColor": "0, 0, 0"
+    "Shape": "Line"
 }
 ]

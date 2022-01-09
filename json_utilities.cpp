@@ -105,40 +105,88 @@ void json_utilities::open(PaintScene *scene,QTableWidget* table, QString path)
     for(auto jsonObj : jArr)
     {
         // Getting the color Value as RGB
-        c_val = jsonObj.toObject().value("Color");
-        QString _color = c_val.toString();
-        QStringList x = _color.split(", ");
-        QColor color(x[0].toInt(), x[1].toInt(), x[2].toInt());
+        QColor color;
+        if(!jsonObj.toObject().value("Color").isUndefined()){
+            c_val = jsonObj.toObject().value("Color");
+            QString _color = c_val.toString();
+            QStringList x = _color.split(", ");
+            color.setRed(x[0].toInt());
+            color.setGreen(x[1].toInt());
+            color.setBlue(x[2].toInt());
+        }else{
+            color.setRed(0);
+            color.setGreen(0);
+            color.setBlue(0);
+        }
 
-        f_val = jsonObj.toObject().value("fillColor");
-        QString f_color = f_val.toString();
-        QStringList _f = f_color.split(", ");
-        QColor fillColor(_f[0].toInt(), _f[1].toInt(), _f[2].toInt());
+        // Getting the Fill Color
+        QColor fillColor;
+        if(!jsonObj.toObject().value("fillColor").isUndefined()){
+            f_val = jsonObj.toObject().value("fillColor");
+            QString f_color = f_val.toString();
+            QStringList _f = f_color.split(", ");
+            fillColor.setRed(_f[0].toInt());
+            fillColor.setGreen(_f[1].toInt());
+            fillColor.setBlue(_f[2].toInt());
+            qDebug() << fillColor;
+        }
+        else{
+            fillColor.setRed(255);
+            fillColor.setGreen(255);
+            fillColor.setBlue(255);
+        }
 
         // Getting The First Point as x, y values
-        val2 = jsonObj.toObject().value("FirstPoint");
-        QString _FP = val2.toString();
-        QStringList FP = _FP.split(", ");
-        QPointF firstPoint(FP[0].toInt(), FP[1].toInt());
+        QPointF firstPoint;
+        if(!jsonObj.toObject().value("FirstPoint").isUndefined()){
+            val2 = jsonObj.toObject().value("FirstPoint");
+            QString _FP = val2.toString();
+            QStringList FP = _FP.split(", ");
+            firstPoint.setX(FP[0].toInt());
+            firstPoint.setY(FP[1].toInt());
+        }else{
+            continue;
+        }
 
         // Getting The End Point as x, y values
-        val3 = jsonObj.toObject().value("EndPoint");
-        QString _EP = val3.toString();
-        QStringList EP = _EP.split(", ");
-        QPointF endPoint(EP[0].toInt(), EP[1].toInt());
-
+        QPointF endPoint;
+        if(!jsonObj.toObject().value("EndPoint").isUndefined()){
+            val3 = jsonObj.toObject().value("EndPoint");
+            QString _EP = val3.toString();
+            QStringList EP = _EP.split(", ");
+            endPoint.setX(EP[0].toInt());
+            endPoint.setY(EP[1].toInt());
+        }else{
+            continue;
+        }
+        int LW;
         // Getting The Line Weigh Value
-        val4 = jsonObj.toObject().value("LineWeight");
-        QString _LW = val4.toString();
-        int LW = _LW.toInt();
+        if(!jsonObj.toObject().value("LineWeight").isUndefined()){
+            val4 = jsonObj.toObject().value("LineWeight");
+            QString _LW = val4.toString();
+            LW = _LW.toInt();
+        }else{
+            LW = 1;
+        }
 
         // Getting the shape Type
-        val5 = jsonObj.toObject().value("Shape");
-        QString _ST = val5.toString();
+        QString _ST;
+        if(!jsonObj.toObject().value("LineWeight").isUndefined()){
+            val5 = jsonObj.toObject().value("Shape");
+            _ST = val5.toString();
+        }else{
+            continue;
+        }
 
         // Getting the shape name
-        name_val = jsonObj.toObject().value("ShapeName");
-        QString _SN = name_val.toString();
+        QString _SN;
+        if(!jsonObj.toObject().value("ShapeName").isUndefined()){
+            name_val = jsonObj.toObject().value("ShapeName");
+            _SN = name_val.toString();
+        }
+        else{
+            _SN = "Untitled";
+        }
 
         // Conditions for each shape to initialize it
 

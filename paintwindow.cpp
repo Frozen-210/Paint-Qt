@@ -241,6 +241,7 @@ void PaintWindow::on_saveBtn_clicked()
 
     if(scene->defaultPath != ""){
         json_utilities::save(scene, scene->defaultPath);
+        scene->Modified=false;
     }
     else{
         QString selectedFilter;
