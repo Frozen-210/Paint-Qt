@@ -18,8 +18,12 @@ public:
 private slots:
     void on_closeBtn_clicked();
 
+
+
+
 private:
     Ui::about *ui;
+
 };
 
 #endif // ABOUT_H

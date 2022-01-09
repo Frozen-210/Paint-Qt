@@ -59,13 +59,41 @@ void messageDialog::on_yesBtn_clicked()
 void messageDialog::on_closeBtn_clicked()
 {
     closed=true;
-    close();
+    reject();
 }
 
 
 void messageDialog::on_noBtn_clicked()
 {
     reject();
+}
+
+void messageDialog::mouseMoveEvent(QMouseEvent *event)
+{
+    if( event->buttons().testFlag(Qt::LeftButton) && mMoving){
+        this->move(this->pos() + (event->pos() - mLastMousePosition));
+    }
+}
+
+void messageDialog::mousePressEvent(QMouseEvent *event)
+{
+    if(event->button() == Qt::LeftButton){
+        mMoving = true;
+        mLastMousePosition = event->pos();
+    }
+}
+
+void messageDialog::mouseReleaseEvent(QMouseEvent *event)
+{
+    if(event->button() == Qt::LeftButton){
+        mMoving = false;
+    }
+}
+
+void messageDialog::closeEvent(QCloseEvent *event)
+{
+    on_closeBtn_clicked();
+    Q_UNUSED(event)
 }
 
 

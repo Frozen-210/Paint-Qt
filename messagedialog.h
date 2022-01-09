@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "paintwindow.h"
+#include<QMouseEvent>
 
 namespace Ui {
 class messageDialog;
@@ -29,8 +30,16 @@ private slots:
     void on_noBtn_clicked();
 
 
+
+protected:
+    void mouseMoveEvent(QMouseEvent* event);
+    void mousePressEvent(QMouseEvent* event);
+    void mouseReleaseEvent(QMouseEvent* event);
 private:
     Ui::messageDialog *ui;
+    void closeEvent(QCloseEvent *event);
+    QPoint mLastMousePosition;
+    bool mMoving;
 };
 
 #endif // MESSAGEDIALOG_H

@@ -19,3 +19,6 @@ void about::on_closeBtn_clicked()
     this->hide();
 }
 
+
+
+

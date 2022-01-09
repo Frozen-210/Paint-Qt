@@ -238,7 +238,7 @@ void PaintWindow::on_colorBtn_clicked()
 
 void PaintWindow::on_saveBtn_clicked()
 {
-    qDebug() << scene->defaultPath;
+
     if(scene->defaultPath != ""){
         json_utilities::save(scene, scene->defaultPath);
     }
@@ -250,6 +250,7 @@ void PaintWindow::on_saveBtn_clicked()
                     tr("JSON (*.json)"),&selectedFilter);
         scene->defaultPath = fileName;
         json_utilities::save(scene, fileName);
+        scene->Modified=false;
     }
 }
 
@@ -434,13 +435,14 @@ void PaintWindow::on_menuNew_clicked()
         QString selectedFilter;
         QString fileName = QFileDialog::getSaveFileName(
                     this,
-                    tr("Save As"), "ArtBoard",
+                    tr("Save As"), QDir::homePath() + "/Documents/IRO Arts/ArtBoard",
                     tr("JSON (*.json)"),&selectedFilter);
         json_utilities::save(scene, fileName);
 
         if (!fileName.isNull()){
             ButtonsCommand::clearScene(scene);
             PaintTable::UpdateTable(scene->table, *scene->ItemsVec);
+            PaintTable::ClearInfoTable(ui->InfoTable);
             Figure::countZero();
             scene->update();
             scene->Modified = 0;
@@ -450,6 +452,7 @@ void PaintWindow::on_menuNew_clicked()
             ButtonsCommand::clearScene(scene);
             PaintTable::UpdateTable(scene->table, *scene->ItemsVec);
             Figure::countZero();
+            PaintTable::ClearInfoTable(ui->InfoTable);
             scene->update();
             scene->Modified = 0;
         }
@@ -459,6 +462,7 @@ void PaintWindow::on_menuNew_clicked()
     else{
         ButtonsCommand::clearScene(scene);
         PaintTable::UpdateTable(scene->table, *scene->ItemsVec);
+        PaintTable::ClearInfoTable(ui->InfoTable);
         Figure::countZero();
         scene->update();
     }
@@ -482,7 +486,7 @@ void PaintWindow::on_menuOpen_clicked()
         QString selectedFilter;
         QString fileName = QFileDialog::getSaveFileName(
                     this,
-                    tr("Save As"), "ArtBoard",
+                    tr("Save As"), QDir::homePath() + "/Documents/IRO Arts/ArtBoard",
                     tr("JSON (*.json)"),&selectedFilter);
         json_utilities::save(scene, fileName);
     }
@@ -493,6 +497,7 @@ void PaintWindow::on_menuOpen_clicked()
              ButtonsCommand::clearScene(scene);
              this->open(path);
              PaintTable::UpdateTable(scene->table, *scene->ItemsVec);
+             PaintTable::ClearInfoTable(ui->InfoTable);
              Figure::countZero();
              scene->update();
              scene->Modified = 0;
@@ -588,7 +593,6 @@ void PaintWindow::on_infoBtn_clicked()
     ab->exec();
 }
 
-// after 100 commit in the branch
 
 void PaintWindow::on_borderCBtn_clicked()
 {
