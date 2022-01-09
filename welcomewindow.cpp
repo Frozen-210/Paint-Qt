@@ -47,7 +47,7 @@ void WelcomeWindow::on_newPaintBtn_clicked()
 void WelcomeWindow::on_openPaintBtn_clicked()
 {
     QString path = QFileDialog::getOpenFileName(this, tr("Open File"),
-                                                    "/c://",
+                                                    QDir::homePath() + "/Documents/IRO Arts",
                                                     tr("JSON (*.json)"));
     if (!path.isNull()){
     p->show();

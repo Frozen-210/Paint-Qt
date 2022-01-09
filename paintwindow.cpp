@@ -161,6 +161,10 @@ PaintWindow::PaintWindow(QWidget *parent) :
     ui->greenVal->setFont(QFont("Montserrat", 9));
     ui->hexVal->setFont(QFont("Montserrat", 9));
 
+    QDir dir(QDir::homePath() + "/Documents/IRO Arts");
+    if (!dir.exists())
+        dir.mkpath(QDir::homePath() + "/Documents/IRO Arts");
+
 }
 
 
@@ -206,9 +210,6 @@ void PaintWindow::on_undoBtn_clicked()
 {
 
     scene->undoStack->undo();
-    if(scene->ItemsVec->isEmpty()){
-        PaintTable::ClearInfoTable(ui->InfoTable);
-    }
 
 }
 
@@ -216,9 +217,6 @@ void PaintWindow::on_undoBtn_clicked()
 void PaintWindow::on_redoBtn_clicked()
 {
     scene->undoStack->redo();
-    if(scene->ItemsVec->isEmpty()){
-        PaintTable::ClearInfoTable(ui->InfoTable);
-    }
 
 }
 
@@ -240,6 +238,7 @@ void PaintWindow::on_colorBtn_clicked()
 
 void PaintWindow::on_saveBtn_clicked()
 {
+    qDebug() << scene->defaultPath;
     if(scene->defaultPath != ""){
         json_utilities::save(scene, scene->defaultPath);
     }
@@ -247,7 +246,7 @@ void PaintWindow::on_saveBtn_clicked()
         QString selectedFilter;
         QString fileName = QFileDialog::getSaveFileName(
                     this,
-                    tr("Save As"), "",
+                    tr("Save As"), QDir::homePath() + "/Documents/IRO Arts/ArtBoard",
                     tr("JSON (*.json)"),&selectedFilter);
         scene->defaultPath = fileName;
         json_utilities::save(scene, fileName);
@@ -443,7 +442,6 @@ void PaintWindow::on_menuNew_clicked()
             ButtonsCommand::clearScene(scene);
             PaintTable::UpdateTable(scene->table, *scene->ItemsVec);
             Figure::countZero();
-            PaintTable::ClearInfoTable(ui->InfoTable);
             scene->update();
             scene->Modified = 0;
         }
@@ -452,7 +450,6 @@ void PaintWindow::on_menuNew_clicked()
             ButtonsCommand::clearScene(scene);
             PaintTable::UpdateTable(scene->table, *scene->ItemsVec);
             Figure::countZero();
-            PaintTable::ClearInfoTable(ui->InfoTable);
             scene->update();
             scene->Modified = 0;
         }
@@ -463,7 +460,6 @@ void PaintWindow::on_menuNew_clicked()
         ButtonsCommand::clearScene(scene);
         PaintTable::UpdateTable(scene->table, *scene->ItemsVec);
         Figure::countZero();
-        PaintTable::ClearInfoTable(ui->InfoTable);
         scene->update();
     }
 
@@ -491,7 +487,7 @@ void PaintWindow::on_menuOpen_clicked()
         json_utilities::save(scene, fileName);
     }
         QString path = QFileDialog::getOpenFileName(this, tr("Open File"),
-                                                        "/c://",
+                                                        QDir::homePath() + "/Documents/IRO Arts",
                                                         tr("JSON (*.json)"));
         if (!path.isNull()){
              ButtonsCommand::clearScene(scene);
@@ -500,16 +496,15 @@ void PaintWindow::on_menuOpen_clicked()
              Figure::countZero();
              scene->update();
              scene->Modified = 0;
+             scene->defaultPath = path;
     }
-
-
     }
   s->deleteLater();
 }
     else{
 
         QString path = QFileDialog::getOpenFileName(this, tr("Open File"),
-                                                        "/c://",
+                                                        QDir::homePath() + "/Documents/IRO Arts",
                                                         tr("JSON (*.json)"));
 
         this->open(path);
@@ -526,7 +521,6 @@ void PaintWindow::on_menuOpen_clicked()
         }
 
     }
-    scene->defaultPath = "";
 }
 
 void PaintWindow::on_menuSave_clicked()
@@ -534,7 +528,7 @@ void PaintWindow::on_menuSave_clicked()
     QString selectedFilter;
     QString fileName = QFileDialog::getSaveFileName(
                 this,
-                tr("Save As"), QDir::currentPath() + "/ArtBoard",
+                tr("Save As"), QDir::homePath() + "/Documents/IRO Arts/ArtBoard",
                 tr("JSON (*.json);;PNG (*.png )"),&selectedFilter);
     if (!fileName.isNull()){
         if (selectedFilter == "JSON (*.json)") {
@@ -562,11 +556,15 @@ void PaintWindow::closeEvent(QCloseEvent *event)
             QString selectedFilter;
             QString fileName = QFileDialog::getSaveFileName(
                         this,
-                        tr("Save As"), "ArtBoard",
+                        tr("Save As"), QDir::homePath() + "/Documents/IRO Arts/ArtBoard",
                         tr("JSON (*.json)"),&selectedFilter);
-            json_utilities::save(scene, fileName);
+            if (!fileName.isNull()){
+                json_utilities::save(scene, fileName);
+                event->accept();
+            }else{
+                event->ignore();
+            }
         }
-        event->accept();
     }
     else{
             event->ignore();
@@ -604,4 +602,3 @@ void PaintWindow::on_borderCBtn_clicked()
     }
 
 }
-

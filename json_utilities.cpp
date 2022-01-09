@@ -19,7 +19,7 @@ void json_utilities::save(PaintScene *scene, QString path)
 
     // Making JSON File in a specific Path
     QFile saveFile(path);
-    if (!saveFile.open(QIODevice::ReadWrite)) {
+    if (!saveFile.open(QIODevice::ReadWrite| QIODevice::Text)) {
             qWarning("Couldn't open save file.");
         }
 
