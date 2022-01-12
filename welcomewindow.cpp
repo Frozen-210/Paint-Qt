@@ -2,6 +2,7 @@
 #include "ui_welcomewindow.h"
 #include <QFileDialog>
 
+
 WelcomeWindow::WelcomeWindow(QWidget *parent) :
     QMainWindow(parent, Qt::FramelessWindowHint | Qt::WindowSystemMenuHint),
     ui(new Ui::WelcomeWindow)

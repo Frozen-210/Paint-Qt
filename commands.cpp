@@ -3,6 +3,7 @@
 #include "painttable.h"
 
 
+
 AddCommand::AddCommand(PaintScene *scene,Figure* item, QPointF LastPoint,QTableWidget* table,QUndoCommand *parent)
     : QUndoCommand(parent)
 {

@@ -2,6 +2,7 @@
 #include <QPainter>
 #include <QtMath>
 
+
 Circle::Circle(QPointF point,QColor color,int LineWeight, QColor fillColor, QObject *parent) :
     Figure(point,parent)
 {

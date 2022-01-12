@@ -5,6 +5,7 @@
 #include <QGraphicsItem>
 #include "figure.h"
 
+
 class Rectangle : public Figure
 {
     Q_OBJECT

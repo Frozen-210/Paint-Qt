@@ -5,6 +5,7 @@
 #include <QGraphicsItem>
 #include "figure.h"
 
+
 class Triangle : public Figure
 {
     Q_OBJECT

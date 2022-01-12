@@ -6,6 +6,7 @@
 #include "paintscene.h"
 #include <QTableWidget>
 
+
 class AddCommand : public QUndoCommand
 {
 public:

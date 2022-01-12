@@ -5,6 +5,7 @@
 #include "paintwindow.h"
 #include<QMouseEvent>
 
+
 namespace Ui {
 class messageDialog;
 }

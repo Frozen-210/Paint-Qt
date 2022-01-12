@@ -7,6 +7,7 @@
 #include <QVector>
 
 
+
 PaintScene::PaintScene(QGraphicsView *view,QTableWidget* table, QObject *parent) : QGraphicsScene(parent)
 {
     this->view = view;

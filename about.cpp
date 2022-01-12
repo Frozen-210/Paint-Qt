@@ -1,6 +1,7 @@
 #include "about.h"
 #include "ui_about.h"
 
+
 about::about(QWidget *parent) :
     QDialog(parent, Qt::FramelessWindowHint | Qt::WindowSystemMenuHint),
     ui(new Ui::about)

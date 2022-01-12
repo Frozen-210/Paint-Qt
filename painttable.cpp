@@ -5,6 +5,7 @@ PaintTable::PaintTable()
 
 }
 
+
 void PaintTable::UpdateTable(QTableWidget *table, QVector<Figure *> ItemVec)
 {
     QStringList TableLabel;

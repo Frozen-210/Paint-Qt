@@ -1,6 +1,7 @@
 #include "figure.h"
 #include <QPainter>
 
+
 // Initializing the shapes counters to 1
 int Figure::rCount = 1;
 int Figure::cCount = 1;

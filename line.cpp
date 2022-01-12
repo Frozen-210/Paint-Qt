@@ -1,6 +1,7 @@
 #include "line.h"
 #include <QPainter>
 
+
 Line::Line(QPointF point,QColor color,int LineWeight, QObject *parent) :
     Figure(point,parent)
 {

@@ -1,6 +1,7 @@
 #include "triangle.h"
 #include <QPainter>
 
+
 Triangle::Triangle(QPointF point,QColor color,int LineWeight, QColor fillColor, QObject *parent) :
     Figure(point,parent)
 {

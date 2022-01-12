@@ -5,6 +5,8 @@
 #include <QGraphicsItem>
 #include "figure.h"
 
+
+
 class Line : public Figure
 {
     Q_OBJECT

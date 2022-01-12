@@ -6,6 +6,7 @@
 
 #include "figure.h"
 
+
 class PaintTable
 {
 public:

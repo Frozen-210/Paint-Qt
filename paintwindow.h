@@ -7,6 +7,7 @@
 #include "paintscene.h"
 #include "messagedialog.h"
 
+
 namespace Ui {
 class PaintWindow;
 }

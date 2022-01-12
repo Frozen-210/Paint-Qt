@@ -13,6 +13,7 @@
 
 
 
+
 PaintWindow::PaintWindow(QWidget *parent) :
     QMainWindow(parent, Qt::FramelessWindowHint | Qt::WindowSystemMenuHint),
     ui(new Ui::PaintWindow)

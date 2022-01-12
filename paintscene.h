@@ -11,6 +11,7 @@
 
 
 
+
 class PaintScene : public QGraphicsScene
 {
     Q_OBJECT

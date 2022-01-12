@@ -3,6 +3,7 @@
 #include <QUndoCommand>
 #include "commands.h"
 
+
 Rectangle::Rectangle(QPointF point,QColor color,int LineWeight, QColor fillColor, QObject *parent) :
     Figure(point,parent)
 {

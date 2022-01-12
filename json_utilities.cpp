@@ -7,6 +7,7 @@
 #include "painttable.h"
 #include "commands.h"
 
+
 /*
  * ----------------------Save Method----------------------
  * Take the path and the scene then save each figure in

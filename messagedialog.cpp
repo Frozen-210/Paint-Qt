@@ -3,6 +3,7 @@
 #include <QFileDialog>
 #include "json_utilities.h"
 
+
 messageDialog::messageDialog(QString message,QString LeftText,QString RightText,QWidget *parent) :
     QDialog(parent, Qt::FramelessWindowHint | Qt::WindowSystemMenuHint),
     ui(new Ui::messageDialog)
