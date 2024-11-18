@@ -95,17 +95,3 @@ master
 
 As simple as that!
 
-
-### Team
-First Semester - Data Structures class project created by:
-
-- [Ibrahim Mohamed](https://github.com/1brahimmohamed)
-- [Kamel Mohamed](https://github.com/KamelMoohamed)
-- [Romaisaa Sherif](https://github.com/Romaisaa)
-- [Youssef Shaaban ](https://github.com/youssef-shaban)
-- [Ahmed El Sarta](https://github.com/ahmed-elsarta)
-- [Dina Khalid](https://github.com/dina-khalid)
-
-### Submitted to:
-- Dr. Ahmed Hesham & Eng. Mohamed Moustafa
-  All rights reserved © 2022 - Systems & Biomedical Engineering, Cairo University (Class 2024)
