@@ -93,4 +93,3 @@ master
 3. Build the project
 4. Run the project
 
-That's all
